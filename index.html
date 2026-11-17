@@ -1,0 +1,3529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>glafit Bangladesh | Electric Bikes &amp; Battery Swapping</title>
+  <meta name="description" content="Official website of glafit Bangladesh. Japanese electric bikes, 60-second battery swapping lockers across PRAN-RFL Best Buy hubs, and Grameenphone ALO Connect IoT fleet telematics in Dhaka.">
+
+  <!-- Favicon & Brand Icon -->
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- Google Font: Onest (Latin weights 400, 500, 600, 700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lenis Smooth Scroll via ES-Module Importmap -->
+  <script type="importmap">
+  {
+    "imports": {
+      "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.1.18/+esm"
+    }
+  }
+  </script>
+
+  <style>
+    /* -------------------------------------------------------------
+       CSS RESET & DESIGN TOKENS (STRICT MONOCHROMATIC BLACK & WHITE)
+       ------------------------------------------------------------- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* Monochromatic Core Palette */
+      --background: #ffffff;
+      --foreground: #000000;
+      --black-pure: #000000;
+      --black-surface: #0a0a0c;
+      --black-card: #121214;
+      --black-elevated: #1a1a1e;
+      --black-border: #26262a;
+
+      --white-pure: #ffffff;
+      --white-95: rgba(255, 255, 255, 0.95);
+      --white-85: rgba(255, 255, 255, 0.85);
+      --white-70: rgba(255, 255, 255, 0.70);
+      --white-60: rgba(255, 255, 255, 0.60);
+      --white-40: rgba(255, 255, 255, 0.40);
+      --white-25: rgba(255, 255, 255, 0.25);
+      --white-15: rgba(255, 255, 255, 0.15);
+      --white-10: rgba(255, 255, 255, 0.10);
+      --white-05: rgba(255, 255, 255, 0.05);
+
+      --surface-light: #f4f4f5;
+      --surface-card-light: #ffffff;
+      --hairline-light: #e4e4e7;
+      --ink-headline: #000000;
+      --ink-muted: #52525b;
+      --ink-subtle: #71717a;
+      --ghost-light: #d4d4d8;
+
+      /* Radii */
+      --radius-sm: 0.5rem;
+      --radius-md: 0.75rem;
+      --radius-xl: 1rem;
+      --radius-card: 1.5rem;
+      --radius-card-lg: 2rem;
+      --radius-pill: 62.5rem;
+
+      /* Named Easings */
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+      --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    /* Base Typography & Body */
+    html {
+      font-size: 16px;
+      scroll-behavior: auto;
+      text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* Adaptive REM Grid */
+    @media (max-width: 1920px) { html { font-size: 0.833333vw; } }
+    @media (max-width: 1440px) { html { font-size: 1.111111vw; } }
+    @media (max-width: 1024px) { html { font-size: 1.5625vw;  } }
+    @media (max-width: 640px)  { html { font-size: 4.444444vw; } }
+
+    body {
+      min-height: 100vh;
+      background: var(--background);
+      color: var(--foreground);
+      font-family: "Onest", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img, video {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    :focus-visible {
+      outline: 2px solid #ffffff;
+      outline-offset: 3px;
+    }
+
+    /* Main Container Inset */
+    main {
+      width: 100%;
+      overflow-x: clip;
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    @media (min-width: 640px) {
+      main {
+        padding: 0.75rem;
+      }
+    }
+
+    /* Shared Section Card Styling */
+    .section-card {
+      position: relative;
+      border-radius: var(--radius-card-lg);
+      overflow: hidden;
+      width: 100%;
+    }
+    .section-card.dark {
+      background: var(--black-pure);
+      color: #ffffff;
+    }
+    .section-card.light {
+      background: var(--surface-light);
+      color: var(--ink-headline);
+    }
+
+    /* Eyebrow / Section Index Pills */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.25rem;
+    }
+    .eyebrow-dot {
+      width: 0.375rem;
+      height: 0.375rem;
+      border-radius: 50%;
+    }
+    .eyebrow.light {
+      color: var(--white-70);
+    }
+    .eyebrow.light .eyebrow-dot {
+      background: #ffffff;
+    }
+    .eyebrow.dark {
+      color: var(--ink-muted);
+    }
+    .eyebrow.dark .eyebrow-dot {
+      background: #000000;
+    }
+
+    /* Text Reveal Clip Masks */
+    .clip-line-box {
+      overflow: hidden;
+      display: block;
+      padding-bottom: 0.14em;
+    }
+    .clip-line-inner {
+      display: block;
+      transform: translateY(115%);
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .clip-line-inner.revealed {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .clip-word-box {
+      overflow: hidden;
+      display: inline-block;
+      padding-bottom: 0.14em;
+      vertical-align: top;
+    }
+    .clip-word-inner {
+      display: inline-block;
+      transform: translateY(115%);
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .clip-word-inner.revealed {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Generic Buttons */
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.625rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      padding: 0.75rem 1.4rem;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+      will-change: transform;
+      white-space: nowrap;
+    }
+    .btn-pill:hover {
+      transform: scale(1.02);
+    }
+    .btn-pill:active {
+      transform: scale(0.98);
+    }
+    .btn-pill.primary-white {
+      background: #ffffff;
+      color: #000000;
+      border: 1px solid #ffffff;
+    }
+    .btn-pill.primary-white:hover {
+      background: #e4e4e7;
+    }
+    .btn-pill.outline-white {
+      background: rgba(0, 0, 0, 0.4);
+      color: #ffffff;
+      border: 1px solid var(--white-25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .btn-pill.outline-white:hover {
+      border-color: #ffffff;
+      background: var(--white-15);
+    }
+    .btn-pill.primary-black {
+      background: #000000;
+      color: #ffffff;
+      border: 1px solid #000000;
+    }
+    .btn-pill.primary-black:hover {
+      background: #27272a;
+    }
+    .btn-pill.outline-black {
+      background: transparent;
+      color: #000000;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+    }
+    .btn-pill.outline-black:hover {
+      border-color: #000000;
+      background: rgba(0, 0, 0, 0.05);
+    }
+    .btn-pill .arrow-svg {
+      width: 1rem;
+      height: 1rem;
+      transition: transform 0.2s ease;
+    }
+    .btn-pill:hover .arrow-svg {
+      transform: translateX(3px);
+    }
+
+    /* Carousel Arrow Buttons */
+    .btn-arrow {
+      width: 3rem;
+      height: 3rem;
+      border-radius: var(--radius-pill);
+      display: grid;
+      place-items: center;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+    @media (min-width: 640px) {
+      .btn-arrow {
+        width: 3.5rem;
+        height: 3.5rem;
+      }
+    }
+    .btn-arrow .arrow-svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+    .btn-arrow.prev .arrow-svg {
+      transform: scaleX(-1);
+    }
+    .btn-arrow.outline {
+      border: 1px solid var(--white-20);
+      background: transparent;
+      color: #ffffff;
+    }
+    .btn-arrow.outline:hover {
+      border-color: #ffffff;
+      background: var(--white-10);
+    }
+    .btn-arrow.solid {
+      background: #ffffff;
+      border: 1px solid #ffffff;
+      color: #000000;
+    }
+    .btn-arrow.solid:hover {
+      background: #e4e4e7;
+    }
+
+    /* Carousel Dots */
+    .carousel-dots {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .carousel-dot {
+      padding: 0.375rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .carousel-dot-pill {
+      height: 0.375rem;
+      width: 0.375rem;
+      border-radius: var(--radius-pill);
+      background: var(--white-20);
+      transition: width 0.3s var(--ease-out-expo), background-color 0.3s ease;
+    }
+    .carousel-dot[aria-current="true"] .carousel-dot-pill {
+      width: 1.25rem;
+      background: #ffffff;
+    }
+
+    /* -------------------------------------------------------------
+       OPENING LOADER CURTAIN
+       ------------------------------------------------------------- */
+    #loader-curtain {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: #000000;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      will-change: transform;
+      transform: translateY(0%);
+    }
+    .loader-wordmark {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      will-change: transform, opacity;
+    }
+    .loader-logo-img {
+      width: 11rem;
+      height: auto;
+      filter: drop-shadow(0 4px 20px rgba(255, 255, 255, 0.15));
+    }
+    .loader-sub {
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--white-60);
+      font-weight: 500;
+    }
+    .loader-progress-track {
+      width: 12rem;
+      height: 2px;
+      background: var(--white-15);
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+      position: relative;
+    }
+    .loader-progress-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      background: #ffffff;
+      transform-origin: left;
+      transform: scaleX(0);
+      will-change: transform;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION 01: HERO
+       ------------------------------------------------------------- */
+    .hero-section {
+      height: calc(100svh - 1rem);
+      min-height: 44rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    @media (min-width: 640px) {
+      .hero-section {
+        height: calc(100svh - 1.5rem);
+      }
+    }
+
+    .hero-bg-plate {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+      background: #000000;
+    }
+    .hero-bg-inner {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -4%;
+      height: 108%;
+      width: 100%;
+      overflow: hidden;
+      will-change: transform;
+    }
+
+    .hero-video-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: opacity;
+    }
+    .hero-video-layer.active {
+      opacity: 1;
+      z-index: 2;
+    }
+    .hero-video-layer.fading {
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .hero-gradient-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      background: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0.50) 0%, 
+        rgba(0, 0, 0, 0.20) 45%, 
+        rgba(0, 0, 0, 0.75) 100%
+      );
+    }
+    .hero-grain-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+      background-size: 28px 28px;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    /* Site Header */
+    .site-header {
+      position: relative;
+      z-index: 15;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 1.5rem 0;
+      color: #ffffff;
+    }
+    @media (min-width: 640px) {
+      .site-header {
+        padding: 2.25rem 3rem 0;
+      }
+    }
+    .header-nav-left {
+      display: none;
+    }
+    @media (min-width: 1024px) {
+      .header-nav-left {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 1.75rem;
+      }
+      .header-nav-left a {
+        color: var(--white-85);
+        transition: color 0.15s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.8125rem;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+      .header-nav-left a:hover {
+        color: #ffffff;
+      }
+    }
+    .header-brand {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    @media (min-width: 1024px) {
+      .header-brand {
+        justify-content: center;
+      }
+    }
+    .header-brand-logo {
+      height: 2.85rem;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.45));
+    }
+    .header-right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1.25rem;
+    }
+    .btn-burger {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .btn-burger:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: #ffffff;
+    }
+    .btn-burger span {
+      display: block;
+      width: 1.125rem;
+      height: 1px;
+      background: #ffffff;
+    }
+    /* Hide hamburger on desktop because nav links exist on left; keep on mobile/phone */
+    @media (min-width: 1024px) {
+      .btn-burger {
+        display: none !important;
+      }
+    }
+
+    /* Hero Centered Title Row (Ultra-clean, uncluttered cinematic view) */
+    .hero-center-row {
+      margin-top: auto;
+      margin-bottom: 2.5rem;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+      width: 100%;
+    }
+    @media (min-width: 640px) {
+      .hero-center-row {
+        margin-bottom: 3.5rem;
+        padding: 0 2.5rem;
+      }
+    }
+    .hero-brand-title {
+      font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      text-align: center;
+      text-shadow: 0 4px 28px rgba(0, 0, 0, 0.65);
+    }
+
+    /* -------------------------------------------------------------
+       SECTION 02: WHO WE ARE & STRATEGIC PARTNERS
+       ------------------------------------------------------------- */
+    .trust-section {
+      padding: 4rem 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .trust-section {
+        padding: 5rem 2.5rem;
+      }
+    }
+    .trust-top-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (min-width: 640px) {
+      .trust-top-row {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+    }
+    .percent-badge {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .japan-flag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #000000;
+      color: #ffffff;
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      width: fit-content;
+    }
+    .percent-value {
+      font-size: clamp(2rem, 3.5vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--ink-headline);
+    }
+    .percent-caption {
+      font-size: 0.8125rem;
+      color: var(--ink-muted);
+      max-width: 14rem;
+    }
+    .trust-badge-card {
+      border-radius: var(--radius-card);
+      background: var(--surface-card-light);
+      border: 1px solid var(--hairline-light);
+      padding: 1.75rem;
+      max-width: 28rem;
+      display: flex;
+      gap: 1.25rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+    .trust-index-chip {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      letter-spacing: 0.08em;
+      align-self: flex-start;
+      padding-top: 0.15rem;
+    }
+    .trust-badge-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--ink-headline);
+    }
+    .trust-badge-body {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: var(--ink-muted);
+    }
+
+    /* Oversized Ghost Heading */
+    .ghost-heading {
+      margin: 1.5rem 0 2rem;
+      overflow: hidden;
+      user-select: none;
+      pointer-events: none;
+    }
+    .ghost-row {
+      display: flex;
+      gap: 1.5rem;
+      line-height: 0.88;
+      white-space: nowrap;
+    }
+    .ghost-word-mask {
+      display: inline-block;
+      overflow: hidden;
+      padding-bottom: 0.12em;
+    }
+    .ghost-word-inner {
+      display: inline-block;
+      font-size: clamp(3rem, 10vw, 10.5rem);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+      transform: translateY(115%);
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .ghost-word-inner.revealed {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .ghost-color {
+      color: var(--ghost-light);
+    }
+    .ink-color {
+      color: var(--ink-headline);
+    }
+
+    /* Center Showcase Card */
+    .trust-coach-card-wrap {
+      max-width: 44rem;
+      margin: 0 auto 3rem;
+    }
+    .trust-coach-figure {
+      position: relative;
+      border-radius: var(--radius-card-lg);
+      overflow: hidden;
+      background: #000000;
+      aspect-ratio: 16 / 10;
+      border: 1px solid var(--hairline-light);
+    }
+    .trust-coach-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.05) brightness(0.95);
+      transition: opacity 0.5s ease;
+    }
+    .trust-coach-caption {
+      position: absolute;
+      left: 1.5rem;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      border-radius: var(--radius-card);
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--white-15);
+      padding: 1rem 1.25rem;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .trust-coach-name {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .trust-coach-role {
+      font-size: 0.75rem;
+      color: var(--white-70);
+    }
+    .trust-controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    /* Partner Logo Bar */
+    .partners-strip {
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--hairline-light);
+    }
+    .partners-header {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-subtle);
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .partners-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .partner-card {
+      background: var(--surface-card-light);
+      border: 1px solid var(--hairline-light);
+      border-radius: var(--radius-card);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .partner-card:hover {
+      transform: translateY(-4px);
+      border-color: #000000;
+    }
+    .partner-name {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--ink-headline);
+    }
+    .partner-role {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #000000;
+      background: var(--surface-light);
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-pill);
+      width: fit-content;
+    }
+    .partner-desc {
+      font-size: 0.8125rem;
+      color: var(--ink-muted);
+      line-height: 1.55;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION 03: PRODUCTS & REAL SPECS
+       ------------------------------------------------------------- */
+    .products-section {
+      padding: 5rem 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .products-section {
+        padding: 6rem 2.5rem;
+      }
+    }
+    .section-title {
+      font-size: clamp(1.875rem, 4.2vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      margin-bottom: 3.5rem;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+    @media (min-width: 1024px) {
+      .products-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .product-card {
+      background: var(--black-card);
+      border: 1px solid var(--black-border);
+      border-radius: var(--radius-card);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 2rem;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+      will-change: transform;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--white-40);
+    }
+    .product-card-top {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .product-index {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--white-40);
+      font-weight: 600;
+    }
+    .product-badge {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: var(--white-15);
+      color: #ffffff;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-pill);
+      width: fit-content;
+    }
+    .product-name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+    .product-desc {
+      font-size: 0.875rem;
+      color: var(--white-70);
+      line-height: 1.6;
+    }
+    .product-specs-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      border-top: 1px solid var(--black-border);
+      padding-top: 1.25rem;
+    }
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8125rem;
+    }
+    .spec-label {
+      color: var(--white-60);
+    }
+    .spec-val {
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .product-card-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      border-top: 1px solid var(--black-border);
+      padding-top: 1.25rem;
+    }
+    .product-price-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .price-sub {
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      color: var(--white-60);
+      letter-spacing: 0.05em;
+    }
+    .price-main {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION 04: HOW IT WORKS (4-STEP SWAPPING FLOW)
+       ------------------------------------------------------------- */
+    .how-section {
+      padding: 5rem 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .how-section {
+        padding: 6rem 2.5rem;
+      }
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (min-width: 640px) {
+      .steps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1024px) {
+      .steps-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+    .step-card {
+      background: var(--surface-card-light);
+      border: 1px solid var(--hairline-light);
+      border-radius: var(--radius-card);
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .step-card:hover {
+      transform: translateY(-4px);
+      border-color: #000000;
+    }
+    .step-num {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: var(--radius-pill);
+      background: #000000;
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      font-size: 0.875rem;
+      font-weight: 700;
+    }
+    .step-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--ink-headline);
+    }
+    .step-desc {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* Comparison Banner (Petrol vs glafit EV) */
+    .comparison-banner {
+      background: #000000;
+      color: #ffffff;
+      border-radius: var(--radius-card);
+      padding: 2.5rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 2rem;
+    }
+    @media (min-width: 768px) {
+      .comparison-banner {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: center;
+      }
+    }
+    .comp-col-bad {
+      border-left: 2px solid rgba(255, 255, 255, 0.2);
+      padding-left: 1.5rem;
+    }
+    .comp-col-good {
+      border-left: 2px solid #ffffff;
+      padding-left: 1.5rem;
+    }
+    .comp-tag {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .comp-tag.bad { color: var(--white-60); }
+    .comp-tag.good { color: #ffffff; }
+    .comp-title {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .comp-detail {
+      font-size: 0.875rem;
+      color: var(--white-70);
+      line-height: 1.55;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION 05: SOLUTIONS BY AUDIENCE
+       ------------------------------------------------------------- */
+    .solutions-section {
+      padding: 5rem 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .solutions-section {
+        padding: 6rem 2.5rem;
+      }
+    }
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+    @media (min-width: 1024px) {
+      .solutions-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .solution-card {
+      background: var(--surface-card-light);
+      border: 1px solid var(--hairline-light);
+      border-radius: var(--radius-card);
+      padding: 2.25rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 2rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .solution-card:hover {
+      transform: translateY(-5px);
+      border-color: #000000;
+    }
+    .solution-target {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #000000;
+      background: var(--surface-light);
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-pill);
+      width: fit-content;
+      margin-bottom: 1rem;
+    }
+    .solution-heading {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--ink-headline);
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+    .solution-desc {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .solution-benefits {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+      font-size: 0.8125rem;
+      color: var(--ink-headline);
+      font-weight: 500;
+    }
+    .benefit-icon {
+      width: 1rem;
+      height: 1rem;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION 06: SWAP STATION MAP & DHAKA NETWORK
+       ------------------------------------------------------------- */
+    .stations-section {
+      padding: 5rem 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .stations-section {
+        padding: 6rem 2.5rem;
+      }
+    }
+    .stations-layout {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 2rem;
+    }
+    @media (min-width: 1024px) {
+      .stations-layout {
+        grid-template-columns: 1.2fr 1fr;
+        align-items: center;
+      }
+    }
+    .map-preview-card {
+      background: #000000;
+      border: 1px solid var(--black-border);
+      border-radius: var(--radius-card);
+      padding: 2rem;
+      min-height: 26rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .map-network-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+      position: relative;
+      z-index: 2;
+    }
+    .station-node {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--white-15);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .station-node-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .station-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .station-status-pill {
+      font-size: 0.5625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.15rem 0.45rem;
+      border-radius: var(--radius-pill);
+      background: #ffffff;
+      color: #000000;
+    }
+    .station-status-pill.planned {
+      background: var(--white-20);
+      color: #ffffff;
+    }
+    .station-sub {
+      font-size: 0.6875rem;
+      color: var(--white-60);
+    }
+    .stations-info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .stations-stat-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .network-pill {
+      background: var(--black-card);
+      border: 1px solid var(--black-border);
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .network-pill-num {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .network-pill-text {
+      font-size: 0.75rem;
+      color: var(--white-70);
+    }
+
+    /* -------------------------------------------------------------
+       SECTION 07: MOBILE APP & IOT PLATFORM
+       ------------------------------------------------------------- */
+    .app-section {
+      padding: 5rem 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .app-section {
+        padding: 6rem 2.5rem;
+      }
+    }
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 2.5rem;
+    }
+    @media (min-width: 1024px) {
+      .app-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+      }
+    }
+    .app-features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .app-feature-row {
+      display: flex;
+      gap: 1rem;
+    }
+    .app-feature-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: var(--radius-md);
+      background: #000000;
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .app-feature-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink-headline);
+      margin-bottom: 0.25rem;
+    }
+    .app-feature-desc {
+      font-size: 0.8125rem;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+    .store-badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+    .store-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #000000;
+      color: #ffffff;
+      padding: 0.75rem 1.4rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      transition: transform 0.2s ease;
+    }
+    .store-badge:hover {
+      transform: scale(1.02);
+    }
+    .app-mock-card {
+      background: #000000;
+      border: 1px solid var(--hairline-light);
+      border-radius: var(--radius-card-lg);
+      padding: 2.5rem;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    }
+    .mock-telemetry-row {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--white-15);
+      padding-bottom: 1rem;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION 08: STATS & VERIFIED IMPACT
+       ------------------------------------------------------------- */
+    .stats-section {
+      padding: 5rem 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .stats-section {
+        padding: 6rem 2.5rem;
+      }
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+    @media (min-width: 1024px) {
+      .stats-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+    .stat-cell {
+      background: var(--black-card);
+      border: 1px solid var(--black-border);
+      border-radius: var(--radius-card);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 11rem;
+    }
+    .stat-value {
+      font-size: clamp(2rem, 3.8vw, 3.75rem);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+    }
+    .stat-label {
+      font-size: 0.8125rem;
+      color: var(--white-70);
+      line-height: 1.45;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION 09: NEWS & PRESS COVERAGE
+       ------------------------------------------------------------- */
+    .news-section {
+      padding: 5rem 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .news-section {
+        padding: 6rem 2.5rem;
+      }
+    }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .news-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .news-card {
+      background: var(--surface-card-light);
+      border: 1px solid var(--hairline-light);
+      border-radius: var(--radius-card);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .news-card:hover {
+      transform: translateY(-5px);
+      border-color: #000000;
+    }
+    .news-outlet {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #000000;
+      background: var(--surface-light);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-pill);
+      width: fit-content;
+    }
+    .news-headline {
+      font-size: 1.125rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--ink-headline);
+    }
+    .news-excerpt {
+      font-size: 0.8125rem;
+      color: var(--ink-muted);
+      line-height: 1.55;
+    }
+    .news-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #000000;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION 10: SAFETY, COMPLIANCE & WARRANTY
+       ------------------------------------------------------------- */
+    .safety-section {
+      padding: 5rem 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .safety-section {
+        padding: 6rem 2.5rem;
+      }
+    }
+    .ceo-quote-card {
+      background: var(--black-card);
+      border: 1px solid var(--black-border);
+      border-radius: var(--radius-card);
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .quote-mark {
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--white-40);
+      font-family: Georgia, serif;
+    }
+    .ceo-quote-text {
+      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+      font-weight: 500;
+      line-height: 1.45;
+      color: #ffffff;
+    }
+    .ceo-author {
+      font-size: 0.8125rem;
+      color: var(--white-70);
+    }
+    .safety-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .safety-pillars-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1024px) {
+      .safety-pillars-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+    .safety-pillar-card {
+      background: var(--black-card);
+      border: 1px solid var(--black-border);
+      border-radius: var(--radius-card);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .pillar-icon {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: var(--radius-pill);
+      background: #000000;
+      border: 1px solid var(--white-20);
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+    }
+    .pillar-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .pillar-desc {
+      font-size: 0.8125rem;
+      color: var(--white-70);
+      line-height: 1.55;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION 11: LEADERSHIP, OFFICE & CONTACT
+       ------------------------------------------------------------- */
+    .contact-section {
+      padding: 5rem 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .contact-section {
+        padding: 6rem 2.5rem;
+      }
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (min-width: 640px) {
+      .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1024px) {
+      .team-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+    .team-card {
+      background: var(--surface-card-light);
+      border: 1px solid var(--hairline-light);
+      border-radius: var(--radius-card);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .team-name {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--ink-headline);
+    }
+    .team-role {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .team-bio {
+      font-size: 0.8125rem;
+      color: var(--ink-subtle);
+      line-height: 1.5;
+      margin-top: 0.5rem;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 2.5rem;
+    }
+    @media (min-width: 1024px) {
+      .contact-container {
+        grid-template-columns: 1fr 1.2fr;
+        align-items: start;
+      }
+    }
+    .office-info-card {
+      background: var(--surface-card-light);
+      border: 1px solid var(--hairline-light);
+      border-radius: var(--radius-card);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .office-address-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      font-style: normal;
+    }
+    .office-line {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+    .office-link {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--ink-headline);
+      text-decoration: underline;
+    }
+
+    /* Embedded Contact Form */
+    .contact-form-card {
+      background: var(--surface-card-light);
+      border: 1px solid var(--hairline-light);
+      border-radius: var(--radius-card);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .form-tab-nav {
+      display: flex;
+      gap: 0.5rem;
+      background: var(--surface-light);
+      padding: 0.35rem;
+      border-radius: var(--radius-pill);
+      margin-bottom: 1rem;
+    }
+    .form-tab-btn {
+      flex: 1;
+      padding: 0.6rem 0.8rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-align: center;
+      color: var(--ink-muted);
+      transition: all 0.2s ease;
+    }
+    .form-tab-btn.active {
+      background: #000000;
+      color: #ffffff;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) {
+      .form-row.two-col {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .form-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-headline);
+    }
+    .form-input {
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--hairline-light);
+      background: #ffffff;
+      font-family: inherit;
+      font-size: 0.875rem;
+      color: var(--ink-headline);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .form-input:focus {
+      border-color: #000000;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION 12: FAQS & SITE FOOTER
+       ------------------------------------------------------------- */
+    .faq-section {
+      padding: 5rem 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .faq-section {
+        padding: 6rem 2.5rem;
+      }
+    }
+    .faq-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 52rem;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--surface-card-light);
+      border: 1px solid var(--hairline-light);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
+    .faq-item.active {
+      border-color: #000000;
+    }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 1.5rem 1.75rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink-headline);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .faq-toggle-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .faq-item.active .faq-toggle-icon {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 1.75rem 1.5rem;
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    /* Site Footer */
+    .site-footer {
+      padding: 4rem 1.5rem 2.5rem;
+    }
+    @media (min-width: 640px) {
+      .site-footer {
+        padding: 5rem 2.5rem 3rem;
+      }
+    }
+    .footer-cta-band {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid var(--white-15);
+      margin-bottom: 3.5rem;
+    }
+    @media (min-width: 768px) {
+      .footer-cta-band {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+    }
+    .footer-cta-title {
+      font-size: clamp(2rem, 4.5vw, 4rem);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+    }
+    .footer-cols-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 2.5rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--white-15);
+    }
+    @media (min-width: 640px) {
+      .footer-cols-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1024px) {
+      .footer-cols-grid {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+      }
+    }
+    .footer-brand-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .footer-logo-img {
+      width: 10rem;
+      height: auto;
+    }
+    .footer-blurb {
+      font-size: 0.875rem;
+      color: var(--white-70);
+      line-height: 1.6;
+      max-width: 24rem;
+    }
+    .footer-address {
+      font-style: normal;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.8125rem;
+      color: var(--white-60);
+    }
+    .footer-address a {
+      color: #ffffff;
+    }
+    .footer-nav-col-heading {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ffffff;
+      margin-bottom: 1.25rem;
+    }
+    .footer-nav-col-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .footer-nav-col-list a {
+      font-size: 0.8125rem;
+      color: var(--white-70);
+      transition: color 0.15s ease;
+    }
+    .footer-nav-col-list a:hover {
+      color: #ffffff;
+    }
+    .footer-bottom-bar {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      font-size: 0.75rem;
+      color: var(--white-60);
+    }
+    @media (min-width: 640px) {
+      .footer-bottom-bar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    .footer-bottom-navs {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-bottom-navs a {
+      color: var(--white-70);
+      transition: color 0.15s ease;
+    }
+    .footer-bottom-navs a:hover {
+      color: #ffffff;
+    }
+
+    /* -------------------------------------------------------------
+       MODALS & OVERLAYS
+       ------------------------------------------------------------- */
+    #contact-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    #contact-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .modal-panel {
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      max-width: 32rem;
+      background: #000000;
+      border: 1px solid var(--white-20);
+      border-radius: var(--radius-card);
+      padding: 2.25rem;
+      color: #ffffff;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+      transform: scale(0.95);
+      transition: transform 0.3s var(--ease-out-expo);
+    }
+    #contact-modal.open .modal-panel {
+      transform: scale(1);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .modal-title {
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+    .btn-modal-close {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: var(--radius-pill);
+      background: var(--white-15);
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+    }
+
+    /* Fullscreen Menu Overlay */
+    #menu-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 150;
+      display: flex;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    #menu-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .menu-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+    }
+    .menu-panel {
+      position: relative;
+      z-index: 2;
+      margin-left: auto;
+      width: 100%;
+      max-width: 26rem;
+      height: 100%;
+      background: #000000;
+      border-left: 1px solid var(--white-15);
+      padding: 2.5rem 2rem;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transform: translateX(100%);
+      transition: transform 0.35s var(--ease-out-expo);
+    }
+    #menu-overlay.open .menu-panel {
+      transform: translateX(0);
+    }
+    .menu-links-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin: 3rem 0;
+    }
+    .menu-nav-link {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--white-80);
+      transition: color 0.15s ease;
+    }
+    .menu-nav-link:hover {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =============================================================
+       OPENING LOADER CURTAIN (MONOCHROME glafit)
+       ============================================================= -->
+  <div id="loader-curtain" role="status" aria-label="Loading glafit Bangladesh">
+    <div class="loader-wordmark" id="loader-wordmark">
+      <img src="logo.png" alt="glafit Bangladesh" class="loader-logo-img">
+      <span class="loader-sub">ELECTRIC MOBILITY &amp; BATTERY SWAPPING</span>
+    </div>
+    <div class="loader-progress-track">
+      <div class="loader-progress-fill" id="loader-progress-fill"></div>
+    </div>
+  </div>
+
+  <!-- =============================================================
+       FULLSCREEN MENU OVERLAY (PORTALED)
+       ============================================================= -->
+  <div id="menu-overlay" role="dialog" aria-modal="true" aria-label="Site Navigation" aria-hidden="true">
+    <div class="menu-backdrop" id="menu-backdrop"></div>
+    <div class="menu-panel" id="menu-panel">
+      <div class="menu-top-row" style="display:flex; justify-content:space-between; align-items:center;">
+        <img src="logo.png" alt="glafit Bangladesh" style="height:2rem; width:auto;">
+        <button type="button" class="btn-modal-close" id="menu-close-btn" aria-label="Close menu">✕</button>
+      </div>
+
+      <nav class="menu-links-nav">
+        <a href="#who-we-are" class="menu-nav-link">Who We Are</a>
+        <a href="#products" class="menu-nav-link">Products &amp; Specs</a>
+        <a href="#how-it-works" class="menu-nav-link">How It Works</a>
+        <a href="#solutions" class="menu-nav-link">Solutions by Audience</a>
+        <a href="#stations" class="menu-nav-link">Swap Station Network</a>
+        <a href="#app" class="menu-nav-link">Connected Mobile App</a>
+        <a href="#impact" class="menu-nav-link">Pilot Impact</a>
+        <a href="#news" class="menu-nav-link">News &amp; Media</a>
+        <a href="#safety" class="menu-nav-link">Safety Standards</a>
+        <a href="repair.html" class="menu-nav-link" style="color:#ffffff; font-weight:600;">Repair &amp; Service Guide ↗</a>
+        <a href="#contact" class="menu-nav-link">Contact &amp; Onboarding</a>
+        <a href="#faq" class="menu-nav-link">FAQs</a>
+      </nav>
+
+      <div class="menu-bottom-row" style="display:flex; flex-direction:column; gap:1rem;">
+        <button type="button" class="btn-pill primary-white open-visit-modal-btn">
+          <span>Apply for Rider Lease</span>
+          <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <div style="font-size:0.75rem; color:var(--white-60);">Hong Kong Center, Sector 12, Uttara, Dhaka</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================================
+       CONTACT & ONBOARDING MODAL
+       ============================================================= -->
+  <div id="contact-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-panel">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title-text">Onboarding &amp; Partnerships</h3>
+        <button type="button" class="btn-modal-close" id="modal-close-btn" aria-label="Close modal">✕</button>
+      </div>
+      <form id="modal-form" style="display:flex; flex-direction:column; gap:1rem;">
+        <div class="form-group">
+          <label class="form-label" for="modal-type" style="color:var(--white-70);">I want to join as</label>
+          <select id="modal-type" class="form-input" style="background:#121214; color:#ffffff; border-color:var(--white-25);">
+            <option value="rider">Delivery Rider (Weekly Lease &amp; Unlimited Swaps)</option>
+            <option value="fleet">Logistics &amp; Courier Fleet Operator</option>
+            <option value="station">Station Host (Monetize Retail Space)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="modal-name" style="color:var(--white-70);">Full Name / Organization</label>
+          <input type="text" id="modal-name" class="form-input" placeholder="e.g. Tanvir Ahmed" required style="background:#121214; color:#ffffff; border-color:var(--white-25);">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="modal-phone" style="color:var(--white-70);">Phone / WhatsApp Number</label>
+          <input type="tel" id="modal-phone" class="form-input" placeholder="+880 1800-000000" required style="background:#121214; color:#ffffff; border-color:var(--white-25);">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="modal-location" style="color:var(--white-70);">Primary Preferred Area</label>
+          <input type="text" id="modal-location" class="form-input" placeholder="e.g. Uttara, Mirpur, Dhanmondi, Gulshan" style="background:#121214; color:#ffffff; border-color:var(--white-25);">
+        </div>
+        <button type="submit" class="btn-pill primary-white" style="margin-top:0.5rem; width:100%;">
+          <span>Submit Application</span>
+          <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =============================================================
+       MAIN CONTENT CONTAINER (12 ORDERED SECTIONS)
+       ============================================================= -->
+  <main>
+
+    <!-- SECTION 01: HERO (CONCRETE VALUE PROP + DUAL CTAs + 1080p BG VIDEOS) -->
+    <section class="section-card dark hero-section" id="hero">
+      
+      <!-- Multi-Video Parallax Plate with 3 Crossfading Commercial Videos -->
+      <div class="hero-bg-plate">
+        <div class="hero-bg-inner" id="hero-plate-inner">
+          <video class="hero-video-layer active" id="hero-vid-0" autoplay muted playsinline loop preload="auto">
+            <source src="videos/scene-setup.mp4" type="video/mp4">
+          </video>
+          <video class="hero-video-layer" id="hero-vid-1" autoplay muted playsinline loop preload="auto">
+            <source src="videos/rider-forward.mp4" type="video/mp4">
+          </video>
+          <video class="hero-video-layer" id="hero-vid-2" autoplay muted playsinline loop preload="auto">
+            <source src="videos/studio-shot.mp4" type="video/mp4">
+          </video>
+          <div class="hero-gradient-overlay"></div>
+          <div class="hero-grain-overlay"></div>
+        </div>
+      </div>
+
+      <!-- Site Header -->
+      <header class="site-header">
+        <nav class="header-nav-left" aria-label="Main navigation">
+          <a href="#who-we-are">Who We Are</a>
+          <a href="#products">Products</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#stations">113 Stations</a>
+          <a href="repair.html">Repair Guide</a>
+        </nav>
+
+        <div class="header-brand">
+          <img src="logo.png" alt="glafit Bangladesh" class="header-brand-logo">
+        </div>
+
+        <div class="header-right">
+          <button type="button" class="btn-burger" id="burger-btn" aria-label="Open navigation menu">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Hero Center Row: Power The Future Centered -->
+      <div class="hero-center-row">
+        <h1 class="hero-brand-title">
+          <span class="clip-line-box"><span class="clip-line-inner hero-title-line">Power The Future</span></span>
+        </h1>
+      </div>
+    </section>
+
+    <!-- SECTION 02: WHO WE ARE (WAKAYAMA 2017 + JAPAN TECH BADGE + PARTNER STRIP) -->
+    <section class="section-card light trust-section" id="who-we-are">
+      <div class="trust-top-row">
+        <div class="percent-badge inview-elem" id="percent-badge">
+          <div class="japan-flag-pill">🇯🇵 Japan Precision Engineering</div>
+          <div class="percent-value">Est. 2017</div>
+          <div class="percent-caption">Founded in Wakayama, Japan by CEO Teizo Narumi, now transforming Dhaka.</div>
+        </div>
+
+        <article class="trust-badge-card inview-elem" id="trust-badge-card">
+          <span class="trust-index-chip">#01</span>
+          <div>
+            <h3 class="trust-badge-title">Japanese Heritage, Bangladesh Scale</h3>
+            <p class="trust-badge-body">glafit Inc. pioneered compact hybrid electric mobility in Japan. Today, glafit Bangladesh Limited deploys high-torque Honda-backed Musashi e-Axle powertrains, 60-second automated swapping lockers at PRAN-RFL Best Buy stores, and Grameenphone ALO Connect IoT telematics across Dhaka.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Oversized Ghost Heading -->
+      <h2 id="trust-title" class="ghost-heading" aria-label="Japanese Craft Dhaka Streets">
+        <div class="ghost-row">
+          <span class="ghost-word-mask" id="ghost-mask-1"><span class="ghost-word-inner ghost-color" id="ghost-w1">Japanese</span></span>
+          <span class="ghost-word-mask" id="ghost-mask-2"><span class="ghost-word-inner ghost-color" id="ghost-w2">Craft</span></span>
+        </div>
+        <div class="ghost-row">
+          <span class="ghost-word-mask" id="ghost-mask-3"><span class="ghost-word-inner ink-color" id="ghost-w3">Dhaka</span></span>
+          <span class="ghost-word-mask" id="ghost-mask-4"><span class="ghost-word-inner ghost-color" id="ghost-w4">Streets</span></span>
+        </div>
+      </h2>
+
+      <!-- Center Showcase Card -->
+      <div class="trust-coach-card-wrap inview-elem" id="trust-coach-wrap">
+        <div class="trust-coach-anim" id="trust-coach-anim">
+          <figure class="trust-coach-figure">
+            <img src="images/glafit-rider.jpg" 
+                 alt="glafit SS Commercial Bike" 
+                 class="trust-coach-img" 
+                 id="trust-coach-photo"
+                 loading="lazy">
+            <figcaption class="trust-coach-caption">
+              <div>
+                <div class="trust-coach-name" id="trust-coach-name">glafit SS Commercial e-Bike</div>
+                <div class="trust-coach-role" id="trust-coach-role">Musashi 2KW Powertrain &bull; 100+ km Range</div>
+              </div>
+              <a href="#products" class="btn-pill primary-white" style="padding:0.4rem 0.9rem; font-size:0.75rem;">View Specs</a>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="trust-controls-row">
+        <button type="button" class="btn-arrow outline prev" id="trust-prev-btn" aria-label="Previous showcase slide" style="border-color:#000; color:#000;">
+          <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <div class="carousel-dots" id="trust-dots" aria-label="Showcase slides">
+          <button class="carousel-dot" aria-label="Showcase 1" aria-current="true"><span class="carousel-dot-pill" style="background:#000;"></span></button>
+          <button class="carousel-dot" aria-label="Showcase 2" aria-current="false"><span class="carousel-dot-pill" style="background:var(--ghost-light);"></span></button>
+          <button class="carousel-dot" aria-label="Showcase 3" aria-current="false"><span class="carousel-dot-pill" style="background:var(--ghost-light);"></span></button>
+        </div>
+        <button type="button" class="btn-arrow solid next" id="trust-next-btn" aria-label="Next showcase slide" style="background:#000; color:#fff;">
+          <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+
+      <!-- Strategic Partner Logo Strip -->
+      <div class="partners-strip inview-elem">
+        <div class="partners-header">Backed By &amp; Integrated With Global Industry Leaders</div>
+        <div class="partners-grid">
+          <div class="partner-card">
+            <span class="partner-role">Powertrain &amp; Capital Partner</span>
+            <div class="partner-name">Musashi Seimitsu Industry</div>
+            <p class="partner-desc">Tier-1 Honda automotive supplier providing high-torque, robust 2KW compact e-Axle motor drivetrains engineered for heavy commercial delivery duty.</p>
+          </div>
+          <div class="partner-card">
+            <span class="partner-role">Retail Infrastructure Partner</span>
+            <div class="partner-name">PRAN-RFL Group (RMIL)</div>
+            <p class="partner-desc">Nationwide retail distribution giant deploying automated battery swapping lockers across its widespread 'Best Buy' store network in Dhaka.</p>
+          </div>
+          <div class="partner-card">
+            <span class="partner-role">IoT &amp; Connectivity Partner</span>
+            <div class="partner-name">Grameenphone (GP)</div>
+            <p class="partner-desc">Telecom leader integrating its ALO Connect M2M IoT platform for real-time GPS tracking, smart battery thermals, anti-theft locking, and fleet telematics.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 03: PRODUCTS (BIKE, BATTERY PACK, SMART LOCKER WITH REAL SPECS) -->
+    <section class="section-card dark products-section" id="products">
+      <div class="eyebrow light">
+        <span class="eyebrow-dot"></span>
+        <span>03 / Hardware &amp; Specifications</span>
+      </div>
+
+      <h2 class="section-title">
+        <span class="clip-line-box"><span class="clip-line-inner section-title-line">Engineered for Dhaka's</span></span>
+        <span class="clip-line-box"><span class="clip-line-inner section-title-line">Commercial Delivery</span></span>
+      </h2>
+
+      <div class="products-grid">
+        <!-- Product 1: glafit SS Bike -->
+        <article class="product-card inview-elem">
+          <div class="product-card-top">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="product-index">01 // COMMERCIAL VEHICLE</span>
+              <span class="product-badge">Musashi 2KW (4.2KW Peak)</span>
+            </div>
+            <h3 class="product-name">glafit SS Electric Bike</h3>
+            <p class="product-desc">Hybrid exoskeleton heavy-duty steel chassis built specifically for high-mileage food and parcel delivery couriers in Dhaka traffic.</p>
+            <ul class="product-specs-list">
+              <li class="spec-item"><span class="spec-label">Powertrain</span><span class="spec-val">E-Axial Motor (2.0KW Nominal / 4.2KW Peak)</span></li>
+              <li class="spec-item"><span class="spec-label">Top Speed</span><span class="spec-val">70 km/h – 80 km/h (-EX Version)</span></li>
+              <li class="spec-item"><span class="spec-label">Brakes</span><span class="spec-val">220 mm Vent Disc (Front) / 130mm Drum (Rear)</span></li>
+              <li class="spec-item"><span class="spec-label">Tyres</span><span class="spec-val">14" Tubeless-90/90 R14 46P (Front &amp; Rear)</span></li>
+              <li class="spec-item"><span class="spec-label">Payload / Kerb</span><span class="spec-val">200 kg Max Payload (106 kg Kerb Weight)</span></li>
+            </ul>
+          </div>
+          <div class="product-card-bottom">
+            <div class="product-price-box">
+              <span class="price-sub">Weekly Commercial Lease</span>
+              <span class="price-main">৳2,200 / week</span>
+              <span style="font-size:0.75rem; color:var(--white-60);">Includes unlimited battery swaps &amp; maintenance</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+              <button type="button" class="btn-pill primary-white open-visit-modal-btn" data-type="rider" style="flex:1;">
+                <span>Apply for Lease</span>
+                <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+              <a href="repair.html#specs" class="btn-pill outline-white" style="flex:1;">
+                <span>Full Spec Sheet ↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 2: Swappable Battery Pack -->
+        <article class="product-card inview-elem">
+          <div class="product-card-top">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="product-index">02 // ENERGY HARDWARE</span>
+              <span class="product-badge">LFP Chemistry</span>
+            </div>
+            <h3 class="product-name">glafit Lithium Battery Pack</h3>
+            <p class="product-desc">Automotive-grade Lithium Iron Phosphate (LFP) module engineered for extreme thermal stability, monsoon water resistance, and 60-second hot swaps.</p>
+            <ul class="product-specs-list">
+              <li class="spec-item"><span class="spec-label">Rating</span><span class="spec-val">51.2V / 40AH / 2kWH LFP Chemistry</span></li>
+              <li class="spec-item"><span class="spec-label">Charging Input</span><span class="spec-val">230V 5A (Normal) / 15A (Fast)</span></li>
+              <li class="spec-item"><span class="spec-label">Charging Time</span><span class="spec-val">4HR (Normal) / 2HR (Fast)</span></li>
+              <li class="spec-item"><span class="spec-label">Swap Time</span><span class="spec-val">60 Seconds Instant Swap</span></li>
+              <li class="spec-item"><span class="spec-label">Safety Standards</span><span class="spec-val">Automotive Active BMS &amp; JIS/UN38.3 Certified</span></li>
+            </ul>
+          </div>
+          <div class="product-card-bottom">
+            <div class="product-price-box">
+              <span class="price-sub">Battery As A Service (BaaS)</span>
+              <span class="price-main">Zero Upfront Cost</span>
+              <span style="font-size:0.75rem; color:var(--white-60);">Full warranty &amp; automated locker swap access</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+              <button type="button" class="btn-pill outline-white open-visit-modal-btn" data-type="fleet" style="flex:1;">
+                <span>Fleet Integration</span>
+                <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+              <a href="repair.html" class="btn-pill outline-white" style="flex:1;">
+                <span>Repair Guide ↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 3: Automated Swapping Locker -->
+        <article class="product-card inview-elem">
+          <div class="product-card-top">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="product-index">03 // INFRASTRUCTURE</span>
+              <span class="product-badge">Grameenphone ALO</span>
+            </div>
+            <h3 class="product-name">Automated Swap Locker</h3>
+            <p class="product-desc">Weatherproof 8-bay fast-charging cabinet co-located at PRAN-RFL Best Buy hubs with cloud telematics and automatic fire containment.</p>
+            <ul class="product-specs-list">
+              <li class="spec-item"><span class="spec-label">Capacity</span><span class="spec-val">8 Intelligent Charging Bays</span></li>
+              <li class="spec-item"><span class="spec-label">Connectivity</span><span class="spec-val">Grameenphone 4G M2M IoT</span></li>
+              <li class="spec-item"><span class="spec-label">Safety</span><span class="spec-val">Aerosol Fire Suppression</span></li>
+              <li class="spec-item"><span class="spec-label">Footprint</span><span class="spec-val">Only 10 sq ft Required</span></li>
+              <li class="spec-item"><span class="spec-label">Power Supply</span><span class="spec-val">Standard 220V Commercial</span></li>
+            </ul>
+          </div>
+          <div class="product-card-bottom">
+            <div class="product-price-box">
+              <span class="price-sub">Retail Host Opportunity</span>
+              <span class="price-main">Monthly Host Income</span>
+              <span style="font-size:0.75rem; color:var(--white-60);">Earn recurring rent &amp; drive rider footfall</span>
+            </div>
+            <button type="button" class="btn-pill primary-white open-visit-modal-btn" data-type="station">
+              <span>Become a Station Host</span>
+              <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 04: HOW IT WORKS (3-4 STEP FLOW + COST COMPARISON) -->
+    <section class="section-card light how-section" id="how-it-works">
+      <div class="eyebrow dark">
+        <span class="eyebrow-dot"></span>
+        <span>04 / 60-Second Swapping Loop</span>
+      </div>
+
+      <h2 class="section-title">
+        <span class="clip-line-box"><span class="clip-line-inner section-title-line">Never Wait for Charging.</span></span>
+        <span class="clip-line-box"><span class="clip-line-inner section-title-line">Swap in 60 Seconds.</span></span>
+      </h2>
+
+      <div class="steps-grid">
+        <div class="step-card inview-elem">
+          <div class="step-num">01</div>
+          <h3 class="step-title">Get Your Bike</h3>
+          <p class="step-desc">Pick up your glafit SS commercial electric bike on a flexible weekly lease with zero upfront battery purchase cost.</p>
+        </div>
+
+        <div class="step-card inview-elem">
+          <div class="step-num">02</div>
+          <h3 class="step-title">Locate via App</h3>
+          <p class="step-desc">Open the glafit app powered by Grameenphone ALO to find nearby PRAN-RFL Best Buy hubs with fully charged packs ready.</p>
+        </div>
+
+        <div class="step-card inview-elem">
+          <div class="step-num">03</div>
+          <h3 class="step-title">60s Scan &amp; Swap</h3>
+          <p class="step-desc">Scan the QR code on the automated locker. Slide in your depleted battery, and a fresh 100% charged battery pops out instantly.</p>
+        </div>
+
+        <div class="step-card inview-elem">
+          <div class="step-num">04</div>
+          <h3 class="step-title">Ride Nonstop</h3>
+          <p class="step-desc">Lock the battery into your glafit SS and ride another 100+ km without ever waiting hours at a charging socket.</p>
+        </div>
+      </div>
+
+      <!-- Cost Comparison: Petrol vs glafit EV -->
+      <div class="comparison-banner inview-elem">
+        <div class="comp-col-bad">
+          <div class="comp-tag bad">Traditional Petrol Motorcycle</div>
+          <h3 class="comp-title">৳8,500 – ৳10,000 / month</h3>
+          <p class="comp-detail">High petrol costs, frequent engine oil changes, spark plug replacements, and 3-4 hours of mechanical downtime per month.</p>
+        </div>
+        <div class="comp-col-good">
+          <div class="comp-tag good">glafit SS + Swapping Network</div>
+          <h3 class="comp-title">Save ~45% Operating Cost</h3>
+          <p class="comp-detail">৳2,200/week all-inclusive lease covers unlimited battery swaps, zero fuel expenses, and free scheduled maintenance across Dhaka.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 05: SOLUTIONS BY AUDIENCE -->
+    <section class="section-card light solutions-section" id="solutions">
+      <div class="eyebrow dark">
+        <span class="eyebrow-dot"></span>
+        <span>05 / Tailored Solutions</span>
+      </div>
+
+      <h2 class="section-title">
+        <span class="clip-line-box"><span class="clip-line-inner section-title-line">Built for Riders,</span></span>
+        <span class="clip-line-box"><span class="clip-line-inner section-title-line">Fleets &amp; Station Hosts</span></span>
+      </h2>
+
+      <div class="solutions-grid">
+        <!-- Solution 1: Delivery Riders -->
+        <article class="solution-card inview-elem">
+          <div>
+            <span class="solution-target">Delivery &amp; Courier Riders</span>
+            <h3 class="solution-heading">Take home ৳6,000+ more every month</h3>
+            <p class="solution-desc">Designed for Foodpanda, Pathao, RedX, and e-commerce riders looking to cut fuel expenses and eliminate charging downtime.</p>
+            <ul class="solution-benefits">
+              <li class="benefit-item">
+                <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Zero petrol expense &mdash; unlimited battery swaps</span>
+              </li>
+              <li class="benefit-item">
+                <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>No overnight charging hassle at rental apartments</span>
+              </li>
+              <li class="benefit-item">
+                <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Free routine brake &amp; electrical maintenance</span>
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="btn-pill primary-black open-visit-modal-btn" data-type="rider">
+            <span>Rider Onboarding &rarr;</span>
+          </button>
+        </article>
+
+        <!-- Solution 2: Logistics Fleets -->
+        <article class="solution-card inview-elem">
+          <div>
+            <span class="solution-target">Logistics &amp; Delivery Companies</span>
+            <h3 class="solution-heading">Turnkey 800-bike pilot fleet integration</h3>
+            <p class="solution-desc">Enterprise solutions for 3PL logistics, FMCG distributors, and postal fleets seeking the lowest total cost of ownership in South Asia.</p>
+            <ul class="solution-benefits">
+              <li class="benefit-item">
+                <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Centralized ALO Connect M2M fleet IoT portal</span>
+              </li>
+              <li class="benefit-item">
+                <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Predictable monthly operational expenditure</span>
+              </li>
+              <li class="benefit-item">
+                <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Dedicated corporate technician &amp; roadside rescue</span>
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="btn-pill primary-black open-visit-modal-btn" data-type="fleet">
+            <span>Inquire Fleet Pricing &rarr;</span>
+          </button>
+        </article>
+
+        <!-- Solution 3: Station Hosts -->
+        <article class="solution-card inview-elem">
+          <div>
+            <span class="solution-target">Station Hosts &amp; Retailers</span>
+            <h3 class="solution-heading">Can anyone become a station owner? Yes.</h3>
+            <p class="solution-desc">Any grocery store, pharmacy, filling station, or retail outlet with 10 sq ft of outdoor space can host a glafit automated swapping locker.</p>
+            <ul class="solution-benefits">
+              <li class="benefit-item">
+                <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Guaranteed daily rider footfall to your storefront</span>
+              </li>
+              <li class="benefit-item">
+                <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Earn recurring monthly rent &amp; electricity compensation</span>
+              </li>
+              <li class="benefit-item">
+                <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Zero hardware cost &mdash; glafit installs &amp; maintains 100%</span>
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="btn-pill primary-black open-visit-modal-btn" data-type="station">
+            <span>Apply as Station Host &rarr;</span>
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 06: SWAP AND CHARGING STATION MAP -->
+    <section class="section-card dark stations-section" id="stations">
+      <div class="eyebrow light">
+        <span class="eyebrow-dot"></span>
+        <span>06 / Infrastructure Grid</span>
+      </div>
+
+      <div class="stations-layout">
+        <div class="map-preview-card inview-elem">
+          <div>
+            <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--white-60); margin-bottom:0.5rem;">Dhaka Metropolitan Grid</div>
+            <h3 style="font-size:1.6rem; font-weight:600; color:#ffffff;">PRAN-RFL Best Buy Swapping Network</h3>
+          </div>
+
+          <div class="map-network-grid">
+            <div class="station-node">
+              <div class="station-node-header">
+                <span class="station-name">Uttara Sector 12</span>
+                <span class="station-status-pill">Active 24/7</span>
+              </div>
+              <span class="station-sub">Flagship Hub &bull; Sonargaon Janapath</span>
+            </div>
+            <div class="station-node">
+              <div class="station-node-header">
+                <span class="station-name">Mirpur 10 Circle</span>
+                <span class="station-status-pill planned">Coming Soon</span>
+              </div>
+              <span class="station-sub">Best Buy Retail Hub &bull; 8 Bays</span>
+            </div>
+            <div class="station-node">
+              <div class="station-node-header">
+                <span class="station-name">Dhanmondi Satmasjid</span>
+                <span class="station-status-pill planned">Coming Soon</span>
+              </div>
+              <span class="station-sub">Delivery Transit Node &bull; 8 Bays</span>
+            </div>
+            <div class="station-node">
+              <div class="station-node-header">
+                <span class="station-name">Gulshan &amp; Banani</span>
+                <span class="station-status-pill planned">Coming Soon</span>
+              </div>
+              <span class="station-sub">High-Density Courier Zone &bull; 16 Bays</span>
+            </div>
+          </div>
+
+          <div style="font-size:0.8125rem; color:var(--white-60); display:flex; justify-content:space-between; align-items:center;">
+            <span>&bull; Real-time IoT telematics active</span>
+            <a href="#contact" class="tech-cta">Request a Locker in Your Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="stations-info-col inview-elem">
+          <h2 class="section-title" style="margin-bottom:1.5rem;">
+            <span class="clip-line-box"><span class="clip-line-inner section-title-line">113 Swapping Hubs</span></span>
+            <span class="clip-line-box"><span class="clip-line-inner section-title-line">Across Dhaka</span></span>
+          </h2>
+          <p style="font-size:0.9375rem; color:var(--white-70); line-height:1.65;">
+            By co-locating with PRAN-RFL's extensive Best Buy retail chain, glafit stations ensure no delivery rider is ever more than 2 kilometers away from a charged battery pack in Dhaka.
+          </p>
+          <div class="stations-stat-pills">
+            <div class="network-pill">
+              <span class="network-pill-num">113+</span>
+              <span class="network-pill-text">Planned Stations</span>
+            </div>
+            <div class="network-pill">
+              <span class="network-pill-num">&lt; 2 km</span>
+              <span class="network-pill-text">Avg Distance</span>
+            </div>
+            <div class="network-pill">
+              <span class="network-pill-num">24 / 7</span>
+              <span class="network-pill-text">Automated Lockers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 07: CONNECTED MOBILE APP & FLEET IOT -->
+    <section class="section-card light app-section" id="app">
+      <div class="eyebrow dark">
+        <span class="eyebrow-dot"></span>
+        <span>07 / Connected Mobility</span>
+      </div>
+
+      <div class="app-grid">
+        <div class="app-info-col inview-elem">
+          <h2 class="section-title" style="margin-bottom:1.5rem;">
+            <span class="clip-line-box"><span class="clip-line-inner section-title-line">Powered by Grameenphone</span></span>
+            <span class="clip-line-box"><span class="clip-line-inner section-title-line">ALO Connect IoT</span></span>
+          </h2>
+          <p style="font-size:0.9375rem; color:var(--ink-muted); line-height:1.65;">
+            Every glafit SS bike and swapping locker connects to Grameenphone's industrial M2M network, giving riders and fleet dispatchers instant control and real-time battery analytics.
+          </p>
+
+          <div class="app-features-list">
+            <div class="app-feature-row">
+              <div class="app-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <h4 class="app-feature-title">Live Station Radar &amp; Battery Availability</h4>
+                <p class="app-feature-desc">See the number of 100% charged batteries waiting at nearby Best Buy lockers in real time before navigating.</p>
+              </div>
+            </div>
+
+            <div class="app-feature-row">
+              <div class="app-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <div>
+                <h4 class="app-feature-title">1-Click Battery Reservation</h4>
+                <p class="app-feature-desc">Reserve a fresh pack 15 minutes ahead so it stays locked specifically for your arrival.</p>
+              </div>
+            </div>
+
+            <div class="app-feature-row">
+              <div class="app-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+              <div>
+                <h4 class="app-feature-title">Digital Key &amp; Anti-Theft GPS Immobilization</h4>
+                <p class="app-feature-desc">Keyless smartphone unlock, geofence security alerts, and remote motor kill switches if unauthorized movement is detected.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="store-badge-group">
+            <a href="#contact" class="store-badge">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.793 12 3.61 22.186a2.38 2.38 0 0 1-.61-.91V2.724c.163-.357.377-.668.61-.91zm11.606 11.607l2.25 2.25-11.83 6.786 9.58-9.036zm2.25-2.25l2.766 1.587c.92.527.92 1.385 0 1.912l-2.766 1.588-2.25-2.25 2.25-2.25zM5.635 3.143l11.83 6.786-2.25 2.25-9.58-9.036z"/></svg>
+              <span>Get on Google Play</span>
+            </a>
+            <span style="font-size:0.75rem; color:var(--ink-muted); font-weight:600;">iOS App Store (Coming Soon)</span>
+          </div>
+        </div>
+
+        <div class="app-mock-card inview-elem">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:0.75rem; color:var(--white-60); text-transform:uppercase; letter-spacing:0.08em;">Live Telemetry Panel</span>
+            <span class="japan-flag-pill" style="font-size:0.65rem; padding:0.25rem 0.6rem;">ALO Connected</span>
+          </div>
+          <div class="mock-telemetry-row">
+            <div>
+              <div style="font-size:0.75rem; color:var(--white-60);">Current State of Charge</div>
+              <div style="font-size:2rem; font-weight:700; color:#ffffff;">92% <span style="font-size:0.9rem; font-weight:400; color:var(--white-60);">(Dual Pack)</span></div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:0.75rem; color:var(--white-60);">Estimated Range</div>
+              <div style="font-size:2rem; font-weight:700; color:#ffffff;">96 km</div>
+            </div>
+          </div>
+          <div class="mock-telemetry-row">
+            <div>
+              <div style="font-size:0.75rem; color:var(--white-60);">Nearest Swapping Station</div>
+              <div style="font-size:1.1rem; font-weight:600; color:#ffffff;">Best Buy Sector 12, Uttara</div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:0.75rem; color:var(--white-60);">Distance</div>
+              <div style="font-size:1.1rem; font-weight:600; color:#ffffff;">450 meters</div>
+            </div>
+          </div>
+          <div style="background:rgba(255,255,255,0.06); padding:1rem; border-radius:var(--radius-md); font-size:0.8125rem; color:var(--white-80); display:flex; justify-content:space-between; align-items:center;">
+            <span>Ready for swap: 6 fully charged batteries</span>
+            <a href="#contact" class="btn-pill primary-white" style="padding:0.4rem 0.8rem; font-size:0.7rem;">Reserve Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 08: IMPACT AND VERIFIED NUMBERS -->
+    <section class="section-card dark stats-section" id="impact">
+      <div class="eyebrow light">
+        <span class="eyebrow-dot"></span>
+        <span>08 / Verified Impact</span>
+      </div>
+
+      <h2 class="section-title">
+        <span class="clip-line-box"><span class="clip-line-inner section-title-line">Numbers Driving</span></span>
+        <span class="clip-line-box"><span class="clip-line-inner section-title-line">Bangladesh's EV Transition</span></span>
+      </h2>
+
+      <dl class="stats-grid">
+        <div class="stat-cell inview-elem" data-index="0">
+          <dt class="sr-only">Initial pilot fleet size</dt>
+          <dd>
+            <div class="stat-value">800+</div>
+            <div class="stat-label">Commercial e-bikes in initial Dhaka pilot deployment</div>
+          </dd>
+        </div>
+        <div class="stat-cell inview-elem" data-index="1">
+          <dt class="sr-only">Operating cost savings</dt>
+          <dd>
+            <div class="stat-value">45%</div>
+            <div class="stat-label">Average operating expenditure reduction vs petrol bikes</div>
+          </dd>
+        </div>
+        <div class="stat-cell inview-elem" data-index="2">
+          <dt class="sr-only">CO2 reduction</dt>
+          <dd>
+            <div class="stat-value">1,200t</div>
+            <div class="stat-label">Annual metric tonnes of CO₂ emissions prevented</div>
+          </dd>
+        </div>
+        <div class="stat-cell inview-elem" data-index="3">
+          <dt class="sr-only">Green jobs created</dt>
+          <dd>
+            <div class="stat-value">1,500+</div>
+            <div class="stat-label">Trained delivery couriers, technicians &amp; retail station hosts</div>
+          </dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- SECTION 09: NEWS AND PRESS COVERAGE -->
+    <section class="section-card light news-section" id="news">
+      <div class="eyebrow dark">
+        <span class="eyebrow-dot"></span>
+        <span>09 / Verified Press &amp; Media</span>
+      </div>
+
+      <h2 class="section-title">
+        <span class="clip-line-box"><span class="clip-line-inner section-title-line">Japanese EV Innovation</span></span>
+        <span class="clip-line-box"><span class="clip-line-inner section-title-line">In Bangladesh Headlines</span></span>
+      </h2>
+
+      <div class="news-grid">
+        <article class="news-card inview-elem">
+          <div>
+            <span class="news-outlet">BSS News</span>
+            <h3 class="news-headline" style="margin-top:1rem;">glafit, Musashi, and PRAN-RFL Collaborate on Smart e-Mobility Revolution</h3>
+            <p class="news-excerpt" style="margin-top:0.75rem;">National news agency BSS covers the official 800-bike pilot rollout in Dhaka, combining Japanese engineering with local retail infrastructure.</p>
+          </div>
+          <a href="https://glafit.com.bd/" target="_blank" class="news-link">Read BSS Report &rarr;</a>
+        </article>
+
+        <article class="news-card inview-elem">
+          <div>
+            <span class="news-outlet">Grameenphone</span>
+            <h3 class="news-headline" style="margin-top:1rem;">Grameenphone ALO Connect Powers Smart Battery Swapping Infrastructure</h3>
+            <p class="news-excerpt" style="margin-top:0.75rem;">Official telecom press release detailing the M2M IoT integration enabling live telemetry, remote locking, and intelligent station grids.</p>
+          </div>
+          <a href="https://glafit.com.bd/" target="_blank" class="news-link">View GP Announcement &rarr;</a>
+        </article>
+
+        <article class="news-card inview-elem">
+          <div>
+            <span class="news-outlet">New Age / Prothom Alo</span>
+            <h3 class="news-headline" style="margin-top:1rem;">RFL Group Partners with glafit to Deploy Swapping Lockers Nationwide</h3>
+            <p class="news-excerpt" style="margin-top:0.75rem;">Rangpur Metal Industries confirms the deployment of automated charging hubs across 'Best Buy' retail stores for rapid urban parcel delivery.</p>
+          </div>
+          <a href="https://glafit.com.bd/" target="_blank" class="news-link">Read Coverage &rarr;</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 10: SAFETY, COMPLIANCE & WARRANTY -->
+    <section class="section-card dark safety-section" id="safety">
+      <div class="eyebrow light">
+        <span class="eyebrow-dot"></span>
+        <span>10 / Uncompromising Safety</span>
+      </div>
+
+      <!-- CEO Safety Mandate -->
+      <div class="ceo-quote-card inview-elem">
+        <div class="quote-mark">&ldquo;</div>
+        <p class="ceo-quote-text">
+          Safety is non-negotiable in electric micro-mobility. glafit advocates for the highest Japanese lithium battery safety certifications, automated fire suppression, and strict charging protocols across South Asia.
+        </p>
+        <div class="ceo-author">
+          <strong>Teizo Narumi</strong> &mdash; Founder &amp; Global CEO, glafit Inc. (Japan)
+        </div>
+      </div>
+
+      <div class="safety-pillars-grid">
+        <div class="safety-pillar-card inview-elem">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="pillar-title">JIS &amp; UN38.3 Certified</h3>
+          <p class="pillar-desc">Built strictly according to Japanese Industrial Standards (JIS) and international UN38.3 transport vibration and drop safety protocols.</p>
+        </div>
+
+        <div class="safety-pillar-card inview-elem">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          </div>
+          <h3 class="pillar-title">IP67 Monsoon Sealed</h3>
+          <p class="pillar-desc">Hermetically sealed battery casing and brushless motor survive deep Dhaka monsoon street waterlogging without water ingress.</p>
+        </div>
+
+        <div class="safety-pillar-card inview-elem">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3 class="pillar-title">Active Thermal BMS</h3>
+          <p class="pillar-desc">Cell-level heat monitoring with independent automatic circuit breaker protection against overcurrent, short-circuits, and overcharging.</p>
+        </div>
+
+        <div class="safety-pillar-card inview-elem">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3 class="pillar-title">3-Year Motor Warranty</h3>
+          <p class="pillar-desc">Comprehensive manufacturer warranty covering the Musashi powertrain and battery pack replacements with 24/7 Dhaka roadside rescue.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: LEADERSHIP, OFFICE & CONTACT -->
+    <section class="section-card light contact-section" id="contact">
+      <div class="eyebrow dark">
+        <span class="eyebrow-dot"></span>
+        <span>11 / Executive Leadership &amp; Headquarters</span>
+      </div>
+
+      <h2 class="section-title">
+        <span class="clip-line-box"><span class="clip-line-inner section-title-line">Leadership Behind</span></span>
+        <span class="clip-line-box"><span class="clip-line-inner section-title-line">glafit Bangladesh</span></span>
+      </h2>
+
+      <div class="team-grid">
+        <div class="team-card inview-elem">
+          <div class="team-name">Teizo Narumi</div>
+          <div class="team-role">Founder &amp; Global CEO, glafit Inc.</div>
+          <p class="team-bio">Mobility visionary who founded glafit in Wakayama in 2017, leading international expansion and safety standards.</p>
+        </div>
+        <div class="team-card inview-elem">
+          <div class="team-name">Tomoaki Furuoka</div>
+          <div class="team-role">Managing Director, glafit Bangladesh</div>
+          <p class="team-bio">Directs local assembly, strategic joint ventures, and infrastructure rollout across Bangladesh.</p>
+        </div>
+        <div class="team-card inview-elem">
+          <div class="team-name">Hasan Kamrul</div>
+          <div class="team-role">Chief Business Officer &amp; Country Rep</div>
+          <p class="team-bio">Oversees enterprise fleet agreements, retail station host partnerships, and corporate strategy.</p>
+        </div>
+        <div class="team-card inview-elem">
+          <div class="team-name">Harich Mohammed</div>
+          <div class="team-role">Chief Operating Officer (COO)</div>
+          <p class="team-bio">Manages pilot logistics operations, service hubs, and rider support networks in Dhaka.</p>
+        </div>
+      </div>
+
+      <!-- Contact Info & Onboarding Form -->
+      <div class="contact-container">
+        <div class="office-info-card inview-elem">
+          <div>
+            <span class="solution-target">Dhaka Corporate Headquarters</span>
+            <h3 style="font-size:1.5rem; font-weight:700; margin-bottom:0.75rem; color:var(--ink-headline);">glafit Bangladesh Limited</h3>
+            <p style="font-size:0.875rem; color:var(--ink-muted); line-height:1.6;">
+              Visit our flagship experience center and technical diagnostics hub in Uttara.
+            </p>
+          </div>
+
+          <address class="office-address-block">
+            <div class="office-line">
+              <strong>Address:</strong><br>
+              Hong Kong Center, House No. 12 (2nd Floor),<br>
+              Sonargaon Janapath Road, Sector No. 12,<br>
+              Uttara, Dhaka-1230, Bangladesh
+            </div>
+            <div class="office-line">
+              <strong>Official Direct Line:</strong><br>
+              <a href="tel:+8801805034829" class="office-link">+880 1805-034829</a>
+            </div>
+            <div class="office-line">
+              <strong>Official Inquiries:</strong><br>
+              <a href="mailto:info@glafit.com.bd" class="office-link">info@glafit.com.bd</a>
+            </div>
+            <div class="office-line">
+              <strong>Business Hours:</strong><br>
+              Sunday &ndash; Thursday (09:00 AM &ndash; 06:00 PM)
+            </div>
+          </address>
+
+          <div>
+            <a href="https://wa.me/8801805034829" target="_blank" class="btn-pill primary-black" style="width:100%; justify-content:center;">
+              <span>Chat on WhatsApp Directly</span>
+              <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Embedded Interactive Form -->
+        <div class="contact-form-card inview-elem">
+          <div class="form-tab-nav" role="tablist">
+            <button type="button" class="form-tab-btn active" data-tab="rider-tab">Rider Lease</button>
+            <button type="button" class="form-tab-btn" data-tab="fleet-tab">Fleet Partnership</button>
+            <button type="button" class="form-tab-btn" data-tab="host-tab">Station Host</button>
+          </div>
+
+          <form id="contact-page-form" style="display:flex; flex-direction:column; gap:1.25rem;">
+            <div class="form-row two-col">
+              <div class="form-group">
+                <label class="form-label" for="cp-name">Full Name</label>
+                <input type="text" id="cp-name" class="form-input" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cp-phone">Phone / WhatsApp</label>
+                <input type="tel" id="cp-phone" class="form-input" placeholder="+880 1800-000000" required>
+              </div>
+            </div>
+
+            <div class="form-row two-col">
+              <div class="form-group">
+                <label class="form-label" for="cp-email">Email Address</label>
+                <input type="email" id="cp-email" class="form-input" placeholder="name@domain.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cp-area">Location in Dhaka</label>
+                <input type="text" id="cp-area" class="form-input" placeholder="e.g. Uttara, Mirpur, Gulshan">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cp-message">Inquiry Notes / Business Profile</label>
+              <textarea id="cp-message" class="form-input" rows="3" placeholder="Tell us about your delivery route, fleet size, or retail shopfront location..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-pill primary-black" style="width:100%; justify-content:center;">
+              <span>Submit Partnership Request</span>
+              <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 12: FAQS AND SITE FOOTER -->
+    <section class="section-card light faq-section" id="faq">
+      <div class="eyebrow dark">
+        <span class="eyebrow-dot"></span>
+        <span>12 / Frequently Asked Questions</span>
+      </div>
+
+      <h2 class="section-title" style="text-align:center;">
+        <span class="clip-line-box"><span class="clip-line-inner section-title-line">Got Questions?</span></span>
+        <span class="clip-line-box"><span class="clip-line-inner section-title-line">We Have Real Answers.</span></span>
+      </h2>
+
+      <div class="faq-accordion">
+        <div class="faq-item active">
+          <button type="button" class="faq-question">
+            <span>How much does battery swapping cost, and how long does it take?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            A battery swap takes under 60 seconds at any automated glafit locker. If you lease a glafit SS commercial bike (from ৳2,200/week), unlimited battery swaps are completely covered in your plan with zero additional fuel or charging fees.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>What happens if my battery runs low while making deliveries?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            The glafit mobile app alerts you when your state of charge reaches 20% and automatically highlights the closest available swap locker (at a nearby PRAN-RFL Best Buy). You can reserve a pack with one tap so it stays held for your arrival.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Can any retail shop or grocery owner become a station host?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes! Any commercial storefront, grocery store, pharmacy, or filling station with at least 10 square feet of accessible outdoor space and standard 220V power can apply. glafit provides, installs, and maintains the locker 100% free, and pays you guaranteed monthly hosting rent.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>How do glafit electric bikes handle waterlogged monsoon roads in Dhaka?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Both the Musashi 2KW e-Axle motor and the glafit lithium battery packs are certified IP67 waterproof. They are engineered to endure heavy tropical downpours and street waterlogging without electrical shorting or water ingress.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>How can corporate logistics fleets participate in the 800-bike pilot?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Courier and logistics fleets can submit a fleet inquiry through our portal or visit our Uttara headquarters. We offer turnkey pilot packages including customized fleet branding, Grameenphone ALO Connect telematics access, and dedicated maintenance support.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SITE FOOTER -->
+    <footer class="section-card dark site-footer">
+      <div class="footer-cta-band">
+        <div>
+          <div class="eyebrow light">
+            <span class="eyebrow-dot"></span>
+            <span>Join the EV Revolution</span>
+          </div>
+          <p class="footer-cta-title">
+            <span class="clip-line-box"><span class="clip-line-inner footer-title-line">Ready to power</span></span>
+            <span class="clip-line-box"><span class="clip-line-inner footer-title-line">the future?</span></span>
+          </p>
+        </div>
+
+        <div class="footer-cta-action inview-elem" id="footer-cta-action" style="display:flex; flex-wrap:wrap; gap:0.75rem; align-items:center;">
+          <button type="button" class="btn-pill primary-white open-visit-modal-btn" data-type="rider">
+            <span>Join as Rider / Fleet Operator</span>
+            <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <button type="button" class="btn-pill outline-white open-visit-modal-btn" data-type="station">
+            <span>Become a Station Partner</span>
+            <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-cols-grid">
+        <div class="footer-brand-col">
+          <img src="logo.png" alt="glafit Bangladesh" class="footer-logo-img">
+          <p class="footer-blurb">Powering the future of urban electric mobility across Bangladesh with intelligent Japanese e-bikes, 60s battery swapping, and connected fleet telematics.</p>
+          <address class="footer-address">
+            <a href="mailto:info@glafit.com.bd">info@glafit.com.bd</a>
+            <a href="tel:+8801805034829">+880 1805 034829</a>
+            <span class="footer-address-line">Hong Kong Center, House No. 12 (2nd Floor), Sonargaon Janapath Road, Sector No. 12, Uttara, Dhaka-1230, Bangladesh</span>
+          </address>
+        </div>
+
+        <nav aria-label="Ecosystem links">
+          <h4 class="footer-nav-col-heading">Ecosystem</h4>
+          <ul class="footer-nav-col-list">
+            <li><a href="#products">glafit SS Bike</a></li>
+            <li><a href="#products">Lithium Battery Pack</a></li>
+            <li><a href="#how-it-works">Swapping Locker</a></li>
+            <li><a href="#stations">113 Dhaka Stations</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Solutions links">
+          <h4 class="footer-nav-col-heading">Solutions</h4>
+          <ul class="footer-nav-col-list">
+            <li><a href="#solutions">Delivery Riders</a></li>
+            <li><a href="#solutions">Fleet Operators</a></li>
+            <li><a href="#solutions">Station Hosts</a></li>
+            <li><a href="#safety">Safety &amp; JIS Certs</a></li>
+            <li><a href="repair.html">Repair &amp; Service Portal</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Company links">
+          <h4 class="footer-nav-col-heading">Company</h4>
+          <ul class="footer-nav-col-list">
+            <li><a href="https://glafit.com.bd/" target="_blank">Official Website</a></li>
+            <li><a href="https://glafit.com.bd/contactus.html" target="_blank">Old Contact Page</a></li>
+            <li><a href="#news">News &amp; Media</a></li>
+            <li><a href="#contact">Uttara HQ Map</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 glafit Bangladesh Limited. All rights reserved. Powered by glafit Inc. Japan.</div>
+        <div class="footer-bottom-navs">
+          <a href="repair.html">Repair Guide</a>
+          <a href="#safety">Warranty Policy</a>
+          <a href="#faq">Privacy Policy</a>
+          <a href="https://wa.me/8801805034829" target="_blank">WhatsApp Direct</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- =============================================================
+       SCRIPTS & ES MODULES (LENIS + SPRINGS + ACCORDIONS + CAROUSELS)
+       ============================================================= -->
+  <script type="module">
+    import Lenis from 'lenis';
+
+    /* -------------------------------------------------------------
+       1. ADAPTIVE REM GRID SCALE-UP (VIEWPORT > 1920)
+       ------------------------------------------------------------- */
+    const FONT_BASE = 16, BASE_W = 1920, COEF = 0.6666;
+    const htmlElem = document.documentElement;
+
+    function updateRootFontSize() {
+      const reduction = ((BASE_W - window.innerWidth) / BASE_W) * 100 * COEF;
+      const size = FONT_BASE - (FONT_BASE * reduction) / 100;
+      if (size > FONT_BASE) {
+        htmlElem.style.fontSize = size + "px";
+      } else {
+        htmlElem.style.removeProperty("font-size");
+      }
+    }
+    window.addEventListener("resize", updateRootFontSize);
+    updateRootFontSize();
+
+    /* -------------------------------------------------------------
+       2. LENIS SMOOTH SCROLL & SCROLL LOCK
+       ------------------------------------------------------------- */
+    const lenis = new Lenis({
+      smoothWheel: true,
+      syncTouch: false
+    });
+
+    let isScrollLocked = false;
+    function lockScroll(locked) {
+      isScrollLocked = locked;
+      if (locked) {
+        lenis.stop();
+        htmlElem.style.position = 'relative';
+        htmlElem.style.overflow = 'hidden';
+        htmlElem.style.height = '100%';
+      } else {
+        lenis.start();
+        htmlElem.style.removeProperty('position');
+        htmlElem.style.removeProperty('overflow');
+        htmlElem.style.removeProperty('height');
+      }
+    }
+    lockScroll(true);
+    window.scrollTo(0, 0);
+
+    /* -------------------------------------------------------------
+       3. TINY SPRING HELPER
+       ------------------------------------------------------------- */
+    class Spring {
+      constructor({ tension = 170, friction = 26, from = 0, to = 1, onUpdate, onRest }) {
+        this.tension = tension;
+        this.friction = friction;
+        this.x = from;
+        this.target = to;
+        this.v = 0;
+        this.onUpdate = onUpdate;
+        this.onRest = onRest;
+        this.active = true;
+        this.lastTime = performance.now();
+        this.tick = this.tick.bind(this);
+        requestAnimationFrame(this.tick);
+      }
+      tick(now) {
+        if (!this.active) return;
+        const dt = Math.min((now - this.lastTime) / 1000, 0.033);
+        this.lastTime = now;
+        const fSpring = -this.tension * (this.x - this.target);
+        const fDamper = -this.friction * this.v;
+        const a = fSpring + fDamper;
+        this.v += a * dt;
+        this.x += this.v * dt;
+
+        if (this.onUpdate) this.onUpdate(this.x);
+
+        if (Math.abs(this.v) < 0.0005 && Math.abs(this.x - this.target) < 0.0005) {
+          this.x = this.target;
+          this.active = false;
+          if (this.onUpdate) this.onUpdate(this.x);
+          if (this.onRest) this.onRest();
+          return;
+        }
+        requestAnimationFrame(this.tick);
+      }
+    }
+
+    /* -------------------------------------------------------------
+       4. 3-VIDEO CAROUSEL CONTROLLER (SEAMLESS AUTOPLAY CROSSFADE)
+       ------------------------------------------------------------- */
+    const heroVideos = [
+      document.getElementById('hero-vid-0'),
+      document.getElementById('hero-vid-1'),
+      document.getElementById('hero-vid-2')
+    ];
+    let currentVideoIdx = 0;
+    let videoAutoplayTimer = null;
+
+    heroVideos.forEach((vid) => {
+      if (!vid) return;
+      vid.muted = true;
+      vid.defaultMuted = true;
+      vid.playsInline = true;
+      vid.setAttribute('muted', '');
+      vid.setAttribute('playsinline', '');
+      vid.setAttribute('autoplay', '');
+      vid.setAttribute('loop', '');
+    });
+
+    function playActiveVideo() {
+      const vid = heroVideos[currentVideoIdx];
+      if (vid) {
+        vid.muted = true;
+        const p = vid.play();
+        if (p !== undefined) {
+          p.catch(() => {});
+        }
+      }
+    }
+
+    function switchHeroVideo(newIdx) {
+      if (newIdx === currentVideoIdx) return;
+      const outgoingVid = heroVideos[currentVideoIdx];
+      const incomingVid = heroVideos[newIdx];
+      currentVideoIdx = newIdx;
+
+      if (incomingVid) {
+        incomingVid.muted = true;
+        incomingVid.currentTime = 0;
+        incomingVid.play().catch(() => {});
+        incomingVid.classList.add('active');
+        incomingVid.classList.remove('fading');
+      }
+
+      if (outgoingVid) {
+        outgoingVid.classList.remove('active');
+        outgoingVid.classList.add('fading');
+        setTimeout(() => {
+          outgoingVid.classList.remove('fading');
+          outgoingVid.pause();
+        }, 1200);
+      }
+    }
+
+    function startVideoAutoplay() {
+      if (videoAutoplayTimer) clearInterval(videoAutoplayTimer);
+      videoAutoplayTimer = setInterval(() => {
+        const next = (currentVideoIdx + 1) % heroVideos.length;
+        switchHeroVideo(next);
+      }, 7000);
+    }
+    playActiveVideo();
+    startVideoAutoplay();
+
+    const unlockVideos = () => {
+      playActiveVideo();
+      window.removeEventListener('pointerdown', unlockVideos);
+      window.removeEventListener('keydown', unlockVideos);
+    };
+    window.addEventListener('pointerdown', unlockVideos, { once: true });
+    window.addEventListener('keydown', unlockVideos, { once: true });
+
+    /* -------------------------------------------------------------
+       5. SCROLL PARALLAX UPDATE
+       ------------------------------------------------------------- */
+    const heroPlateInner = document.getElementById('hero-plate-inner');
+    const heroSection = document.getElementById('hero');
+    const whoSection = document.getElementById('who-we-are');
+    const ghostMask1 = document.getElementById('ghost-mask-1');
+    const ghostMask2 = document.getElementById('ghost-mask-2');
+    const ghostMask3 = document.getElementById('ghost-mask-3');
+    const ghostMask4 = document.getElementById('ghost-mask-4');
+
+    function updateParallax() {
+      if (heroSection && heroPlateInner) {
+        const rect = heroSection.getBoundingClientRect();
+        const heroH = heroSection.offsetHeight;
+        const p = Math.max(0, Math.min(1, -rect.top / heroH));
+        heroPlateInner.style.transform = `translate3d(0, ${(p * 6).toFixed(3)}%, 0)`;
+      }
+
+      if (whoSection) {
+        const rect = whoSection.getBoundingClientRect();
+        const winH = window.innerHeight;
+        const p = Math.max(0, Math.min(1, (winH - rect.top) / (rect.height + winH)));
+        if (ghostMask1) ghostMask1.style.transform = `translate3d(${(-3 + p * 6).toFixed(2)}%, 0, 0)`;
+        if (ghostMask2) ghostMask2.style.transform = `translate3d(${(3 - p * 6).toFixed(2)}%, 0, 0)`;
+        if (ghostMask3) ghostMask3.style.transform = `translate3d(${(-3 + p * 6).toFixed(2)}%, 0, 0)`;
+        if (ghostMask4) ghostMask4.style.transform = `translate3d(${(3 - p * 6).toFixed(2)}%, 0, 0)`;
+      }
+    }
+
+    function raf(t) {
+      lenis.raf(t);
+      updateParallax();
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    /* -------------------------------------------------------------
+       6. TEXT STACKED LINE REVEAL HELPER
+       ------------------------------------------------------------- */
+    function revealStackedLines(lines, { baseDelay = 0, stagger = 120, duration = 900 } = {}) {
+      lines.forEach((line, i) => {
+        const delay = baseDelay + i * stagger;
+        line.style.transition = `transform ${duration}ms var(--ease-out-expo) ${delay}ms, opacity ${duration}ms var(--ease-out-expo) ${delay}ms`;
+        setTimeout(() => {
+          line.classList.add('revealed');
+        }, 20);
+      });
+    }
+
+    /* -------------------------------------------------------------
+       7. OPENING LOADER & SITE ENTRANCE
+       ------------------------------------------------------------- */
+    const loaderCurtain = document.getElementById('loader-curtain');
+    const loaderWordmark = document.getElementById('loader-wordmark');
+    const loaderFill = document.getElementById('loader-progress-fill');
+
+    const MIN_VISIBLE_MS = 1400;
+    const MAX_VISIBLE_MS = 2500;
+    const EXIT_MS = 900;
+    const startTime = performance.now();
+
+    new Spring({
+      tension: 180,
+      friction: 22,
+      from: 0,
+      to: 1,
+      onUpdate: (val) => {
+        loaderWordmark.style.opacity = val.toFixed(3);
+        loaderWordmark.style.transform = `translate3d(0, ${((1 - val) * 16).toFixed(2)}px, 0)`;
+      }
+    });
+
+    setTimeout(() => {
+      loaderFill.style.transition = `transform ${MIN_VISIBLE_MS - 120}ms var(--ease-in-out-cubic)`;
+      loaderFill.style.transform = 'scaleX(1)';
+    }, 120);
+
+    let isReady = false;
+    function triggerSiteReveal() {
+      if (isReady) return;
+      isReady = true;
+
+      lockScroll(false);
+      playActiveVideo();
+
+      loaderCurtain.style.transition = `transform ${EXIT_MS}ms var(--ease-in-out-cubic)`;
+      loaderCurtain.style.transform = 'translateY(-105%)';
+      setTimeout(() => {
+        loaderCurtain.style.display = 'none';
+      }, EXIT_MS);
+
+      const heroTitleLines = document.querySelectorAll('.hero-title-line');
+      revealStackedLines(heroTitleLines, { baseDelay: 80, stagger: 100, duration: 900 });
+    }
+
+    function checkLoaderDone() {
+      const elapsed = performance.now() - startTime;
+      const remain = Math.max(0, MIN_VISIBLE_MS - elapsed);
+      setTimeout(triggerSiteReveal, remain);
+    }
+
+    if (document.readyState === 'complete') {
+      checkLoaderDone();
+    } else {
+      window.addEventListener('load', checkLoaderDone);
+      setTimeout(triggerSiteReveal, MAX_VISIBLE_MS);
+    }
+
+    /* -------------------------------------------------------------
+       9. SHOWCASE CAROUSEL (SECTION 02)
+       ------------------------------------------------------------- */
+    const coachSlides = [
+      { name: "glafit SS Commercial e-Bike", role: "Musashi 2KW Powertrain • 100+ km Range", img: "images/glafit-rider.jpg" },
+      { name: "Musashi 2KW Powertrain", role: "Tier-1 Honda Engineering • High-Torque e-Axle", img: "images/glafit-powertrain.jpg" },
+      { name: "Connected Smart Cockpit", role: "Grameenphone ALO IoT Telematics • Digital Key", img: "images/glafit-cockpit.jpg" }
+    ];
+    let currentCoachIdx = 0;
+    const coachPhoto = document.getElementById('trust-coach-photo');
+    const coachName = document.getElementById('trust-coach-name');
+    const coachRole = document.getElementById('trust-coach-role');
+    const trustDots = document.querySelectorAll('#trust-dots .carousel-dot');
+    const trustPrevBtn = document.getElementById('trust-prev-btn');
+    const trustNextBtn = document.getElementById('trust-next-btn');
+
+    function setCoachSlide(idx) {
+      currentCoachIdx = idx;
+      trustDots.forEach((dot, i) => {
+        dot.setAttribute('aria-current', i === currentCoachIdx ? 'true' : 'false');
+      });
+      const item = coachSlides[currentCoachIdx];
+      if (coachPhoto) {
+        coachPhoto.style.opacity = '0';
+        setTimeout(() => {
+          coachPhoto.src = item.img;
+          coachPhoto.style.opacity = '1';
+        }, 200);
+      }
+      if (coachName) coachName.textContent = item.name;
+      if (coachRole) coachRole.textContent = item.role;
+    }
+
+    if (trustPrevBtn) {
+      trustPrevBtn.addEventListener('click', () => {
+        const next = (currentCoachIdx - 1 + coachSlides.length) % coachSlides.length;
+        setCoachSlide(next);
+      });
+    }
+    if (trustNextBtn) {
+      trustNextBtn.addEventListener('click', () => {
+        const next = (currentCoachIdx + 1) % coachSlides.length;
+        setCoachSlide(next);
+      });
+    }
+
+    /* -------------------------------------------------------------
+       10. INVIEW REVEALS & OBSERVERS
+       ------------------------------------------------------------- */
+    const inviewObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        inviewObserver.unobserve(el);
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.inview-elem').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo)';
+      inviewObserver.observe(el);
+    });
+
+    const ghostObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          document.querySelectorAll('.ghost-word-inner').forEach((w, i) => {
+            setTimeout(() => {
+              w.style.transition = 'transform 1000ms var(--ease-out-expo), opacity 1000ms var(--ease-out-expo)';
+              w.classList.add('revealed');
+            }, i * 150);
+          });
+          ghostObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.1 });
+    const trustTitle = document.getElementById('trust-title');
+    if (trustTitle) ghostObserver.observe(trustTitle);
+
+    /* -------------------------------------------------------------
+       11. ACCORDION FAQS
+       ------------------------------------------------------------- */
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(other => other.classList.remove('active'));
+        if (!isActive) item.classList.add('active');
+      });
+    });
+
+    /* -------------------------------------------------------------
+       12. CONTACT MODAL & MENU OVERLAYS
+       ------------------------------------------------------------- */
+    const contactModal = document.getElementById('contact-modal');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalBackdrop = document.querySelector('#contact-modal .modal-backdrop');
+    const modalTypeSelect = document.getElementById('modal-type');
+
+    function openModal(type = 'rider') {
+      if (modalTypeSelect) modalTypeSelect.value = type;
+      if (contactModal) contactModal.classList.add('open');
+      lockScroll(true);
+    }
+    function closeModal() {
+      if (contactModal) contactModal.classList.remove('open');
+      lockScroll(false);
+    }
+
+    document.querySelectorAll('.open-visit-modal-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const type = btn.dataset.type || btn.dataset.target || 'rider';
+        openModal(type);
+      });
+    });
+    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+    if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+
+    const burgerBtn = document.getElementById('burger-btn');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const menuCloseBtn = document.getElementById('menu-close-btn');
+    const menuBackdrop = document.querySelector('#menu-overlay .menu-backdrop');
+
+    function openMenu() {
+      if (menuOverlay) menuOverlay.classList.add('open');
+      lockScroll(true);
+    }
+    function closeMenu() {
+      if (menuOverlay) menuOverlay.classList.remove('open');
+      lockScroll(false);
+    }
+    if (burgerBtn) burgerBtn.addEventListener('click', openMenu);
+    if (menuCloseBtn) menuCloseBtn.addEventListener('click', closeMenu);
+    if (menuBackdrop) menuBackdrop.addEventListener('click', closeMenu);
+
+    document.querySelectorAll('.menu-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        closeMenu();
+      });
+    });
+
+    // Form tab navigation in Contact section
+    document.querySelectorAll('.form-tab-btn').forEach(tabBtn => {
+      tabBtn.addEventListener('click', () => {
+        document.querySelectorAll('.form-tab-btn').forEach(b => b.classList.remove('active'));
+        tabBtn.classList.add('active');
+      });
+    });
+
+    // Handle form submissions
+    document.getElementById('modal-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you! Your glafit Bangladesh application has been received. Our team will contact you shortly.');
+      closeModal();
+    });
+    document.getElementById('contact-page-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you! Your partnership request has been submitted to glafit Bangladesh.');
+    });
+
+    // Smooth anchor navigation with Lenis
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const targetId = a.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          const targetEl = document.querySelector(targetId);
+          if (targetEl) {
+            e.preventDefault();
+            lenis.scrollTo(targetEl, { offset: -20, duration: 1.2 });
+          }
+        }
+      });
+    });
+
+  </script>
+</body>
+</html>

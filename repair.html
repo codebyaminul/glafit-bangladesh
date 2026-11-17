@@ -1,0 +1,2044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repair &amp; Service Guide | glafit Bangladesh</title>
+  <meta name="description" content="Official self-service repair guide, smart diagnostics, interactive component schematic, and factory specifications for glafit commercial electric bikes in Dhaka, Bangladesh.">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* CSS Variables matching main landing page */
+    :root {
+      --bg-black: #050505;
+      --surface-dark: #0c0c0e;
+      --surface-card: #141416;
+      --surface-card-hover: #1b1b1f;
+      --border-subtle: rgba(255, 255, 255, 0.10);
+      --border-bright: rgba(255, 255, 255, 0.25);
+      --white-100: #ffffff;
+      --white-85: rgba(255, 255, 255, 0.85);
+      --white-60: rgba(255, 255, 255, 0.60);
+      --white-30: rgba(255, 255, 255, 0.30);
+      --white-10: rgba(255, 255, 255, 0.10);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-pill: 9999px;
+      --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-black);
+      color: var(--white-100);
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Layout Container */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .container {
+        padding: 0 2.5rem;
+      }
+    }
+
+    /* Buttons */
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      transition: all 0.2s var(--ease-smooth);
+      cursor: pointer;
+      white-space: nowrap;
+      border: 1px solid transparent;
+    }
+    .btn-pill:hover {
+      transform: scale(1.02);
+    }
+    .btn-pill:active {
+      transform: scale(0.98);
+    }
+    .btn-pill.primary-white {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+    }
+    .btn-pill.primary-white:hover {
+      background: #e4e4e7;
+    }
+    .btn-pill.outline-white {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border-color: var(--border-bright);
+      backdrop-filter: blur(10px);
+    }
+    .btn-pill.outline-white:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: #ffffff;
+    }
+
+    /* Site Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5, 5, 5, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1rem 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .site-header {
+        padding: 1.25rem 2.5rem;
+      }
+    }
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .back-home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--white-85);
+      transition: color 0.2s ease;
+    }
+    .back-home-link:hover {
+      color: #ffffff;
+    }
+    .header-logo {
+      height: 2.2rem;
+      width: auto;
+      object-fit: contain;
+    }
+    .header-nav {
+      display: none;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    @media (min-width: 1024px) {
+      .header-nav {
+        display: flex;
+      }
+    }
+    .header-nav a {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--white-60);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: color 0.15s ease;
+    }
+    .header-nav a:hover,
+    .header-nav a.active {
+      color: #ffffff;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .helpline-btn {
+      display: none;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.10);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      transition: all 0.2s ease;
+    }
+    @media (min-width: 640px) {
+      .helpline-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+    .helpline-btn:hover {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    /* Section Cards & Eyebrow */
+    .section-card {
+      margin: 1.5rem 0.75rem;
+      border-radius: var(--radius-lg);
+      padding: 3.5rem 1.5rem;
+      position: relative;
+      background: var(--surface-dark);
+      border: 1px solid var(--border-subtle);
+    }
+    @media (min-width: 640px) {
+      .section-card {
+        margin: 2rem 1.25rem;
+        padding: 5rem 3rem;
+      }
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--white-60);
+      margin-bottom: 1rem;
+    }
+    .eyebrow-dot {
+      width: 0.375rem;
+      height: 0.375rem;
+      border-radius: 50%;
+      background: #ffffff;
+    }
+    .section-heading {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+    .section-lead {
+      font-size: clamp(1rem, 1.35vw, 1.2rem);
+      color: var(--white-85);
+      max-width: 44rem;
+      line-height: 1.5;
+      margin-bottom: 2.5rem;
+    }
+
+    /* HERO SECTION */
+    .repair-hero {
+      padding-top: 3rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .hero-meta-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 2.5rem;
+      max-width: 52rem;
+    }
+    @media (min-width: 768px) {
+      .hero-meta-stats {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .stat-pill-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .stat-num {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .stat-lbl {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--white-60);
+    }
+
+    /* Search & Filter Bar */
+    .search-box-wrap {
+      margin-top: 2rem;
+      max-width: 42rem;
+      position: relative;
+    }
+    .repair-search-input {
+      width: 100%;
+      background: var(--surface-card);
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius-pill);
+      padding: 1rem 1.5rem 1rem 3.25rem;
+      color: #ffffff;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .repair-search-input:focus {
+      border-color: #ffffff;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    }
+    .search-icon-svg {
+      position: absolute;
+      left: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--white-60);
+    }
+
+    /* SECTION 01: SMART TROUBLESHOOTER (DECISION TREE) */
+    .diagnostics-panel {
+      background: #09090b;
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-top: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 768px) {
+      .diagnostics-panel {
+        padding: 3rem;
+      }
+    }
+    .diag-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.10);
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-pill);
+      margin-bottom: 1.5rem;
+    }
+    .diag-question-text {
+      font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2rem;
+      line-height: 1.25;
+    }
+    .diag-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .diag-btn {
+      min-width: 8.5rem;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .diag-btn.yes {
+      background: #ffffff;
+      color: #000000;
+      border: 1px solid #ffffff;
+    }
+    .diag-btn.yes:hover {
+      background: #e4e4e7;
+      transform: scale(1.02);
+    }
+    .diag-btn.no {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid var(--border-bright);
+    }
+    .diag-btn.no:hover {
+      border-color: #ffffff;
+      background: rgba(255, 255, 255, 0.10);
+      transform: scale(1.02);
+    }
+    .diag-history-bar {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.8125rem;
+      color: var(--white-60);
+    }
+    .diag-breadcrumbs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .diag-crumb {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+    }
+    .diag-restart-btn {
+      background: none;
+      border: none;
+      color: var(--white-85);
+      cursor: pointer;
+      text-decoration: underline;
+      font-size: 0.8125rem;
+      font-family: inherit;
+    }
+    .diag-restart-btn:hover {
+      color: #ffffff;
+    }
+
+    /* Diagnosis Result Card */
+    .diag-result-card {
+      background: #121215;
+      border: 1px solid #ffffff;
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .diag-result-badge {
+      align-self: flex-start;
+      background: #ffffff;
+      color: #000000;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-pill);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .diag-result-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .diag-result-desc {
+      font-size: 0.95rem;
+      color: var(--white-85);
+      line-height: 1.5;
+    }
+
+    /* SECTION 02: BIKE HOTSPOT SCHEMATIC */
+    .bike-stage-wrap {
+      background: #09090b;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem;
+      margin-top: 2rem;
+      position: relative;
+    }
+    @media (min-width: 768px) {
+      .bike-stage-wrap {
+        padding: 3rem 2.5rem;
+      }
+    }
+    .view-toggle-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .view-toggle-btn {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--white-85);
+      padding: 0.6rem 1.4rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .view-toggle-btn.active {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+    }
+    .schematic-canvas {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 380px;
+    }
+    .schematic-img {
+      width: 100%;
+      height: auto;
+      max-height: 480px;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 30px rgba(0,0,0,0.8));
+      transition: opacity 0.3s ease;
+    }
+
+    /* Hotspot Pins */
+    .hotspot-pin {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      border: 2px solid #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transform: translate(-50%, -50%);
+      transition: transform 0.2s ease, background 0.2s ease;
+      z-index: 10;
+    }
+    .hotspot-pin::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    }
+    .hotspot-pin-core {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ffffff;
+    }
+    .hotspot-pin:hover,
+    .hotspot-pin.active {
+      transform: translate(-50%, -50%) scale(1.2);
+      background: #ffffff;
+    }
+    .hotspot-pin:hover .hotspot-pin-core,
+    .hotspot-pin.active .hotspot-pin-core {
+      background: #000000;
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.7); opacity: 0.8; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+
+    /* Hotspot Component Inspector Drawer/Card */
+    .component-detail-drawer {
+      margin-top: 2rem;
+      background: var(--surface-card);
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .component-detail-drawer.show {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SECTION 03: THE 6 GUIDES */
+    .guides-filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .filter-chip {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--white-85);
+      padding: 0.5rem 1.15rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .filter-chip.active {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+    }
+    .guides-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+    @media (min-width: 900px) {
+      .guides-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .guide-accordion-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .guide-accordion-card:hover {
+      border-color: var(--border-bright);
+    }
+    .guide-card-header {
+      padding: 1.75rem;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      user-select: none;
+    }
+    .guide-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .guide-tag {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.10);
+      color: #ffffff;
+    }
+    .guide-difficulty {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--white-60);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .guide-card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+    }
+    .guide-card-lead {
+      font-size: 0.875rem;
+      color: var(--white-85);
+      line-height: 1.45;
+    }
+    .guide-card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.75rem;
+      color: var(--white-60);
+    }
+    .guide-toggle-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      transition: transform 0.3s ease;
+    }
+    .guide-accordion-card.open .guide-toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    /* Expandable Body */
+    .guide-card-body {
+      padding: 0 1.75rem 2rem;
+      border-top: 1px solid var(--border-subtle);
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+    .guide-accordion-card.open .guide-card-body {
+      display: block;
+    }
+    .guide-section-block {
+      margin-top: 1.5rem;
+    }
+    .guide-block-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--white-60);
+      margin-bottom: 0.65rem;
+    }
+    .guide-pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .guide-item-pill {
+      background: #09090b;
+      border: 1px solid var(--border-subtle);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      color: var(--white-85);
+    }
+    .safety-alert-box {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 3px solid #ffffff;
+      padding: 0.85rem 1rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-top: 1.25rem;
+      font-size: 0.8125rem;
+      color: #ffffff;
+      line-height: 1.45;
+    }
+    .steps-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+    .step-item {
+      display: flex;
+      gap: 1rem;
+      background: #09090b;
+      border: 1px solid var(--border-subtle);
+      padding: 1.15rem;
+      border-radius: var(--radius-md);
+    }
+    .step-badge {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #000000;
+      font-weight: 700;
+      font-size: 0.8125rem;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .step-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .step-title {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .step-desc {
+      font-size: 0.8125rem;
+      color: var(--white-85);
+      line-height: 1.45;
+    }
+
+    /* SECTION 04: FACTORY SPECIFICATION SHEET */
+    .specs-table-container {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 900px) {
+      .specs-table-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .spec-group-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+    }
+    .spec-group-title {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ffffff;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-bright);
+      margin-bottom: 1rem;
+    }
+    .spec-rows-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .spec-table-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.8125rem;
+      gap: 1rem;
+    }
+    .spec-table-row:last-child {
+      border-bottom: none;
+    }
+    .spec-col-label {
+      color: var(--white-60);
+      font-weight: 500;
+      flex: 1;
+    }
+    .spec-col-val {
+      color: #ffffff;
+      font-weight: 600;
+      text-align: right;
+      flex: 1.2;
+    }
+
+    /* SECTION 05: SUPPORT & HELPLINE */
+    .support-card {
+      background: #09090b;
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .support-card {
+        padding: 3.5rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    .support-copy {
+      max-width: 38rem;
+    }
+    .support-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 3rem 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+      font-size: 0.8125rem;
+      color: var(--white-60);
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <a href="index.html" class="back-home-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span>Main Site</span>
+        </a>
+        <a href="index.html">
+          <img src="logo.png" alt="glafit Bangladesh" class="header-logo">
+        </a>
+      </div>
+
+      <nav class="header-nav">
+        <a href="#diagnostics">Diagnostics</a>
+        <a href="#hotspots">Bike Schematic</a>
+        <a href="#guides">Guides</a>
+        <a href="#specs">Factory Specs</a>
+        <a href="#support">Service Hub</a>
+      </nav>
+
+      <div class="header-right">
+        <a href="tel:+8801805034829" class="helpline-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>+880 1805 034829</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="section-card repair-hero">
+      <div class="container">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>Official Self-Help Repair &amp; Maintenance Portal</span>
+        </div>
+        <h1 class="section-heading">
+          Repair Smarter.<br>Ride Longer.
+        </h1>
+        <p class="section-lead">
+          Factory-authorized diagnostics, step-by-step resolution guides, interactive component schematics, and official specifications for the glafit commercial electric fleet across Dhaka.
+        </p>
+
+        <!-- Search input -->
+        <div class="search-box-wrap">
+          <svg class="search-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="guideSearchInput" class="repair-search-input" placeholder="Search symptom or component (e.g. battery, brake, display, flat tire, chain)...">
+        </div>
+
+        <!-- Meta stat pills -->
+        <div class="hero-meta-stats">
+          <div class="stat-pill-card">
+            <span class="stat-num">06</span>
+            <span class="stat-lbl">Factory Guides</span>
+          </div>
+          <div class="stat-pill-card">
+            <span class="stat-num">11</span>
+            <span class="stat-lbl">Monitored Systems</span>
+          </div>
+          <div class="stat-pill-card">
+            <span class="stat-num">Smart</span>
+            <span class="stat-lbl">AI Diagnostic Tree</span>
+          </div>
+          <div class="stat-pill-card">
+            <span class="stat-num">JIS / UN</span>
+            <span class="stat-lbl">Automotive Safety</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 01: SMART TROUBLESHOOTER (DECISION TREE) -->
+    <section class="section-card" id="diagnostics">
+      <div class="container">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>01 / Smart Diagnostics</span>
+        </div>
+        <h2 class="section-heading">Interactive Problem Solver</h2>
+        <p class="section-lead">Answer simple diagnostic questions to isolate electrical, sensor, and battery faults in real time.</p>
+
+        <div class="diagnostics-panel" id="diagPanel">
+          <div class="diag-kicker">
+            <span>● Diagnostic Step</span>
+          </div>
+          
+          <div id="diagActiveQuestion">
+            <h3 class="diag-question-text" id="diagPromptText">Does the digital display cluster turn on?</h3>
+            <div class="diag-btn-group">
+              <button type="button" class="diag-btn yes" id="btnDiagYes">Yes</button>
+              <button type="button" class="diag-btn no" id="btnDiagNo">No</button>
+            </div>
+          </div>
+
+          <!-- Result Box (Hidden by default) -->
+          <div id="diagResultBox" class="diag-result-card" style="display:none;">
+            <span class="diag-result-badge" id="diagResultBadge">Diagnosis Result</span>
+            <h4 class="diag-result-title" id="diagResultTitle">Brake Cut-Off Sensor Active</h4>
+            <p class="diag-result-desc" id="diagResultDesc">A brake cut-off sensor is likely stuck or misaligned, preventing motor assistance.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:0.75rem; margin-top:0.5rem;">
+              <a href="#guides" class="btn-pill primary-white" id="diagResultGuideLink">Open Repair Guide</a>
+              <button type="button" class="btn-pill outline-white" id="btnDiagRestart">Test Another Issue</button>
+            </div>
+          </div>
+
+          <div class="diag-history-bar">
+            <div class="diag-breadcrumbs" id="diagTrail">
+              <span class="diag-crumb">Start: Display Check</span>
+            </div>
+            <button type="button" class="diag-restart-btn" id="btnDiagResetLink">Reset Troubleshooter</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 02: INTERACTIVE BIKE HOTSPOT SCHEMATIC -->
+    <section class="section-card" id="hotspots">
+      <div class="container">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>02 / Component Inspector</span>
+        </div>
+        <h2 class="section-heading">Interactive Bike Schematic</h2>
+        <p class="section-lead">Select components on the glafit commercial electric chassis to view technical specifications, maintenance intervals, and recommended procedures.</p>
+
+        <div class="bike-stage-wrap">
+          <div class="view-toggle-bar">
+            <button type="button" class="view-toggle-btn active" id="btnViewLeft">Left View</button>
+            <button type="button" class="view-toggle-btn" id="btnViewRight">Right View</button>
+          </div>
+
+          <div class="schematic-canvas" id="schematicCanvas">
+            <img src="images/bike-left.png" alt="glafit SS Electric Bike Schematic" class="schematic-img" id="schematicImg">
+
+            <!-- Dynamic Hotspots positioned accurately on the bike -->
+            <div class="hotspot-pin" style="left: 17%; top: 38%;" data-comp="headlight" title="Headlight & DRL">
+              <div class="hotspot-pin-core"></div>
+            </div>
+            <div class="hotspot-pin" style="left: 36%; top: 22%;" data-comp="cluster" title="Digital LED Display">
+              <div class="hotspot-pin-core"></div>
+            </div>
+            <div class="hotspot-pin" style="left: 48%; top: 46%;" data-comp="battery" title="2kWH LFP Swappable Battery">
+              <div class="hotspot-pin-core"></div>
+            </div>
+            <div class="hotspot-pin" style="left: 78%; top: 68%;" data-comp="motor" title="Musashi 2KW E-Axial Motor">
+              <div class="hotspot-pin-core"></div>
+            </div>
+            <div class="hotspot-pin" style="left: 20%; top: 68%;" data-comp="frontbrake" title="220mm Front Ventilated Disc">
+              <div class="hotspot-pin-core"></div>
+            </div>
+            <div class="hotspot-pin" style="left: 56%; top: 74%;" data-comp="sidestand" title="Side Stand Safety Sensor">
+              <div class="hotspot-pin-core"></div>
+            </div>
+            <div class="hotspot-pin" style="left: 70%; top: 58%;" data-comp="drivetrain" title="Drive Chain & Suspension">
+              <div class="hotspot-pin-core"></div>
+            </div>
+          </div>
+
+          <!-- Component Details Card -->
+          <div class="component-detail-drawer" id="compDrawer">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+              <div>
+                <span class="guide-tag" id="compSubsystem">Energy Subsystem</span>
+                <h3 class="guide-card-title" id="compName" style="margin-top:0.5rem;">51.2V 40AH LFP Swappable Battery Pack</h3>
+              </div>
+              <button type="button" id="compCloseBtn" style="background:none; border:none; color:#ffffff; font-size:1.25rem; cursor:pointer;">✕</button>
+            </div>
+            <p class="guide-card-lead" id="compDesc" style="margin-bottom:1rem;">
+              Lithium Iron Phosphate cells engineered for tropical thermal resilience. Equipped with automotive-grade smart BMS, IP67 waterproof quick-disconnect seals, and 60-second hot swapping.
+            </p>
+            <div class="guide-pill-list" id="compSpecsList">
+              <span class="guide-item-pill">Rating: 51.2V / 40AH / 2kWH</span>
+              <span class="guide-item-pill">Fast Charge: 2HR (15A)</span>
+              <span class="guide-item-pill">Safety: Active Thermal BMS</span>
+            </div>
+            <div style="margin-top:1.25rem;">
+              <a href="#guides" class="btn-pill primary-white" id="compGuideLink">View Relevant Guide</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 03: THE 6 STEP-BY-STEP REPAIR GUIDES -->
+    <section class="section-card" id="guides">
+      <div class="container">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>03 / Repair Procedures</span>
+        </div>
+        <h2 class="section-heading">Official Self-Help Library</h2>
+        <p class="section-lead">Six structured, factory-verified resolution guides covering power delivery, braking safety, display telemetry, roadside tire recovery, and drivetrain care.</p>
+
+        <!-- Filter Chips -->
+        <div class="guides-filter-row">
+          <button type="button" class="filter-chip active" data-filter="all">All Procedures (6)</button>
+          <button type="button" class="filter-chip" data-filter="battery">Battery &amp; Power</button>
+          <button type="button" class="filter-chip" data-filter="brakes">Brakes &amp; Sensors</button>
+          <button type="button" class="filter-chip" data-filter="display">Display &amp; Cluster</button>
+          <button type="button" class="filter-chip" data-filter="wheels">Wheels &amp; Tires</button>
+          <button type="button" class="filter-chip" data-filter="lighting">Lighting</button>
+          <button type="button" class="filter-chip" data-filter="maintenance">Maintenance</button>
+        </div>
+
+        <div class="guides-grid" id="guidesList">
+
+          <!-- GUIDE 01: BIKE WON'T POWER ON -->
+          <article class="guide-accordion-card open" data-category="battery" id="guide-bike-wont-power-on">
+            <div class="guide-card-header">
+              <div class="guide-badge-row">
+                <span class="guide-tag">Battery &amp; Power</span>
+                <span class="guide-difficulty">⏱ 10 Mins · Easy</span>
+              </div>
+              <h3 class="guide-card-title">01. Bike Won’t Power On</h3>
+              <p class="guide-card-lead">Diagnose a glafit that remains completely inactive when pressing the handlebar power button.</p>
+              <div class="guide-card-meta">
+                <span>5 Resolution Steps · LFP System</span>
+                <svg class="guide-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              </div>
+            </div>
+            <div class="guide-card-body">
+              <div class="guide-section-block">
+                <div class="guide-block-label">Typical Symptoms</div>
+                <div class="guide-pill-list">
+                  <span class="guide-item-pill">Display remains completely dark</span>
+                  <span class="guide-item-pill">Zero throttle or motor response</span>
+                  <span class="guide-item-pill">No LED indicator activation</span>
+                </div>
+              </div>
+              <div class="guide-section-block">
+                <div class="guide-block-label">Tools You'll Need</div>
+                <div class="guide-pill-list">
+                  <span class="guide-item-pill">Clean dry lint-free cloth</span>
+                  <span class="guide-item-pill">Original glafit 230V charger</span>
+                  <span class="guide-item-pill">Multimeter (optional)</span>
+                </div>
+              </div>
+              <div class="safety-alert-box">
+                <strong>Safety First:</strong> Turn the bike key off before removing the battery pack. Never short the battery connector pins. Stop immediately if you observe swelling or heat.
+              </div>
+              <div class="guide-section-block">
+                <div class="guide-block-label">Step-by-Step Resolution</div>
+                <div class="steps-timeline">
+                  <div class="step-item">
+                    <span class="step-badge">1</span>
+                    <div class="step-content">
+                      <div class="step-title">Confirm the battery charge</div>
+                      <div class="step-desc">Connect the original 230V charger and verify the charger LED turns solid red. Allow at least 15 minutes of charging if the battery has entered sleep mode due to deep discharge.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-badge">2</span>
+                    <div class="step-content">
+                      <div class="step-title">Reseat the battery pack</div>
+                      <div class="step-desc">Unlock the battery compartment latch, pull the battery out smoothly, inspect the bottom copper terminals for road debris, and firmly slide it back into position until it clicks audibly into the locking latch.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-badge">3</span>
+                    <div class="step-content">
+                      <div class="step-title">Release safety interlocks</div>
+                      <div class="step-desc">The motor controller prevents boot-up if the kickstand is extended. Fully raise the side stand, squeeze and vigorously release both brake levers to free any stuck sensor.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-badge">4</span>
+                    <div class="step-content">
+                      <div class="step-title">Inspect main harness quick-connect</div>
+                      <div class="step-desc">Trace the heavy-gauge waterproof power lead below the head tube. Ensure the threaded coupling ring is screwed tight and the arrow alignment markings match.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-badge">5</span>
+                    <div class="step-content">
+                      <div class="step-title">Power on correctly</div>
+                      <div class="step-desc">Turn the mechanical key to ON position, then press and hold the power button on the handlebar display cluster firmly for 2 full seconds until the glafit logo boots.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="guide-section-block">
+                <div class="guide-block-label">Verification Checklist</div>
+                <div class="guide-pill-list">
+                  <span class="guide-item-pill">Digital LED cluster lights up clearly</span>
+                  <span class="guide-item-pill">Battery percentage reads accurately</span>
+                  <span class="guide-item-pill">Throttle initiates smooth motor rotation</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- GUIDE 02: BRAKE LIGHT STAYS ON -->
+          <article class="guide-accordion-card" data-category="brakes" id="guide-brake-light-stays-on">
+            <div class="guide-card-header">
+              <div class="guide-badge-row">
+                <span class="guide-tag">Brakes &amp; Sensors</span>
+                <span class="guide-difficulty">⏱ 15 Mins · Easy</span>
+              </div>
+              <h3 class="guide-card-title">02. Brake Light Stays On</h3>
+              <p class="guide-card-lead">Release a stuck mechanical lever or magnetic cut-off sensor that inhibits electric motor acceleration.</p>
+              <div class="guide-card-meta">
+                <span>4 Resolution Steps · Safety System</span>
+                <svg class="guide-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              </div>
+            </div>
+            <div class="guide-card-body">
+              <div class="guide-section-block">
+                <div class="guide-block-label">Typical Symptoms</div>
+                <div class="guide-pill-list">
+                  <span class="guide-item-pill">Rear 12V red brake lamp stays constantly illuminated</span>
+                  <span class="guide-item-pill">Motor cuts out or refuses to provide drive assist</span>
+                  <span class="guide-item-pill">Cluster shows brake symbol</span>
+                </div>
+              </div>
+              <div class="guide-section-block">
+                <div class="guide-block-label">Tools You'll Need</div>
+                <div class="guide-pill-list">
+                  <span class="guide-item-pill">Clean microfiber cloth</span>
+                  <span class="guide-item-pill">Degreaser or contact cleaner spray</span>
+                  <span class="guide-item-pill">4mm hex key</span>
+                </div>
+              </div>
+              <div class="safety-alert-box">
+                <strong>Safety First:</strong> Never ride in traffic if the motor cut-off remains stuck. Ensure the bike cannot roll unexpectedly before testing.
+              </div>
+              <div class="guide-section-block">
+                <div class="guide-block-label">Step-by-Step Resolution</div>
+                <div class="steps-timeline">
+                  <div class="step-item">
+                    <span class="step-badge">1</span>
+                    <div class="step-content">
+                      <div class="step-title">Check both brake levers</div>
+                      <div class="step-desc">Examine both left (rear drum) and right (front hydraulic disc) levers. Gently push each lever forward away from the handlebar grip. If the brake light turns off, the mechanical return spring has accumulated friction.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-badge">2</span>
+                    <div class="step-content">
+                      <div class="step-title">Clean the pivot joint</div>
+                      <div class="step-desc">Dhaka road grime and fine sand frequently accumulate in the pivot bushing. Spray contact cleaner around the lever pivot pin and wipe away accumulated grit with a cloth.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-badge">3</span>
+                    <div class="step-content">
+                      <div class="step-title">Check sensor alignment</div>
+                      <div class="step-desc">Inspect the small cylindrical reed switch housed below the lever perch. Ensure the sensor magnet has not shifted. The gap should not exceed 1.5mm when the lever is fully released.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-badge">4</span>
+                    <div class="step-content">
+                      <div class="step-title">Restart and test motor response</div>
+                      <div class="step-desc">Cycle power key to OFF and back to ON. With the bike on center stand, gently twist throttle. Motor assist should activate immediately when brakes are untouched.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="guide-section-block">
+                <div class="guide-block-label">Verification Checklist</div>
+                <div class="guide-pill-list">
+                  <span class="guide-item-pill">Tail lamp illuminates ONLY when lever is squeezed</span>
+                  <span class="guide-item-pill">Motor cuts off instantly when brake is pulled</span>
+                  <span class="guide-item-pill">Brake warning icon disappears from cluster</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- GUIDE 03: DISPLAY BLANK OR FLICKERING -->
+          <article class="guide-accordion-card" data-category="display" id="guide-display-blank-or-flickering">
+            <div class="guide-card-header">
+              <div class="guide-badge-row">
+                <span class="guide-tag">Display &amp; Cluster</span>
+                <span class="guide-difficulty">⏱ 20 Mins · Moderate</span>
+              </div>
+              <h3 class="guide-card-title">03. Display Blank or Flickering</h3>
+              <p class="guide-card-lead">Diagnose digital LED cluster screen issues, waterproof harness pins, and moisture infiltration.</p>
+              <div class="guide-card-meta">
+                <span>4 Resolution Steps · Electrical System</span>
+                <svg class="guide-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              </div>
+            </div>
+            <div class="guide-card-body">
+              <div class="guide-section-block">
+                <div class="guide-block-label">Typical Symptoms</div>
+                <div class="guide-pill-list">
+                  <span class="guide-item-pill">Screen goes blank during rides</span>
+                  <span class="guide-item-pill">LED segments flicker over potholes</span>
+                  <span class="guide-item-pill">Speedometer reads 0 km/h while moving</span>
+                </div>
+              </div>
+              <div class="guide-section-block">
+                <div class="guide-block-label">Tools You'll Need</div>
+                <div class="guide-pill-list">
+                  <span class="guide-item-pill">Dry microfiber towel</span>
+                  <span class="guide-item-pill">Dielectric silicone grease</span>
+                  <span class="guide-item-pill">Flashlight</span>
+                </div>
+              </div>
+              <div class="safety-alert-box">
+                <strong>Safety First:</strong> Never use sharp metal picks inside multi-pin quick-disconnect connectors. Turn off the master key before unplugging.
+              </div>
+              <div class="guide-section-block">
+                <div class="guide-block-label">Step-by-Step Resolution</div>
+                <div class="steps-timeline">
+                  <div class="step-item">
+                    <span class="step-badge">1</span>
+                    <div class="step-content">
+                      <div class="step-title">Rule out low battery voltage</div>
+                      <div class="step-desc">If the 51.2V LFP battery drops below 44V, the internal DC-DC converter may drop the 12V cluster voltage. Verify battery charge at a charging station before opening wiring.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-badge">2</span>
+                    <div class="step-content">
+                      <div class="step-title">Dry display housing after heavy rain</div>
+                      <div class="step-desc">Monsoon water droplets can collect along the lower bezel. Gently dry around the rubber seal with a microfiber towel. Do not aim high-pressure water jets at the cluster.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-badge">3</span>
+                    <div class="step-content">
+                      <div class="step-title">Inspect 5-pin waterproof connector</div>
+                      <div class="step-desc">Locate the green/black circular waterproof plug approximately 10cm below the handlebar clamp. Unscrew the locking collar, separate the plug, verify pins are straight, and firmly reconnect aligning the interior guide groove.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-badge">4</span>
+                    <div class="step-content">
+                      <div class="step-title">Perform handlebar rotation test</div>
+                      <div class="step-desc">Turn the handlebars slowly from lock-to-lock (fully left, then fully right). If the screen flickers during rotation, check if the wiring loom is pinched near the steering head lock.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="guide-section-block">
+                <div class="guide-block-label">Verification Checklist</div>
+                <div class="guide-pill-list">
+                  <span class="guide-item-pill">Screen stays steadily lit through full handlebar swing</span>
+                  <span class="guide-item-pill">Speedometer responds accurately on test roll</span>
+                  <span class="guide-item-pill">Waterproof connector collar is securely hand-tightened</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- GUIDE 04: FIX A ROADSIDE FLAT TIRE -->
+          <article class="guide-accordion-card" data-category="wheels" id="guide-roadside-flat-tire">
+            <div class="guide-card-header">
+              <div class="guide-badge-row">
+                <span class="guide-tag">Wheels &amp; Tires</span>
+                <span class="guide-difficulty">⏱ 30 Mins · Moderate</span>
+              </div>
+              <h3 class="guide-card-title">04. Fix a Roadside Flat Tire</h3>
+              <p class="guide-card-lead">Safe roadside puncture resolution for 14" Tubeless 90/90 R14 commercial tires on Dhaka roadways.</p>
+              <div class="guide-card-meta">
+                <span>4 Resolution Steps · Chassis System</span>
+                <svg class="guide-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              </div>
+            </div>
+            <div class="guide-card-body">
+              <div class="guide-section-block">
+                <div class="guide-block-label">Typical Symptoms</div>
+                <div class="guide-pill-list">
+                  <span class="guide-item-pill">Loss of tire pressure or soft sidewall</span>
+                  <span class="guide-item-pill">Heavy sluggish steering feel</span>
+                  <span class="guide-item-pill">Audible hissing near tire tread</span>
+                </div>
+              </div>
+              <div class="guide-section-block">
+                <div class="guide-block-label">Tools You'll Need</div>
+                <div class="guide-pill-list">
+                  <span class="guide-item-pill">Tubeless tire repair kit &amp; plug strip</span>
+                  <span class="guide-item-pill">T-handle spiral reamer &amp; insertion tool</span>
+                  <span class="guide-item-pill">Portable 12V or hand pump with gauge</span>
+                </div>
+              </div>
+              <div class="safety-alert-box">
+                <strong>Safety First:</strong> Immediately pull off high-speed roadways. Place the bike on its dual heavy-duty center stand on a flat, level surface away from bus lanes.
+              </div>
+              <div class="guide-section-block">
+                <div class="guide-block-label">Step-by-Step Resolution</div>
+                <div class="steps-timeline">
+                  <div class="step-item">
+                    <span class="step-badge">1</span>
+                    <div class="step-content">
+                      <div class="step-title">Move bike to a safe recovery spot</div>
+                      <div class="step-desc">Shift to a shaded, stable sidewalk or service station. Deploy the center stand so the affected 14" tire is off the ground and can rotate freely.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-badge">2</span>
+                    <div class="step-content">
+                      <div class="step-title">Locate foreign puncture object</div>
+                      <div class="step-desc">Rotate the tire slowly. Inspect the thick rubber tread for embedded nails, wire, or shards. Use pliers to extract the object while noting the entry angle.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-badge">3</span>
+                    <div class="step-content">
+                      <div class="step-title">Insert vulcanized tire plug</div>
+                      <div class="step-desc">Insert the spiral reamer into the puncture hole to clear steel belt fibers. Thread a rubber vulcanizing strip into the eyelet needle, apply rubber cement, push firmly into the tire until 1/3 remains, and pull tool straight out. Trim excess rubber flush.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-badge">4</span>
+                    <div class="step-content">
+                      <div class="step-title">Inflate and verify bead seal</div>
+                      <div class="step-desc">Connect pump to the Schrader valve. Inflate to 32 PSI (front) or 35 PSI (rear with cargo). Apply soapy water to verify zero air bubbles emerge from the plug.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="guide-section-block">
+                <div class="guide-block-label">Verification Checklist</div>
+                <div class="guide-pill-list">
+                  <span class="guide-item-pill">Tire pressure holds steady at 32-35 PSI</span>
+                  <span class="guide-item-pill">No bubbling or air leakage around repair strip</span>
+                  <span class="guide-item-pill">Smooth rolling with zero rim vibration</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- GUIDE 05: HEADLIGHT DOES NOT TURN ON -->
+          <article class="guide-accordion-card" data-category="lighting" id="guide-headlight-does-not-turn-on">
+            <div class="guide-card-header">
+              <div class="guide-badge-row">
+                <span class="guide-tag">Lighting &amp; 12V</span>
+                <span class="guide-difficulty">⏱ 10 Mins · Easy</span>
+              </div>
+              <h3 class="guide-card-title">05. Headlight Does Not Turn On</h3>
+              <p class="guide-card-lead">Restore 12V LED projector and integrated daytime running light (DRL) illumination.</p>
+              <div class="guide-card-meta">
+                <span>3 Resolution Steps · Electrical System</span>
+                <svg class="guide-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              </div>
+            </div>
+            <div class="guide-card-body">
+              <div class="guide-section-block">
+                <div class="guide-block-label">Typical Symptoms</div>
+                <div class="guide-pill-list">
+                  <span class="guide-item-pill">LED projector headlight dark in night riding</span>
+                  <span class="guide-item-pill">DRL ring does not illuminate</span>
+                  <span class="guide-item-pill">Indicators or horn may still function</span>
+                </div>
+              </div>
+              <div class="guide-section-block">
+                <div class="guide-block-label">Tools You'll Need</div>
+                <div class="guide-pill-list">
+                  <span class="guide-item-pill">Clean cloth</span>
+                  <span class="guide-item-pill">Flashlight</span>
+                </div>
+              </div>
+              <div class="safety-alert-box">
+                <strong>Safety First:</strong> Avoid looking directly into the projector aperture when testing high beams. Disconnect power key before reaching behind front cowl.
+              </div>
+              <div class="guide-section-block">
+                <div class="guide-block-label">Step-by-Step Resolution</div>
+                <div class="steps-timeline">
+                  <div class="step-item">
+                    <span class="step-badge">1</span>
+                    <div class="step-content">
+                      <div class="step-title">Verify switch state and ignition</div>
+                      <div class="step-desc">Confirm the ignition key is switched ON. Check the left handlebar rocker switch. Ensure it is firmly engaged into the forward position (position I for DRL, position II for high-intensity projector).</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-badge">2</span>
+                    <div class="step-content">
+                      <div class="step-title">Check 2-pin waterproof headlight lead</div>
+                      <div class="step-desc">Reach directly behind the metal headlight mounting bracket. Trace the black shielded wire to the round waterproof connector. Push both halves firmly together and tighten the threaded lock ring.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-badge">3</span>
+                    <div class="step-content">
+                      <div class="step-title">Restart auxiliary DC-DC circuit</div>
+                      <div class="step-desc">Turn the master key to OFF, wait 5 seconds for the internal DC-DC converter capacitors to reset, then switch back to ON. Test the high/low beam selector switch.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="guide-section-block">
+                <div class="guide-block-label">Verification Checklist</div>
+                <div class="guide-pill-list">
+                  <span class="guide-item-pill">Bright, focused white LED beam illuminates ahead</span>
+                  <span class="guide-item-pill">High-beam blue indicator shows on digital display</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- GUIDE 06: CLEAN AND LUBRICATE THE CHAIN -->
+          <article class="guide-accordion-card" data-category="maintenance" id="guide-clean-lubricate-chain">
+            <div class="guide-card-header">
+              <div class="guide-badge-row">
+                <span class="guide-tag">Mechanical Care</span>
+                <span class="guide-difficulty">⏱ 20 Mins · Easy</span>
+              </div>
+              <h3 class="guide-card-title">06. Clean &amp; Lubricate the Chain</h3>
+              <p class="guide-card-lead">Quiet a dry drivetrain, prevent roller friction, and extend sprocket lifespan in urban dust.</p>
+              <div class="guide-card-meta">
+                <span>4 Resolution Steps · Drivetrain Care</span>
+                <svg class="guide-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              </div>
+            </div>
+            <div class="guide-card-body">
+              <div class="guide-section-block">
+                <div class="guide-block-label">Typical Symptoms</div>
+                <div class="guide-pill-list">
+                  <span class="guide-item-pill">Squeaking or metallic chirping while riding</span>
+                  <span class="guide-item-pill">Visible red surface rust on chain links</span>
+                  <span class="guide-item-pill">Stiff sluggish pedal resistance</span>
+                </div>
+              </div>
+              <div class="guide-section-block">
+                <div class="guide-block-label">Tools You'll Need</div>
+                <div class="guide-pill-list">
+                  <span class="guide-item-pill">Stiff nylon chain cleaning brush</span>
+                  <span class="guide-item-pill">Lint-free cotton shop rags</span>
+                  <span class="guide-item-pill">Dedicated synthetic e-bike chain lubricant</span>
+                </div>
+              </div>
+              <div class="safety-alert-box">
+                <strong>Safety First:</strong> Keep fingers strictly away from rotating chainrings and sprockets. Always rotate pedals backward by hand—never engage motor power while servicing the chain.
+              </div>
+              <div class="guide-section-block">
+                <div class="guide-block-label">Step-by-Step Resolution</div>
+                <div class="steps-timeline">
+                  <div class="step-item">
+                    <span class="step-badge">1</span>
+                    <div class="step-content">
+                      <div class="step-title">Dry-brush the chain thoroughly</div>
+                      <div class="step-desc">Deploy center stand. Rotate the pedals backward while holding the nylon brush against the chain rollers to dislodge dry sand, road mud, and dirt particles.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-badge">2</span>
+                    <div class="step-content">
+                      <div class="step-title">Apply lubricant link-by-link</div>
+                      <div class="step-desc">Shake the lubricant bottle. Place the applicator tip directly over the inner roller row. Slowly rotate the pedals backward, applying one drop to each individual roller pin.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-badge">3</span>
+                    <div class="step-content">
+                      <div class="step-title">Allow lubricant penetration</div>
+                      <div class="step-desc">Leave the bike stationary for 5 to 10 minutes so the synthetic lubricant wicks deep into the inner bushings and O-rings.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-badge">4</span>
+                    <div class="step-content">
+                      <div class="step-title">Thoroughly wipe excess surface oil</div>
+                      <div class="step-desc">Wrap a clean dry rag loosely around the chain and backpedal 10 revolutions. Removing excess oil is vital; wet surface oil attracts abrasive Dhaka road dust.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="guide-section-block">
+                <div class="guide-block-label">Verification Checklist</div>
+                <div class="guide-pill-list">
+                  <span class="guide-item-pill">Completely silent, smooth chain travel</span>
+                  <span class="guide-item-pill">No excess oil flinging onto rear wheel or brake drum</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 04: FACTORY SPECIFICATION SHEET (DIRECT FROM OFFICIAL SPEC) -->
+    <section class="section-card" id="specs">
+      <div class="container">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>04 / Factory Specifications</span>
+        </div>
+        <h2 class="section-heading">Official Technical Reference Sheet</h2>
+        <p class="section-lead">Verified factory specifications for the glafit SS commercial electric fleet in Bangladesh. Use these parameters for spare parts sourcing, maintenance checks, and electrical compliance.</p>
+
+        <div class="specs-table-container">
+          
+          <!-- GROUP 1: POWERTRAIN -->
+          <div class="spec-group-card">
+            <h3 class="spec-group-title">⚡ Powertrain</h3>
+            <div class="spec-rows-list">
+              <div class="spec-table-row">
+                <span class="spec-col-label">Motor Type</span>
+                <span class="spec-col-val">E-Axial Motor</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Nominal Power</span>
+                <span class="spec-col-val">2.0 KW</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Peak Power</span>
+                <span class="spec-col-val">4.2 KW</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Battery Type</span>
+                <span class="spec-col-val">LFP (Lithium Iron Phosphate)</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Battery Rating</span>
+                <span class="spec-col-val">51.2V / 40AH / 2kWH</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Charger Input</span>
+                <span class="spec-col-val">Input: 230V 5A / 15A (Fast)</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Charging Time</span>
+                <span class="spec-col-val">4HR (Normal) / 2HR (Fast)</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Max Speed</span>
+                <span class="spec-col-val">70 km/hr – 80 km/hr (-EX Version)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- GROUP 2: MECHANICAL -->
+          <div class="spec-group-card">
+            <h3 class="spec-group-title">⚙ Mechanical &amp; Chassis</h3>
+            <div class="spec-rows-list">
+              <div class="spec-table-row">
+                <span class="spec-col-label">Frame Chassis</span>
+                <span class="spec-col-val">Hybrid exoskeleton heavy-duty steel frame</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Front Suspension</span>
+                <span class="spec-col-val">Leading arm with coil spring &amp; hydraulic damper</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Rear Suspension</span>
+                <span class="spec-col-val">Swing arm with coil spring &amp; hydraulic damper</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Front Brake</span>
+                <span class="spec-col-val">220 mm Ventilated Disc &amp; dual piston floating caliper</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Rear Brake</span>
+                <span class="spec-col-val">130mm Drum Brake</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Front Tyre</span>
+                <span class="spec-col-val">14" Tubeless-90/90 R14 46 P</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Rear Tyre</span>
+                <span class="spec-col-val">14" Tubeless-90/90 R14 46 P</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- GROUP 3: ELECTRICAL -->
+          <div class="spec-group-card">
+            <h3 class="spec-group-title">💡 Electrical &amp; Telemetry</h3>
+            <div class="spec-rows-list">
+              <div class="spec-table-row">
+                <span class="spec-col-label">Head Lamp</span>
+                <span class="spec-col-val">12V LED Projector with Integrated DRL</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Brake / Tail Lamp</span>
+                <span class="spec-col-val">12V LED RED</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Turn Signal Indicators</span>
+                <span class="spec-col-val">12V LED Amber (Front &amp; Rear)</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Horn System</span>
+                <span class="spec-col-val">12V 2A Mono Tone</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Instrument Cluster</span>
+                <span class="spec-col-val">Digital LED Display</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- GROUP 4: DIMENSIONS & WEIGHT -->
+          <div class="spec-group-card">
+            <h3 class="spec-group-title">📐 Dimensions &amp; Capacities</h3>
+            <div class="spec-rows-list">
+              <div class="spec-table-row">
+                <span class="spec-col-label">Overall Length</span>
+                <span class="spec-col-val">2000 mm</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Overall Width</span>
+                <span class="spec-col-val">740 mm</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Overall Height</span>
+                <span class="spec-col-val">1250 mm</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Wheelbase</span>
+                <span class="spec-col-val">1360 mm</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Ground Clearance</span>
+                <span class="spec-col-val">160 mm</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Seat Height</span>
+                <span class="spec-col-val">815 mm</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Kerb Weight</span>
+                <span class="spec-col-val">106 Kg</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Max Payload</span>
+                <span class="spec-col-val">200 Kg</span>
+              </div>
+              <div class="spec-table-row">
+                <span class="spec-col-label">Seating Capacity</span>
+                <span class="spec-col-val">Two Adult</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 05: SUPPORT & HELPLINE -->
+    <section class="section-card" id="support">
+      <div class="container">
+        <div class="support-card">
+          <div class="support-copy">
+            <div class="eyebrow" style="margin-bottom:0.5rem;">
+              <span class="eyebrow-dot"></span>
+              <span>Official Service Hub &amp; Helpline</span>
+            </div>
+            <h2 class="section-heading" style="font-size:clamp(1.75rem,3vw,2.5rem); margin-bottom:0.75rem;">Still Need Professional Assistance?</h2>
+            <p style="color:var(--white-85); font-size:0.95rem; line-height:1.5;">
+              If an issue persists or requires high-voltage diagnostics, our certified technicians at the Uttara HQ workshop provide free scheduled checkups for leased delivery riders and fleet operators.
+            </p>
+            <div style="margin-top:1rem; font-size:0.8125rem; color:var(--white-60);">
+              📍 Hong Kong Center, House No. 12 (2nd Floor), Sonargaon Janapath Road, Sector No. 12, Uttara, Dhaka-1230, Bangladesh
+            </div>
+          </div>
+          <div class="support-actions">
+            <a href="tel:+8801805034829" class="btn-pill primary-white">
+              <span>Call Helpline</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+            <a href="https://wa.me/8801805034829" target="_blank" class="btn-pill outline-white">
+              <span>WhatsApp Support</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#products">Products</a>
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="index.html#stations">113 Stations</a>
+        <a href="#specs">Factory Specs</a>
+        <a href="https://glafit.com.bd/privacy-policy.html">Privacy Policy</a>
+      </div>
+      <div>&copy; 2026 glafit Bangladesh Limited. All rights reserved. Precision Japanese EV engineering.</div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    // ------------------------------------------------------------------------
+    // 1. SMART TROUBLESHOOTER DECISION TREE
+    // ------------------------------------------------------------------------
+    const tree = {
+      start: {
+        prompt: "Does the digital display cluster turn on?",
+        yes: "battery_charged",
+        no: "display_on"
+      },
+      battery_charged: {
+        prompt: "Is the battery charge level above 20% on the gauge?",
+        yes: "battery_seated",
+        no: "charge"
+      },
+      battery_seated: {
+        prompt: "Is the swappable battery fully inserted and locked in place?",
+        yes: "brake_indicator",
+        no: "reseat"
+      },
+      brake_indicator: {
+        prompt: "Does the cluster display show a brake warning symbol?",
+        yes: "brake_fix",
+        no: "service"
+      },
+      display_on: {
+        prompt: "Is the rear brake light always ON even when levers are free?",
+        yes: "brake_fix",
+        no: "stand"
+      },
+      stand: {
+        prompt: "Is the side kickstand lowered or extended?",
+        yes: "raise_stand",
+        no: "charge"
+      },
+
+      // Terminal Solution Nodes:
+      brake_fix: {
+        title: "Brake Cut-Off Sensor Active",
+        desc: "A brake lever return spring is sluggish or the magnetic cut-off sensor is misaligned, causing the motor controller to inhibit power.",
+        guideId: "guide-brake-light-stays-on",
+        guideName: "Follow Guide 02: Brake Light Stays On"
+      },
+      charge: {
+        title: "Battery Deeply Discharged or Asleep",
+        desc: "The 2kWH LFP battery requires charging or a 60-second locker swap. Connect the original 230V charger for at least 15 minutes.",
+        guideId: "guide-bike-wont-power-on",
+        guideName: "Follow Guide 01: Bike Won't Power On"
+      },
+      reseat: {
+        title: "Battery Terminals Not Fully Engaged",
+        desc: "The high-voltage copper terminals must seat completely. Pull out the pack, inspect pins, and reinstall firmly until the latch clicks.",
+        guideId: "guide-bike-wont-power-on",
+        guideName: "Follow Guide 01: Step 2 (Reseating)"
+      },
+      raise_stand: {
+        title: "Side Stand Motor Inhibitor Engaged",
+        desc: "glafit bikes feature an automatic motor safety lock while on the side stand. Retract the stand, cycle the key, and test throttle.",
+        guideId: "guide-bike-wont-power-on",
+        guideName: "Follow Guide 01: Step 3 (Interlocks)"
+      },
+      service: {
+        title: "Professional Inspection Recommended",
+        desc: "The fault appears related to internal wiring, fuse, or motor controller telemetry. Visit our Uttara service hub or call helpline.",
+        guideId: "support",
+        guideName: "Contact Uttara HQ Service Center"
+      }
+    };
+
+    let currentNode = tree.start;
+    let historyTrail = ["Display Check"];
+
+    const promptElem = document.getElementById('diagPromptText');
+    const questionBox = document.getElementById('diagActiveQuestion');
+    const resultBox = document.getElementById('diagResultBox');
+    const resultTitle = document.getElementById('diagResultTitle');
+    const resultDesc = document.getElementById('diagResultDesc');
+    const resultGuideLink = document.getElementById('diagResultGuideLink');
+    const trailElem = document.getElementById('diagTrail');
+
+    function updateDiagUI() {
+      if (currentNode.title) {
+        questionBox.style.display = 'none';
+        resultBox.style.display = 'flex';
+        resultTitle.textContent = currentNode.title;
+        resultDesc.textContent = currentNode.desc;
+        resultGuideLink.href = '#' + currentNode.guideId;
+        resultGuideLink.textContent = currentNode.guideName;
+      } else {
+        questionBox.style.display = 'block';
+        resultBox.style.display = 'none';
+        promptElem.textContent = currentNode.prompt;
+      }
+
+      trailElem.innerHTML = historyTrail.map(t => '<span class="diag-crumb">' + t + '</span>').join('');
+    }
+
+    function answer(isYes) {
+      const nextKey = isYes ? currentNode.yes : currentNode.no;
+      if (!nextKey) return;
+      historyTrail.push(isYes ? "Yes" : "No");
+      currentNode = tree[nextKey] || tree.service;
+      updateDiagUI();
+    }
+
+    function resetDiag() {
+      currentNode = tree.start;
+      historyTrail = ["Display Check"];
+      updateDiagUI();
+    }
+
+    document.getElementById('btnDiagYes').addEventListener('click', () => answer(true));
+    document.getElementById('btnDiagNo').addEventListener('click', () => answer(false));
+    document.getElementById('btnDiagRestart').addEventListener('click', resetDiag);
+    document.getElementById('btnDiagResetLink').addEventListener('click', resetDiag);
+
+    // ------------------------------------------------------------------------
+    // 2. INTERACTIVE BIKE HOTSPOTS
+    // ------------------------------------------------------------------------
+    const components = {
+      headlight: {
+        name: "12V LED Projector with Integrated DRL",
+        subsystem: "Electrical & Visibility",
+        desc: "Automotive-spec 12V high-candela LED projector with surround daytime running light ring. Low current draw with wide illumination angle for night rain visibility in Dhaka.",
+        specs: ["Rating: 12V / 15W LED", "Protection: IP65 Sealed", "Cable: 2-Pin Waterproof Coupling"],
+        guideId: "guide-headlight-does-not-turn-on"
+      },
+      cluster: {
+        name: "Digital LED Instrument Cluster",
+        subsystem: "Telemetry & Instrumentation",
+        desc: "High-contrast sunlight-readable digital speedometer, odometer, battery state-of-charge percentage, trip meter, and active error code display.",
+        specs: ["Display: Digital High-Brightness LED", "Communication: 5-Pin Waterproof Bus", "Voltage: 12V Regulated DC"],
+        guideId: "guide-display-blank-or-flickering"
+      },
+      battery: {
+        name: "51.2V 40AH LFP Swappable Battery Pack",
+        subsystem: "Powertrain & Energy Storage",
+        desc: "Automotive Lithium Iron Phosphate (LFP) module engineered for high cycle life, extreme tropical thermal stability, and 60-second hot swapping at partner lockers.",
+        specs: ["Capacity: 2.0 kWH (51.2V 40AH)", "Chemistry: LFP (Zero Thermal Runaway)", "Charge Time: 2HR Fast (15A) / 4HR Normal"],
+        guideId: "guide-bike-wont-power-on"
+      },
+      motor: {
+        name: "Musashi 2KW E-Axial Motor (4.2KW Peak)",
+        subsystem: "Powertrain & Propulsion",
+        desc: "Honda-backed Musashi e-Axle motor system delivering high launch torque, sealed against Dhaka monsoon puddles, and governed at 70–80 km/h.",
+        specs: ["Nominal: 2.0 KW", "Peak Power: 4.2 KW", "Transmission: Integrated Gearbox E-Axle"],
+        guideId: "guide-clean-lubricate-chain"
+      },
+      frontbrake: {
+        name: "220mm Ventilated Disc & Floating Caliper",
+        subsystem: "Mechanical Braking System",
+        desc: "High-dissipation ventilated stainless steel disc with dual-piston floating caliper and integrated electronic motor cut-off reed switch.",
+        specs: ["Rotor: 220mm Ventilated", "Caliper: Dual Piston Floating", "Sensor: Magnetic Motor Cut-off"],
+        guideId: "guide-brake-light-stays-on"
+      },
+      sidestand: {
+        name: "Side Stand Safety Interlock Sensor",
+        subsystem: "Safety & Inhibit System",
+        desc: "Electronic proximity switch that prevents accidental throttle activation while the bike is propped on its side stand.",
+        specs: ["Type: Magnetic Proximity Interlock", "Action: Hard Motor Cut-off", "Maintenance: Clean Pivot Regularly"],
+        guideId: "guide-bike-wont-power-on"
+      },
+      drivetrain: {
+        name: "Heavy-Duty Chain & Swing Arm Suspension",
+        subsystem: "Mechanical Drive & Comfort",
+        desc: "Reinforced O-ring drive chain paired with twin hydraulic spring dampers built to cushion heavy commercial cargo payloads up to 200kg.",
+        specs: ["Payload: 200 kg Max", "Dampers: Twin Hydraulic Coils", "Chain: Heavy Duty Rust-Resistant"],
+        guideId: "guide-clean-lubricate-chain"
+      }
+    };
+
+    const compDrawer = document.getElementById('compDrawer');
+    const compName = document.getElementById('compName');
+    const compSubsystem = document.getElementById('compSubsystem');
+    const compDesc = document.getElementById('compDesc');
+    const compSpecsList = document.getElementById('compSpecsList');
+    const compGuideLink = document.getElementById('compGuideLink');
+    const compCloseBtn = document.getElementById('compCloseBtn');
+
+    document.querySelectorAll('.hotspot-pin').forEach(pin => {
+      pin.addEventListener('click', () => {
+        document.querySelectorAll('.hotspot-pin').forEach(p => p.classList.remove('active'));
+        pin.classList.add('active');
+
+        const key = pin.dataset.comp;
+        const comp = components[key];
+        if (!comp) return;
+
+        compName.textContent = comp.name;
+        compSubsystem.textContent = comp.subsystem;
+        compDesc.textContent = comp.desc;
+        compSpecsList.innerHTML = comp.specs.map(s => '<span class="guide-item-pill">' + s + '</span>').join('');
+        compGuideLink.href = '#' + comp.guideId;
+        compDrawer.classList.add('show');
+      });
+    });
+
+    compCloseBtn.addEventListener('click', () => {
+      compDrawer.classList.remove('show');
+      document.querySelectorAll('.hotspot-pin').forEach(p => p.classList.remove('active'));
+    });
+
+    // View switcher (Left / Right)
+    const btnLeft = document.getElementById('btnViewLeft');
+    const btnRight = document.getElementById('btnViewRight');
+    const schematicImg = document.getElementById('schematicImg');
+
+    btnLeft.addEventListener('click', () => {
+      btnLeft.classList.add('active');
+      btnRight.classList.remove('active');
+      schematicImg.src = 'images/bike-left.png';
+    });
+
+    btnRight.addEventListener('click', () => {
+      btnRight.classList.add('active');
+      btnLeft.classList.remove('active');
+      schematicImg.src = 'images/bike-right.png';
+    });
+
+    // ------------------------------------------------------------------------
+    // 3. ACCORDION GUIDES & LIVE SEARCH FILTER
+    // ------------------------------------------------------------------------
+    document.querySelectorAll('.guide-card-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const card = header.closest('.guide-accordion-card');
+        const isOpen = card.classList.contains('open');
+        document.querySelectorAll('.guide-accordion-card').forEach(c => c.classList.remove('open'));
+        if (!isOpen) {
+          card.classList.add('open');
+        }
+      });
+    });
+
+    // Category Filter Chips
+    const filterChips = document.querySelectorAll('.filter-chip');
+    const guideCards = document.querySelectorAll('.guide-accordion-card');
+
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const cat = chip.dataset.filter;
+
+        guideCards.forEach(card => {
+          if (cat === 'all' || card.dataset.category === cat) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Live Search Bar
+    const searchInput = document.getElementById('guideSearchInput');
+    searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      guideCards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (!q || text.includes(q)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
+    // Handle hash links to auto-open specific guide
+    function checkHash() {
+      const hash = window.location.hash;
+      if (hash && hash.startsWith('#guide-')) {
+        const target = document.querySelector(hash);
+        if (target) {
+          target.classList.add('open');
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    }
+    window.addEventListener('load', checkHash);
+    window.addEventListener('hashchange', checkHash);
+  </script>
+</body>
+</html>
