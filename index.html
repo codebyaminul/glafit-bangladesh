@@ -487,88 +487,65 @@
       justify-content: space-between;
       padding: 1.5rem 1.5rem 0;
       color: #ffffff;
+      gap: 1.5rem;
     }
     @media (min-width: 640px) {
       .site-header {
         padding: 2.25rem 3rem 0;
       }
     }
-    .header-nav-left {
-      display: none;
-    }
-    @media (min-width: 1024px) {
-      .header-nav-left {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        gap: 1.75rem;
-      }
-      .header-nav-left a {
-        color: var(--white-85);
-        transition: color 0.15s ease;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        font-size: 0.8125rem;
-        font-weight: 500;
-        white-space: nowrap;
-      }
-      .header-nav-left a:hover {
-        color: #ffffff;
-      }
-    }
     .header-brand {
-      flex: 1;
       display: flex;
       align-items: center;
       justify-content: flex-start;
+      flex-shrink: 0;
     }
-    @media (min-width: 1024px) {
-      .header-brand {
-        justify-content: center;
-      }
+    .header-brand a {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
     }
     .header-brand-logo {
-      height: 2.85rem;
+      height: clamp(3.75rem, 6vw, 5.25rem);
       width: auto;
       object-fit: contain;
       filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.45));
+      transition: transform 0.2s ease;
+    }
+    .header-brand-logo:hover {
+      transform: scale(1.03);
     }
     .header-right {
-      flex: 1;
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 1.25rem;
     }
-    .btn-burger {
-      width: 2.75rem;
-      height: 2.75rem;
-      border-radius: var(--radius-pill);
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+    .header-nav {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 5px;
-      transition: background 0.2s ease, border-color 0.2s ease;
+      gap: 1.75rem;
     }
-    .btn-burger:hover {
-      background: rgba(255, 255, 255, 0.25);
-      border-color: #ffffff;
+    .header-nav a {
+      color: var(--white-85);
+      transition: color 0.15s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      white-space: nowrap;
+      text-decoration: none;
     }
-    .btn-burger span {
-      display: block;
-      width: 1.125rem;
-      height: 1px;
-      background: #ffffff;
+    .header-nav a:hover {
+      color: #ffffff;
     }
-    /* Hide hamburger on desktop because nav links exist on left; keep on mobile/phone */
-    @media (min-width: 1024px) {
-      .btn-burger {
-        display: none !important;
+    @media (max-width: 768px) {
+      .header-nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+      .header-nav a {
+        font-size: 0.75rem;
       }
     }
 
@@ -691,38 +668,60 @@
       margin: 1.5rem 0 2rem;
       overflow: hidden;
       user-select: none;
-      pointer-events: none;
+      pointer-events: auto;
+      perspective: 1000px;
     }
     .ghost-row {
       display: flex;
       gap: 1.5rem;
       line-height: 0.88;
       white-space: nowrap;
+      will-change: transform;
+      transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1);
     }
     .ghost-word-mask {
       display: inline-block;
       overflow: hidden;
-      padding-bottom: 0.12em;
+      padding-bottom: 0.18em;
     }
     .ghost-word-inner {
       display: inline-block;
       font-size: clamp(3rem, 10vw, 10.5rem);
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: -0.03em;
-      transform: translateY(115%);
+      letter-spacing: 0.04em;
+      transform: translateY(125%) rotate(2.5deg);
       opacity: 0;
-      will-change: transform, opacity;
+      filter: blur(5px);
+      will-change: transform, opacity, filter, letter-spacing;
+      transition: transform 1.25s var(--ease-out-expo),
+                  opacity 1.1s var(--ease-out-expo),
+                  filter 0.95s var(--ease-out-expo),
+                  letter-spacing 1.25s var(--ease-out-expo);
     }
     .ghost-word-inner.revealed {
-      transform: translateY(0);
+      transform: translateY(0) rotate(0deg);
       opacity: 1;
+      filter: blur(0px);
+      letter-spacing: -0.03em;
     }
     .ghost-color {
       color: var(--ghost-light);
+      transition: color 0.3s ease, transform 0.3s ease;
+      cursor: default;
+    }
+    .ghost-color:hover {
+      color: #9ca3af;
+      transform: scale(1.015);
     }
     .ink-color {
       color: var(--ink-headline);
+      transition: transform 0.3s ease, text-shadow 0.3s ease;
+      cursor: default;
+    }
+    .ink-color:hover {
+      transform: translateY(-3px) scale(1.02);
+      text-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     }
 
     /* Center Showcase Card */
@@ -1313,7 +1312,8 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 1rem;
+      gap: 0.85rem;
+      margin-top: 0.75rem;
     }
     .store-badge {
       display: inline-flex;
@@ -1321,14 +1321,16 @@
       gap: 0.75rem;
       background: #000000;
       color: #ffffff;
-      padding: 0.75rem 1.4rem;
+      padding: 0.65rem 1.25rem;
       border-radius: var(--radius-pill);
-      font-size: 0.8125rem;
-      font-weight: 600;
-      transition: transform 0.2s ease;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
     .store-badge:hover {
-      transform: scale(1.02);
+      transform: translateY(-2px);
+      background: #18181b;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
     }
     .app-mock-card {
       background: #000000;
@@ -1597,6 +1599,148 @@
       color: var(--ink-subtle);
       line-height: 1.5;
       margin-top: 0.5rem;
+    }
+
+    /* -------------------------------------------------------------
+       HEADQUARTERS LIVE LOCATION SHOWCASE
+       ------------------------------------------------------------- */
+    .hq-showcase-card {
+      background: var(--surface-card-light);
+      border: 1px solid var(--hairline-light);
+      border-radius: var(--radius-card-lg);
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2.5rem;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .hq-showcase-card:hover {
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.09);
+      border-color: #d4d4d8;
+    }
+    .hq-showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 1.5rem;
+      align-items: center;
+    }
+    @media (min-width: 640px) {
+      .hq-showcase-grid {
+        padding: 2.25rem;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hq-showcase-grid {
+        grid-template-columns: 1fr 440px;
+        gap: 3.5rem;
+        padding: 3rem;
+      }
+    }
+    .hq-info-col {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.75rem;
+    }
+    .hq-status-badge {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .hq-card-title {
+      font-size: clamp(1.75rem, 2.5vw, 2.35rem);
+      font-weight: 700;
+      color: var(--ink-headline);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .hq-card-lead {
+      font-size: 0.9375rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+    .hq-specs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--hairline-light);
+      border-bottom: 1px solid var(--hairline-light);
+    }
+    .hq-spec-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .hq-spec-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+    }
+    .hq-spec-val {
+      font-size: 0.9375rem;
+      color: var(--ink-headline);
+      line-height: 1.5;
+    }
+    .hq-contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.75rem;
+      margin-top: 0.25rem;
+    }
+    .hq-contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink-headline);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .hq-contact-link:hover {
+      opacity: 0.7;
+      text-decoration: underline;
+    }
+    .hq-nav-cta {
+      width: 100%;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 0.875rem 1.75rem;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    /* Map column - clean square container */
+    .hq-map-col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .hq-map-viewport {
+      width: 100%;
+      max-width: 440px;
+      aspect-ratio: 1 / 1;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      border: 1px solid var(--hairline-light);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      background: var(--surface-light);
+      position: relative;
+    }
+    .hq-map-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
     }
 
     .contact-container {
@@ -2123,23 +2267,20 @@
 
       <!-- Site Header -->
       <header class="site-header">
-        <nav class="header-nav-left" aria-label="Main navigation">
-          <a href="#who-we-are">Who We Are</a>
-          <a href="#products">Products</a>
-          <a href="#how-it-works">How It Works</a>
-          <a href="#stations">113 Stations</a>
-          <a href="repair.html">Repair Guide</a>
-        </nav>
-
         <div class="header-brand">
-          <img src="logo.png" alt="glafit Bangladesh" class="header-brand-logo">
+          <a href="index.html" aria-label="glafit Bangladesh home">
+            <img src="logo.png" alt="glafit Bangladesh" class="header-brand-logo">
+          </a>
         </div>
 
         <div class="header-right">
-          <button type="button" class="btn-burger" id="burger-btn" aria-label="Open navigation menu">
-            <span></span>
-            <span></span>
-          </button>
+          <nav class="header-nav" aria-label="Main navigation">
+            <a href="#who-we-are">Who We Are</a>
+            <a href="#products">Products</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#stations">113 Stations</a>
+            <a href="repair.html">Repair Guide</a>
+          </nav>
         </div>
       </header>
 
@@ -2171,11 +2312,11 @@
 
       <!-- Oversized Ghost Heading -->
       <h2 id="trust-title" class="ghost-heading" aria-label="Japanese Craft Dhaka Streets">
-        <div class="ghost-row">
+        <div class="ghost-row" id="ghost-row-1">
           <span class="ghost-word-mask" id="ghost-mask-1"><span class="ghost-word-inner ghost-color" id="ghost-w1">Japanese</span></span>
-          <span class="ghost-word-mask" id="ghost-mask-2"><span class="ghost-word-inner ghost-color" id="ghost-w2">Craft</span></span>
+          <span class="ghost-word-mask" id="ghost-mask-2"><span class="ghost-word-inner ink-color" id="ghost-w2">Craft</span></span>
         </div>
-        <div class="ghost-row">
+        <div class="ghost-row" id="ghost-row-2">
           <span class="ghost-word-mask" id="ghost-mask-3"><span class="ghost-word-inner ink-color" id="ghost-w3">Dhaka</span></span>
           <span class="ghost-word-mask" id="ghost-mask-4"><span class="ghost-word-inner ghost-color" id="ghost-w4">Streets</span></span>
         </div>
@@ -2626,11 +2767,21 @@
           </div>
 
           <div class="store-badge-group">
-            <a href="#contact" class="store-badge">
+            <a href="https://play.google.com/store/apps/details?id=com.irinfosys.glafitSS" target="_blank" rel="noopener noreferrer" class="store-badge" title="Download glafit SS on Google Play">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.793 12 3.61 22.186a2.38 2.38 0 0 1-.61-.91V2.724c.163-.357.377-.668.61-.91zm11.606 11.607l2.25 2.25-11.83 6.786 9.58-9.036zm2.25-2.25l2.766 1.587c.92.527.92 1.385 0 1.912l-2.766 1.588-2.25-2.25 2.25-2.25zM5.635 3.143l11.83 6.786-2.25 2.25-9.58-9.036z"/></svg>
-              <span>Get on Google Play</span>
+              <div style="display:flex; flex-direction:column; line-height:1.15; text-align:left;">
+                <span style="font-size:0.625rem; font-weight:400; opacity:0.8; text-transform:uppercase; letter-spacing:0.04em;">Get it on</span>
+                <span style="font-size:0.875rem; font-weight:700;">Google Play</span>
+              </div>
             </a>
-            <span style="font-size:0.75rem; color:var(--ink-muted); font-weight:600;">iOS App Store (Coming Soon)</span>
+
+            <a href="https://apps.apple.com/sg/app/glafit-ss/id6758372779" target="_blank" rel="noopener noreferrer" class="store-badge" title="Download glafit SS on Apple App Store">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.77 1.06-1.85.94-2.93-.93.04-2.07.62-2.73 1.39-.58.67-1.09 1.77-.95 2.83 1.04.08 2.11-.52 2.74-1.29z"/></svg>
+              <div style="display:flex; flex-direction:column; line-height:1.15; text-align:left;">
+                <span style="font-size:0.625rem; font-weight:400; opacity:0.8; text-transform:uppercase; letter-spacing:0.04em;">Download on</span>
+                <span style="font-size:0.875rem; font-weight:700;">App Store</span>
+              </div>
+            </a>
           </div>
         </div>
 
@@ -2841,88 +2992,131 @@
         </div>
       </div>
 
-      <!-- Contact Info & Onboarding Form -->
-      <div class="contact-container">
-        <div class="office-info-card inview-elem">
-          <div>
-            <span class="solution-target">Dhaka Corporate Headquarters</span>
-            <h3 style="font-size:1.5rem; font-weight:700; margin-bottom:0.75rem; color:var(--ink-headline);">glafit Bangladesh Limited</h3>
-            <p style="font-size:0.875rem; color:var(--ink-muted); line-height:1.6;">
-              Visit our flagship experience center and technical diagnostics hub in Uttara.
-            </p>
-          </div>
+      <!-- FLASHY HEADQUARTERS LIVE LOCATION SHOWCASE -->
+      <div class="hq-showcase-card inview-elem">
+        <div class="hq-showcase-grid">
+          <!-- Left Column: HQ Details & Direct Navigation -->
+          <div class="hq-info-col">
+            <div>
+              <div class="hq-status-badge">Open Sunday &ndash; Thursday</div>
 
-          <address class="office-address-block">
-            <div class="office-line">
-              <strong>Address:</strong><br>
-              Hong Kong Center, House No. 12 (2nd Floor),<br>
-              Sonargaon Janapath Road, Sector No. 12,<br>
-              Uttara, Dhaka-1230, Bangladesh
+              <h3 class="hq-card-title" style="margin-top:0.75rem;">Dhaka Headquarters</h3>
+              <p class="hq-card-lead">
+                Visit our corporate experience center and technical diagnostics hub in Uttara. Inspect the glafit SS, test the 60s swap locker, and consult our fleet specialists in person.
+              </p>
             </div>
-            <div class="office-line">
-              <strong>Official Direct Line:</strong><br>
-              <a href="tel:+8801805034829" class="office-link">+880 1805-034829</a>
-            </div>
-            <div class="office-line">
-              <strong>Official Inquiries:</strong><br>
-              <a href="mailto:info@glafit.com.bd" class="office-link">info@glafit.com.bd</a>
-            </div>
-            <div class="office-line">
-              <strong>Business Hours:</strong><br>
-              Sunday &ndash; Thursday (09:00 AM &ndash; 06:00 PM)
-            </div>
-          </address>
 
-          <div>
-            <a href="https://wa.me/8801805034829" target="_blank" class="btn-pill primary-black" style="width:100%; justify-content:center;">
-              <span>Chat on WhatsApp Directly</span>
+            <div class="hq-specs-list">
+              <div class="hq-spec-item">
+                <span class="hq-spec-label">HEADQUARTERS ADDRESS</span>
+                <p class="hq-spec-val">
+                  <strong>Hong Kong Center</strong>, House No. 12 (2nd Floor),<br>
+                  Sonargaon Janapath Road, Sector No. 12,<br>
+                  Uttara, Dhaka-1230, Bangladesh
+                </p>
+              </div>
+
+              <div class="hq-spec-item">
+                <span class="hq-spec-label">OPERATING HOURS</span>
+                <p class="hq-spec-val">
+                  Sunday &ndash; Thursday &bull; <strong>09:00 AM &ndash; 06:00 PM</strong><br>
+                  <span style="font-size:0.78rem; color:var(--ink-muted);">Closed on Friday &amp; Saturday</span>
+                </p>
+              </div>
+
+              <div class="hq-spec-item">
+                <span class="hq-spec-label">COMMUNICATE DIRECTLY</span>
+                <div class="hq-contact-links">
+                  <a href="tel:+8801805034829" class="hq-contact-link">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>+880 1805 034829</span>
+                  </a>
+                  <a href="mailto:info@glafit.com.bd" class="hq-contact-link">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span>info@glafit.com.bd</span>
+                  </a>
+                  <a href="https://wa.me/8801805034829" target="_blank" rel="noopener noreferrer" class="hq-contact-link" style="color:#16a34a;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    <span>WhatsApp Us</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Big Flashy Direct Navigation CTA -->
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Hong+Kong+Center,+House+No.+12,+Sonargaon+Janapath+Road,+Sector+12,+Uttara,+Dhaka+1230" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn-pill primary-black hq-nav-cta"
+               title="Open live Google Maps directions from your location">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+              <span>Get Live Route from My Location</span>
               <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
           </div>
+
+          <!-- Right Column: Clean Square Map Window -->
+          <div class="hq-map-col">
+            <div class="hq-map-viewport">
+              <iframe 
+                class="hq-map-iframe"
+                src="https://maps.google.com/maps?q=Hong+Kong+Center,+House+No.+12,+Sonargaon+Janapath+Road,+Sector+12,+Uttara,+Dhaka+1230,+Bangladesh&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                loading="lazy" 
+                allowfullscreen="" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="glafit Bangladesh Headquarters Map">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Embedded Interactive Onboarding & Partnership Form -->
+      <div class="contact-form-card inview-elem">
+        <div style="margin-bottom:1.25rem;">
+          <h4 style="font-size:1.35rem; font-weight:700; color:var(--ink-headline); margin-bottom:0.35rem;">Onboarding &amp; Partnerships Inquiry</h4>
+          <p style="font-size:0.875rem; color:var(--ink-muted);">Select your profile below to join the glafit electric mobility ecosystem in Dhaka.</p>
         </div>
 
-        <!-- Embedded Interactive Form -->
-        <div class="contact-form-card inview-elem">
-          <div class="form-tab-nav" role="tablist">
-            <button type="button" class="form-tab-btn active" data-tab="rider-tab">Rider Lease</button>
-            <button type="button" class="form-tab-btn" data-tab="fleet-tab">Fleet Partnership</button>
-            <button type="button" class="form-tab-btn" data-tab="host-tab">Station Host</button>
+        <div class="form-tab-nav" role="tablist">
+          <button type="button" class="form-tab-btn active" data-tab="rider-tab">Rider Lease</button>
+          <button type="button" class="form-tab-btn" data-tab="fleet-tab">Fleet Partnership</button>
+          <button type="button" class="form-tab-btn" data-tab="host-tab">Station Host</button>
+        </div>
+
+        <form id="contact-page-form" style="display:flex; flex-direction:column; gap:1.25rem;">
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label class="form-label" for="cp-name">Full Name</label>
+              <input type="text" id="cp-name" class="form-input" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cp-phone">Phone / WhatsApp</label>
+              <input type="tel" id="cp-phone" class="form-input" placeholder="+880 1800-000000" required>
+            </div>
           </div>
 
-          <form id="contact-page-form" style="display:flex; flex-direction:column; gap:1.25rem;">
-            <div class="form-row two-col">
-              <div class="form-group">
-                <label class="form-label" for="cp-name">Full Name</label>
-                <input type="text" id="cp-name" class="form-input" placeholder="Your name" required>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="cp-phone">Phone / WhatsApp</label>
-                <input type="tel" id="cp-phone" class="form-input" placeholder="+880 1800-000000" required>
-              </div>
-            </div>
-
-            <div class="form-row two-col">
-              <div class="form-group">
-                <label class="form-label" for="cp-email">Email Address</label>
-                <input type="email" id="cp-email" class="form-input" placeholder="name@domain.com">
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="cp-area">Location in Dhaka</label>
-                <input type="text" id="cp-area" class="form-input" placeholder="e.g. Uttara, Mirpur, Gulshan">
-              </div>
-            </div>
-
+          <div class="form-row two-col">
             <div class="form-group">
-              <label class="form-label" for="cp-message">Inquiry Notes / Business Profile</label>
-              <textarea id="cp-message" class="form-input" rows="3" placeholder="Tell us about your delivery route, fleet size, or retail shopfront location..."></textarea>
+              <label class="form-label" for="cp-email">Email Address</label>
+              <input type="email" id="cp-email" class="form-input" placeholder="name@domain.com">
             </div>
+            <div class="form-group">
+              <label class="form-label" for="cp-area">Location in Dhaka</label>
+              <input type="text" id="cp-area" class="form-input" placeholder="e.g. Uttara, Mirpur, Gulshan">
+            </div>
+          </div>
 
-            <button type="submit" class="btn-pill primary-black" style="width:100%; justify-content:center;">
-              <span>Submit Partnership Request</span>
-              <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </button>
-          </form>
-        </div>
+          <div class="form-group">
+            <label class="form-label" for="cp-message">Inquiry Notes / Business Profile</label>
+            <textarea id="cp-message" class="form-input" rows="3" placeholder="Tell us about your delivery route, fleet size, or retail shopfront location..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-pill primary-black" style="width:100%; justify-content:center;">
+            <span>Submit Partnership Request</span>
+            <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </form>
       </div>
     </section>
 
@@ -3035,6 +3229,8 @@
             <li><a href="#products">Lithium Battery Pack</a></li>
             <li><a href="#how-it-works">Swapping Locker</a></li>
             <li><a href="#stations">113 Dhaka Stations</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.irinfosys.glafitSS" target="_blank" rel="noopener noreferrer">glafit SS (Google Play)</a></li>
+            <li><a href="https://apps.apple.com/sg/app/glafit-ss/id6758372779" target="_blank" rel="noopener noreferrer">glafit SS (App Store)</a></li>
           </ul>
         </nav>
 
@@ -3244,10 +3440,8 @@
     const heroPlateInner = document.getElementById('hero-plate-inner');
     const heroSection = document.getElementById('hero');
     const whoSection = document.getElementById('who-we-are');
-    const ghostMask1 = document.getElementById('ghost-mask-1');
-    const ghostMask2 = document.getElementById('ghost-mask-2');
-    const ghostMask3 = document.getElementById('ghost-mask-3');
-    const ghostMask4 = document.getElementById('ghost-mask-4');
+    const ghostRow1 = document.getElementById('ghost-row-1');
+    const ghostRow2 = document.getElementById('ghost-row-2');
 
     function updateParallax() {
       if (heroSection && heroPlateInner) {
@@ -3257,14 +3451,15 @@
         heroPlateInner.style.transform = `translate3d(0, ${(p * 6).toFixed(3)}%, 0)`;
       }
 
-      if (whoSection) {
+      if (whoSection && ghostRow1 && ghostRow2) {
         const rect = whoSection.getBoundingClientRect();
         const winH = window.innerHeight;
-        const p = Math.max(0, Math.min(1, (winH - rect.top) / (rect.height + winH)));
-        if (ghostMask1) ghostMask1.style.transform = `translate3d(${(-3 + p * 6).toFixed(2)}%, 0, 0)`;
-        if (ghostMask2) ghostMask2.style.transform = `translate3d(${(3 - p * 6).toFixed(2)}%, 0, 0)`;
-        if (ghostMask3) ghostMask3.style.transform = `translate3d(${(-3 + p * 6).toFixed(2)}%, 0, 0)`;
-        if (ghostMask4) ghostMask4.style.transform = `translate3d(${(3 - p * 6).toFixed(2)}%, 0, 0)`;
+        const p = (winH - rect.top) / (rect.height + winH);
+        if (p >= -0.2 && p <= 1.2) {
+          const shift = (p - 0.5) * 65;
+          ghostRow1.style.transform = `translate3d(${-shift.toFixed(1)}px, 0, 0)`;
+          ghostRow2.style.transform = `translate3d(${shift.toFixed(1)}px, 0, 0)`;
+        }
       }
     }
 
@@ -3418,14 +3613,13 @@
         if (entry.isIntersecting) {
           document.querySelectorAll('.ghost-word-inner').forEach((w, i) => {
             setTimeout(() => {
-              w.style.transition = 'transform 1000ms var(--ease-out-expo), opacity 1000ms var(--ease-out-expo)';
               w.classList.add('revealed');
-            }, i * 150);
+            }, i * 140);
           });
           ghostObserver.disconnect();
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.15 });
     const trustTitle = document.getElementById('trust-title');
     if (trustTitle) ghostObserver.observe(trustTitle);
 

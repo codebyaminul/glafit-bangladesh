@@ -1,0 +1,1074 @@
+:root {
+  --bg: #1a1a1a;
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.7);
+  --radius: 22px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: var(--bg);
+  padding: 10px;
+  color: var(--text);
+}
+
+.page {
+  position: relative;
+  min-height: calc(100vh - 20px);
+  border-radius: var(--radius);
+  padding: 28px 34px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: url("img/bg.webp") center / cover no-repeat;
+}
+
+/* dark overlay for readability */
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.35) 50%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+  border-radius: var(--radius);
+  z-index: 0;
+}
+
+/* ensure all direct children sit above the overlay */
+.page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand a {
+  display: inline-block;
+  line-height: 0;
+  text-decoration: none;
+}
+
+.brand img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.footer-irinfosys {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  transition: opacity 0.2s;
+}
+
+.footer-irinfosys:hover {
+  opacity: 0.7;
+}
+
+.nav {
+  display: flex;
+  gap: 36px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.nav a:hover {
+  opacity: 0.75;
+}
+
+.nav a[aria-current="page"] {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+
+.hero {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 60px;
+}
+
+.hero h2 {
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  line-height: 1.08;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  color: var(--text);
+}
+
+.hero h2 strong {
+  display: block;
+  font-weight: 800;
+}
+
+.hero p {
+  margin-top: 18px;
+  max-width: 380px;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.footer strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.footer-right {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+
+  .page {
+    min-height: 100vh;
+    border-radius: 0;
+    padding: 20px;
+  }
+
+  .page::before {
+    border-radius: 0;
+  }
+
+  .topbar {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .nav {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .brand img {
+    height: 32px;
+  }
+
+  .hero {
+    padding: 60px 0 40px;
+    /* align-items: center; */
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .footer-right {
+    text-align: left;
+  }
+}
+
+/* ============================================================
+   CONTACT US PAGE
+   ============================================================ */
+
+/* ── Page label above the card ── */
+.page-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+  padding: 0 44px;
+}
+
+/* ── Contact layout ── */
+.contact-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 44px 0 28px;
+}
+
+/* ── Left column ── */
+.contact-left {
+  flex: 0 0 310px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.contact-heading {
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.contact-heading strong {
+  font-weight: 800;
+}
+
+/* ── Info blocks ── */
+.contact-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-block-label {
+  font-size: 0.63rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.contact-block p {
+  font-size: 0.93rem;
+  line-height: 1.65;
+  color: var(--text);
+  font-weight: 300;
+}
+
+/* ── Icon rows (hours & links) ── */
+.icon-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.93rem;
+  color: var(--text);
+  font-weight: 400;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+a.icon-row:hover {
+  opacity: 0.75;
+}
+
+.icon-row svg {
+  opacity: 0.65;
+  flex-shrink: 0;
+}
+
+/* ── Right column – map ── */
+.contact-right {
+  flex: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 400px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
+}
+
+.contact-right iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .contact-main {
+    flex-direction: column;
+    gap: 36px;
+    padding: 32px 0 20px;
+    align-items: flex-start;
+  }
+
+  .contact-left {
+    flex: unset;
+    width: 100%;
+  }
+
+  .contact-right {
+    width: 100%;
+    min-width: 0;
+    height: 310px;
+    border-radius: 12px;
+  }
+
+  .contact-right iframe {
+    height: 310px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-label {
+    padding: 0 20px;
+  }
+
+  .contact-right {
+    width: 100%;
+    min-width: 0;
+    height: 310px;
+    border-radius: 12px;
+  }
+
+  .contact-right iframe {
+    height: 310px;
+  }
+}
+
+/* ============================================================
+   PRIVACY POLICY PAGE
+   ============================================================ */
+
+/* ── Page overrides: full-height, no scroll on page itself ── */
+.page--privacy {
+  background-image: none;
+  background-color: #111111;
+  height: calc(100vh - 20px);
+  min-height: unset;
+  overflow: hidden;
+}
+
+.page--privacy::before {
+  display: none;
+}
+
+/* ── Two-column body ── */
+.pp-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  min-height: 0;
+  margin-top: 24px;
+  gap: 0;
+}
+
+/* ── Left fixed panel ── */
+.pp-left {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 36px;
+  padding-bottom: 24px;
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.pp-title {
+  font-size: clamp(1.6rem, 2.2vw, 2.4rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.pp-title strong {
+  font-weight: 800;
+}
+
+.pp-left-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pp-desc {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.pp-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--muted);
+  padding: 5px 12px;
+  border-radius: 100px;
+}
+
+/* ── Right scrollable panel ── */
+.pp-right {
+  flex: 1;
+  overflow-y: auto;
+  padding-left: 40px;
+  padding-bottom: 24px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+}
+
+.pp-right::-webkit-scrollbar {
+  width: 4px;
+}
+
+.pp-right::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pp-right::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 4px;
+}
+
+/* ── Sections ── */
+.pp-section {
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pp-section:first-child {
+  padding-top: 0;
+}
+
+.pp-section:last-child {
+  border-bottom: none;
+}
+
+.pp-section-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+  opacity: 0.6;
+}
+
+.pp-section h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+.pp-section p {
+  font-size: 0.84rem;
+  line-height: 1.75;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.pp-section p + p {
+  margin-top: 12px;
+}
+
+/* ── Bullet list ── */
+.pp-list {
+  margin: 12px 0 0 4px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.pp-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 0.84rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.pp-list li::before {
+  content: "•";
+  color: rgba(255, 255, 255, 0.35);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Privacy links ── */
+.pp-link {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 400;
+  transition: opacity 0.2s;
+}
+
+.pp-link:hover {
+  opacity: 0.7;
+}
+
+/* ── Mobile: stack layout ── */
+@media (max-width: 768px) {
+  .page--privacy {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .pp-body {
+    flex-direction: column;
+    overflow: visible;
+    margin-top: 20px;
+  }
+
+  .pp-left {
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-right: 0;
+    padding-bottom: 28px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .pp-right {
+    padding-left: 0;
+    overflow-y: visible;
+  }
+}
+
+/* ============================================================
+   FAQ PAGE
+   ============================================================ */
+
+/* ── Page overrides ── */
+.page--faq {
+  background-image: none;
+  background-color: #111111;
+  min-height: calc(100vh - 20px);
+  overflow: hidden;
+}
+
+.page--faq::before {
+  display: none;
+}
+
+/* ── Two-column body ── */
+.faq-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  min-height: 0;
+  margin-top: 28px;
+  gap: 48px;
+  padding: 20px 10px;
+}
+
+/* ── Left panel ── */
+.faq-left {
+  width: 46%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  align-items: center;
+  text-align: center;
+}
+
+.faq-left-top {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+
+.faq-title {
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.faq-subtitle {
+  font-size: 0.84rem;
+  line-height: 1.65;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 420px;
+}
+
+.faq-contact {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* ── FAQ image ── */
+.faq-image-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
+  max-width: 565px;
+  width: 100%;
+}
+
+.faq-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* ── Right panel — Accordion ── */
+.faq-right {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+      justify-content: center;
+}
+
+.faq-right::-webkit-scrollbar {
+  width: 4px;
+}
+
+.faq-right::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.faq-right::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 4px;
+}
+
+/* ── Accordion item ── */
+.faq-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.faq-item--open {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ── Question button ── */
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  gap: 16px;
+  transition: opacity 0.2s;
+}
+
+.faq-question:hover {
+  opacity: 0.85;
+}
+
+/* ── Plus / Minus icon ── */
+.faq-icon {
+  flex-shrink: 0;
+  color: var(--muted);
+  transition: transform 0.3s ease;
+}
+
+.faq-icon-v {
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.faq-item--open .faq-icon-v {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+/* ── Answer area ── */
+.faq-answer {
+  overflow: hidden;
+}
+
+.faq-answer-inner {
+  padding: 0 22px 20px;
+  font-size: 0.84rem;
+  line-height: 1.7;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.faq-answer-inner p {
+  margin: 0;
+}
+
+.faq-answer-inner strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ── Step badges ── */
+.faq-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.faq-step-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 5px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.faq-step-sep {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.3);
+  user-select: none;
+}
+
+/* ── FAQ link ── */
+.faq-link {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 400;
+  transition: opacity 0.2s;
+}
+
+.faq-link:hover {
+  opacity: 0.7;
+}
+
+/* ── FAQ mobile ── */
+@media (max-width: 900px) {
+  .faq-body {
+    flex-direction: column;
+    overflow: visible;
+    gap: 28px;
+  }
+
+  .faq-left {
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .faq-right {
+    overflow-y: visible;
+  }
+}
+
+@media (max-width: 768px) {
+  .page--faq {
+    overflow: visible;
+    min-height: 100vh;
+  }
+
+  .faq-body {
+    margin-top: 20px;
+  }
+
+  .faq-title {
+    font-size: 1.5rem;
+  }
+
+  .faq-question {
+    padding: 14px 16px;
+    font-size: 0.85rem;
+  }
+
+  .faq-answer-inner {
+    padding: 0 16px 16px;
+    font-size: 0.82rem;
+  }
+
+  .faq-step-badge {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+  }
+}
+
+/* ============================================================
+   SMALL SCREENS (≤ 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+
+  .page {
+    padding: 16px;
+    border-radius: 0;
+    min-height: 100vh;
+  }
+
+  .page::before {
+    border-radius: 0;
+  }
+
+  .brand img {
+    height: 28px;
+  }
+
+  .nav {
+    gap: 14px;
+  }
+
+  .nav a {
+    font-size: 0.85rem;
+  }
+
+  .hero h2 {
+    font-size: 1.7rem;
+    letter-spacing: -0.5px;
+  }
+
+  .hero p {
+    font-size: 0.88rem;
+  }
+
+  .page-label {
+    padding: 0 16px;
+  }
+
+  .contact-heading {
+    font-size: 1.7rem;
+  }
+
+  .contact-right {
+    height: 200px;
+  }
+
+  .icon-row {
+    font-size: 0.85rem;
+  }
+
+  .contact-block p {
+    font-size: 0.85rem;
+  }
+
+  .pp-title {
+    font-size: 1.5rem;
+  }
+
+  .pp-section {
+    padding: 20px 0;
+  }
+
+  .pp-section h2 {
+    font-size: 0.95rem;
+  }
+
+  .pp-section p,
+  .pp-list li {
+    font-size: 0.82rem;
+  }
+
+  .footer {
+    font-size: 0.78rem;
+    gap: 8px;
+  }
+
+  .faq-title {
+    font-size: 1.3rem;
+  }
+
+  .faq-question {
+    padding: 12px 14px;
+    font-size: 0.82rem;
+  }
+
+  .faq-answer-inner {
+    padding: 0 14px 14px;
+    font-size: 0.8rem;
+  }
+
+  .faq-step-badge {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+  }
+}
+
+/* Canonical one-row phone navigation. */
+@media (max-width: 768px) {
+  .nav {
+    display: grid;
+    grid-template-columns: repeat(5, max-content);
+    justify-content: space-between;
+    width: 100%;
+    gap: 0;
+    flex-wrap: nowrap;
+  }
+
+  .nav a {
+    white-space: nowrap;
+    font-size: clamp(0.64rem, 3vw, 0.85rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .brand img {
+    height: 28px;
+  }
+}
+/* Frameless layout and shared high-resolution Glafit logo. */
+body {
+  padding: 0;
+}
+
+.page,
+.page--privacy,
+.page--faq {
+  min-height: 100vh;
+  border-radius: 0;
+}
+
+.page--privacy {
+  height: 100vh;
+}
+
+.page::before {
+  border-radius: 0;
+}
+
+.shared-header-logo {
+  display: block;
+  width: 180px;
+  height: 40px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+@media (max-width: 768px) {
+  .shared-header-logo {
+    width: 144px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .shared-header-logo {
+    width: 126px;
+    height: 28px;
+  }
+}
+/* Position-stable shared navigation spacing. */
+.nav a[aria-current="page"] {
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: center;
+  }
+
+  .nav a {
+    justify-self: center;
+  }
+
+  .nav a:first-child {
+    justify-self: start;
+  }
+
+  .nav a:last-child {
+    justify-self: end;
+  }
+}
+/* Final shared navigation geometry. */
+.nav a {
+  line-height: normal;
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    gap: 16px;
+  }
+
+  .nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+    flex-wrap: nowrap;
+  }
+
+  .nav a,
+  .nav a:first-child,
+  .nav a:last-child {
+    justify-self: auto;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: clamp(0.60rem, 2.7vw, 0.85rem);
+    line-height: normal;
+  }
+}
