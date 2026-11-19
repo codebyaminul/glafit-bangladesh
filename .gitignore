@@ -4,3 +4,10 @@ node_modules/
 Thumbs.db
 *.log
 cloudflared.exe
+recordings/
+record_walkthrough.js
+package.json
+package-lock.json
+*.webm
+*.mp4
+portfolio-screenshots/
