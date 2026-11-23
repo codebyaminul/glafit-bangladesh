@@ -33,18 +33,22 @@ glafit Bangladesh Limited is an urban green mobility company that brings compact
 4. **Battery swap process and cost comparison**
    - Step-by-step view of the 60-second locker swap: **Get Bike → Locate via App → 60s Scan & Swap → Ride Nonstop**.
    - Side-by-side comparison: **৳8,500–৳10,000/month** in petrol vs. the **৳2,200/week** all-inclusive glafit lease.
-5. **App store links and telematics dashboard**
+5. **Interactive savings calculator (`#calculator`)**
+   - Rider and fleet modes (1–800 bikes). Sliders for daily km, working days, petrol price, fuel economy, bike rent/EMI and servicing.
+   - Live results: monthly and yearly savings, a stacked cost-breakdown bar, petrol avoided, CO₂ cut and swaps per day. It honestly says when petrol is cheaper.
+   - The call to action opens the onboarding form already set to Rider or Fleet.
+6. **App store links and telematics dashboard**
    - Live smartphone telemetry preview (92% charge, 96 km range, nearest-station radar).
    - Official Google Play and Apple App Store badges linking to the live apps.
-6. **Dhaka headquarters (Uttara)**
+7. **Dhaka headquarters (Uttara)**
    - Features the experience and diagnostics center on Sonargaon Janapath Road, Sector 12, Uttara.
    - Square map, opening hours (Sunday–Thursday) and a one-tap **"Get Live Route from My Location"** GPS button.
-7. **Self-service support portal ([`repair.html`](repair.html))**
+8. **Self-service support portal ([`repair.html`](repair.html))**
    - Diagnostic decision tree (`Yes` / `No` fault branching).
    - Component inspector with left/right bike schematics and highlighted hotspots.
    - Six step-by-step repair guides: battery, brakes, display, wheels, lighting and drivetrain.
    - Full factory technical specification sheet.
-8. **Deployment and portfolio assets**
+9. **Deployment and portfolio assets**
    - Deployed on GitHub Pages, with `.nojekyll` so the static files are served as-is.
    - Produced a 60-second 1080p walkthrough video and 7 high-resolution portfolio stills (kept out of git; see `.gitignore`).
 

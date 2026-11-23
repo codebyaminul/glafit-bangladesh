@@ -2148,6 +2148,152 @@
     .menu-nav-link:hover {
       color: #ffffff;
     }
+
+    /* -------------------------------------------------------------
+       SECTION 05: SAVINGS CALCULATOR
+       ------------------------------------------------------------- */
+    .calc-section { padding: 5rem 1.5rem; }
+    @media (min-width: 640px) { .calc-section { padding: 6rem 2.5rem; } }
+    .calc-title-ghost { color: var(--white-40); }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.25rem;
+    }
+    @media (min-width: 1024px) {
+      .calc-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 1.5rem; align-items: start; }
+    }
+    .calc-inputs {
+      background: var(--black-card);
+      border: 1px solid var(--black-border);
+      border-radius: var(--radius-card);
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+    @media (min-width: 640px) { .calc-inputs { padding: 2.25rem 2rem; } }
+    .calc-mode {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--black-pure);
+      border: 1px solid var(--black-border);
+      border-radius: var(--radius-pill);
+      padding: 0.3rem;
+    }
+    .calc-mode-btn {
+      border: 0;
+      background: transparent;
+      color: var(--white-60);
+      font: inherit;
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.7rem 1rem;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: background 0.35s var(--ease-out-expo), color 0.35s var(--ease-out-expo);
+    }
+    .calc-mode-btn.active { background: #ffffff; color: #000000; }
+    .calc-mode-btn:focus-visible { outline: 2px solid #ffffff; outline-offset: 2px; }
+    .calc-field { display: flex; flex-direction: column; gap: 0.75rem; }
+    .calc-field[hidden], .calc-warning[hidden] { display: none; }
+    .calc-label-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+    .calc-label-row label { font-size: 0.875rem; color: var(--white-70); }
+    .calc-value { font-size: 1.125rem; font-weight: 600; color: #ffffff; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .calc-scale { display: flex; justify-content: space-between; font-size: 0.6875rem; color: var(--white-40); gap: 0.5rem; }
+    .calc-scale span:nth-child(2) { text-align: center; }
+
+    /* Monochrome range slider; the filled part follows --fill */
+    .calc-inputs input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 0.375rem;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(to right, #ffffff 0%, #ffffff var(--fill, 50%), var(--white-15) var(--fill, 50%), var(--white-15) 100%);
+      cursor: pointer;
+      touch-action: pan-y;
+    }
+    .calc-inputs input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 1.375rem; height: 1.375rem;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 4px solid #000000;
+      box-shadow: 0 0 0 1px #ffffff;
+      transition: transform 0.2s var(--ease-out-expo);
+    }
+    .calc-inputs input[type="range"]::-moz-range-thumb {
+      width: 1.375rem; height: 1.375rem;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 4px solid #000000;
+      box-shadow: 0 0 0 1px #ffffff;
+    }
+    .calc-inputs input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.15); }
+    .calc-inputs input[type="range"]:focus-visible { outline: 2px solid #ffffff; outline-offset: 6px; }
+
+    .calc-advanced { border-top: 1px solid var(--black-border); padding-top: 1.25rem; }
+    .calc-advanced summary {
+      list-style: none;
+      display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer;
+      font-size: 0.875rem; font-weight: 600; color: #ffffff;
+    }
+    .calc-advanced summary::-webkit-details-marker { display: none; }
+    .calc-advanced summary span { font-size: 1.25rem; font-weight: 400; transition: transform 0.35s var(--ease-out-expo); }
+    .calc-advanced[open] summary span { transform: rotate(45deg); }
+    .calc-advanced-body { display: flex; flex-direction: column; gap: 1.5rem; padding-top: 1.5rem; }
+
+    .calc-result {
+      background: #ffffff;
+      color: #000000;
+      border-radius: var(--radius-card);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+    @media (min-width: 640px) { .calc-result { padding: 2.5rem 2.25rem; } }
+    .calc-result-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); }
+    .calc-big {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin: 0.75rem 0 0.75rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .calc-big.negative { color: var(--ink-subtle); }
+    .calc-sub { font-size: 0.9375rem; color: var(--ink-muted); }
+    .calc-sub strong { color: #000000; }
+    .calc-bars { display: flex; flex-direction: column; gap: 1.25rem; margin: 2rem 0; }
+    .calc-bar-meta { display: flex; justify-content: space-between; font-size: 0.8125rem; color: var(--ink-muted); margin-bottom: 0.5rem; gap: 1rem; }
+    .calc-bar-meta span:last-child { color: #000000; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .calc-bar-track { height: 0.875rem; background: var(--surface-light); border-radius: var(--radius-pill); overflow: hidden; }
+    .calc-bar-fill { height: 100%; width: 0; display: flex; border-radius: var(--radius-pill); overflow: hidden; transition: width 0.7s var(--ease-out-expo); }
+    .calc-bar-fill.glafit { background: #000000; }
+    .calc-bar-fill .seg { height: 100%; transition: width 0.7s var(--ease-out-expo); }
+    .seg.fuel, .dot.fuel { background: #3f3f46; }
+    .seg.rent, .dot.rent { background: #a1a1aa; }
+    .seg.maint, .dot.maint { background: #d4d4d8; }
+    .calc-legend { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.6875rem; color: var(--ink-subtle); margin-top: 0.5rem; }
+    .calc-legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+    .calc-legend .dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; display: inline-block; }
+    .calc-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--hairline-light);
+      border-left: 1px solid var(--hairline-light);
+      margin-bottom: 1.75rem;
+    }
+    @media (min-width: 640px) { .calc-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+    .calc-stat { padding: 1rem 0.875rem; border-right: 1px solid var(--hairline-light); border-bottom: 1px solid var(--hairline-light); display: flex; flex-direction: column; gap: 0.25rem; }
+    .calc-stat-num { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+    .calc-stat-lbl { font-size: 0.6875rem; color: var(--ink-subtle); text-transform: uppercase; letter-spacing: 0.06em; }
+    .calc-warning { font-size: 0.875rem; background: var(--surface-light); border-radius: var(--radius-md); padding: 0.875rem 1rem; margin-bottom: 1.25rem; color: var(--ink-muted); }
+    .calc-cta.btn-pill.primary-white { background: #000000; color: #ffffff; align-self: flex-start; }
+    .calc-cta.btn-pill.primary-white:hover { background: #27272a; }
+    .calc-fine { font-size: 0.6875rem; line-height: 1.55; color: var(--ink-subtle); margin-top: 1.25rem; }
   </style>
 </head>
 <body>
@@ -2180,6 +2326,7 @@
         <a href="#who-we-are" class="menu-nav-link">Who We Are</a>
         <a href="#products" class="menu-nav-link">Products &amp; Specs</a>
         <a href="#how-it-works" class="menu-nav-link">How It Works</a>
+        <a href="#calculator" class="menu-nav-link">Savings Calculator</a>
         <a href="#solutions" class="menu-nav-link">Solutions by Audience</a>
         <a href="#stations" class="menu-nav-link">Swap Station Network</a>
         <a href="#app" class="menu-nav-link">Connected Mobile App</a>
@@ -2278,6 +2425,7 @@
             <a href="#who-we-are">Who We Are</a>
             <a href="#products">Products</a>
             <a href="#how-it-works">How It Works</a>
+            <a href="#calculator">Savings</a>
             <a href="#stations">113 Stations</a>
             <a href="repair.html">Repair Guide</a>
           </nav>
@@ -2547,11 +2695,132 @@
       </div>
     </section>
 
-    <!-- SECTION 05: SOLUTIONS BY AUDIENCE -->
+    <!-- SECTION 05: EARNINGS & SAVINGS CALCULATOR -->
+    <section class="section-card dark calc-section" id="calculator" aria-labelledby="calc-title">
+      <div class="eyebrow light">
+        <span class="eyebrow-dot"></span>
+        <span>05 / Savings Calculator</span>
+      </div>
+
+      <h2 class="section-title" id="calc-title">
+        <span class="clip-line-box"><span class="clip-line-inner section-title-line">Run Your Own Numbers.</span></span>
+        <span class="clip-line-box"><span class="clip-line-inner section-title-line calc-title-ghost">See What You Keep.</span></span>
+      </h2>
+
+      <div class="calc-grid">
+        <!-- Inputs -->
+        <form class="calc-inputs inview-elem" id="calc-form" onsubmit="return false;">
+          <div class="calc-mode" role="radiogroup" aria-label="Calculate for">
+            <button type="button" class="calc-mode-btn active" role="radio" aria-checked="true" data-mode="rider">I'm a Rider</button>
+            <button type="button" class="calc-mode-btn" role="radio" aria-checked="false" data-mode="fleet">I Run a Fleet</button>
+          </div>
+
+          <div class="calc-field calc-fleet-only" hidden>
+            <div class="calc-label-row">
+              <label for="calc-fleet">Fleet size</label>
+              <output class="calc-value" for="calc-fleet" id="calc-fleet-out">50 bikes</output>
+            </div>
+            <input type="range" id="calc-fleet" min="1" max="800" step="1" value="50">
+          </div>
+
+          <div class="calc-field">
+            <div class="calc-label-row">
+              <label for="calc-km">Distance per day</label>
+              <output class="calc-value" for="calc-km" id="calc-km-out">100 km</output>
+            </div>
+            <input type="range" id="calc-km" min="30" max="200" step="5" value="100">
+            <div class="calc-scale"><span>30 km</span><span>Typical courier: 80–120 km</span><span>200 km</span></div>
+          </div>
+
+          <div class="calc-field">
+            <div class="calc-label-row">
+              <label for="calc-days">Working days per month</label>
+              <output class="calc-value" for="calc-days" id="calc-days-out">26 days</output>
+            </div>
+            <input type="range" id="calc-days" min="15" max="30" step="1" value="26">
+          </div>
+
+          <details class="calc-advanced">
+            <summary>Your current petrol bike <span aria-hidden="true">+</span></summary>
+            <div class="calc-advanced-body">
+              <div class="calc-field">
+                <div class="calc-label-row">
+                  <label for="calc-price">Petrol price (Octane)</label>
+                  <output class="calc-value" for="calc-price" id="calc-price-out">৳125 / L</output>
+                </div>
+                <input type="range" id="calc-price" min="100" max="160" step="1" value="125">
+              </div>
+              <div class="calc-field">
+                <div class="calc-label-row">
+                  <label for="calc-mileage">Fuel economy</label>
+                  <output class="calc-value" for="calc-mileage" id="calc-mileage-out">40 km / L</output>
+                </div>
+                <input type="range" id="calc-mileage" min="25" max="60" step="1" value="40">
+              </div>
+              <div class="calc-field">
+                <div class="calc-label-row">
+                  <label for="calc-rent">Bike rent or EMI</label>
+                  <output class="calc-value" for="calc-rent" id="calc-rent-out">৳6,000 / mo</output>
+                </div>
+                <input type="range" id="calc-rent" min="0" max="12000" step="250" value="6000">
+              </div>
+              <div class="calc-field">
+                <div class="calc-label-row">
+                  <label for="calc-maint">Servicing, oil &amp; parts</label>
+                  <output class="calc-value" for="calc-maint" id="calc-maint-out">৳1,500 / mo</output>
+                </div>
+                <input type="range" id="calc-maint" min="0" max="5000" step="100" value="1500">
+              </div>
+            </div>
+          </details>
+        </form>
+
+        <!-- Results -->
+        <div class="calc-result inview-elem" aria-live="polite">
+          <div class="calc-result-label" id="calc-headline-label">You keep every month</div>
+          <div class="calc-big" id="calc-big">৳0</div>
+          <div class="calc-sub" id="calc-sub">That's <strong id="calc-pct">0%</strong> less than running on petrol.</div>
+
+          <div class="calc-bars">
+            <div class="calc-bar-row">
+              <div class="calc-bar-meta"><span>Petrol motorbike</span><span id="calc-petrol-total">৳0</span></div>
+              <div class="calc-bar-track">
+                <div class="calc-bar-fill petrol" id="calc-bar-petrol">
+                  <span class="seg fuel" id="calc-seg-fuel" title="Fuel"></span>
+                  <span class="seg rent" id="calc-seg-rent" title="Bike rent / EMI"></span>
+                  <span class="seg maint" id="calc-seg-maint" title="Servicing"></span>
+                </div>
+              </div>
+              <div class="calc-legend"><span><i class="dot fuel"></i>Fuel</span><span><i class="dot rent"></i>Rent / EMI</span><span><i class="dot maint"></i>Servicing</span></div>
+            </div>
+            <div class="calc-bar-row">
+              <div class="calc-bar-meta"><span>glafit SS lease, all-inclusive</span><span id="calc-glafit-total">৳0</span></div>
+              <div class="calc-bar-track"><div class="calc-bar-fill glafit" id="calc-bar-glafit"></div></div>
+            </div>
+          </div>
+
+          <div class="calc-stats">
+            <div class="calc-stat"><span class="calc-stat-num" id="calc-year">৳0</span><span class="calc-stat-lbl" id="calc-year-lbl">Saved per year</span></div>
+            <div class="calc-stat"><span class="calc-stat-num" id="calc-litres">0 L</span><span class="calc-stat-lbl">Petrol avoided / yr</span></div>
+            <div class="calc-stat"><span class="calc-stat-num" id="calc-co2">0 t</span><span class="calc-stat-lbl">CO₂ cut / yr</span></div>
+            <div class="calc-stat"><span class="calc-stat-num" id="calc-swaps">0</span><span class="calc-stat-lbl">60s swaps / day</span></div>
+          </div>
+
+          <p class="calc-warning" id="calc-warning" hidden>At this distance and cost, petrol is still cheaper. glafit pays off as daily kilometres go up.</p>
+
+          <button type="button" class="btn-pill primary-white open-visit-modal-btn calc-cta" id="calc-cta" data-type="rider">
+            <span id="calc-cta-text">Start My Weekly Lease &rarr;</span>
+          </button>
+          <p class="calc-fine">Estimate only. The glafit lease is ৳2,200/week (about ৳9,530/month) and includes the bike, unlimited battery swaps and scheduled servicing. Petrol figures come from your inputs. CO₂ uses 2.31 kg per litre of petrol.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 06: SOLUTIONS BY AUDIENCE -->
     <section class="section-card light solutions-section" id="solutions">
       <div class="eyebrow dark">
         <span class="eyebrow-dot"></span>
-        <span>05 / Tailored Solutions</span>
+        <span>06 / Tailored Solutions</span>
       </div>
 
       <h2 class="section-title">
@@ -2644,7 +2913,7 @@
     <section class="section-card dark stations-section" id="stations">
       <div class="eyebrow light">
         <span class="eyebrow-dot"></span>
-        <span>06 / Infrastructure Grid</span>
+        <span>07 / Infrastructure Grid</span>
       </div>
 
       <div class="stations-layout">
@@ -2721,7 +2990,7 @@
     <section class="section-card light app-section" id="app">
       <div class="eyebrow dark">
         <span class="eyebrow-dot"></span>
-        <span>07 / Connected Mobility</span>
+        <span>08 / Connected Mobility</span>
       </div>
 
       <div class="app-grid">
@@ -2822,7 +3091,7 @@
     <section class="section-card dark stats-section" id="impact">
       <div class="eyebrow light">
         <span class="eyebrow-dot"></span>
-        <span>08 / Verified Impact</span>
+        <span>09 / Verified Impact</span>
       </div>
 
       <h2 class="section-title">
@@ -2866,7 +3135,7 @@
     <section class="section-card light news-section" id="news">
       <div class="eyebrow dark">
         <span class="eyebrow-dot"></span>
-        <span>09 / Verified Press &amp; Media</span>
+        <span>10 / Verified Press &amp; Media</span>
       </div>
 
       <h2 class="section-title">
@@ -2908,7 +3177,7 @@
     <section class="section-card dark safety-section" id="safety">
       <div class="eyebrow light">
         <span class="eyebrow-dot"></span>
-        <span>10 / Uncompromising Safety</span>
+        <span>11 / Uncompromising Safety</span>
       </div>
 
       <!-- CEO Safety Mandate -->
@@ -2961,7 +3230,7 @@
     <section class="section-card light contact-section" id="contact">
       <div class="eyebrow dark">
         <span class="eyebrow-dot"></span>
-        <span>11 / Executive Leadership &amp; Headquarters</span>
+        <span>12 / Executive Leadership &amp; Headquarters</span>
       </div>
 
       <h2 class="section-title">
@@ -3124,7 +3393,7 @@
     <section class="section-card light faq-section" id="faq">
       <div class="eyebrow dark">
         <span class="eyebrow-dot"></span>
-        <span>12 / Frequently Asked Questions</span>
+        <span>13 / Frequently Asked Questions</span>
       </div>
 
       <h2 class="section-title" style="text-align:center;">
@@ -3237,6 +3506,7 @@
         <nav aria-label="Solutions links">
           <h4 class="footer-nav-col-heading">Solutions</h4>
           <ul class="footer-nav-col-list">
+            <li><a href="#calculator">Savings Calculator</a></li>
             <li><a href="#solutions">Delivery Riders</a></li>
             <li><a href="#solutions">Fleet Operators</a></li>
             <li><a href="#solutions">Station Hosts</a></li>
@@ -3273,7 +3543,23 @@
        SCRIPTS & ES MODULES (LENIS + SPRINGS + ACCORDIONS + CAROUSELS)
        ============================================================= -->
   <script type="module">
-    import Lenis from 'lenis';
+    /* Load Lenis from the CDN, but never let a CDN failure freeze the site:
+       fall back to native scrolling with the same minimal API. */
+    let Lenis;
+    try {
+      ({ default: Lenis } = await import('lenis'));
+    } catch (err) {
+      console.warn('Lenis failed to load, using native scroll.', err);
+      Lenis = class {
+        raf() {}
+        stop() {}
+        start() {}
+        scrollTo(el, { offset = 0 } = {}) {
+          const y = el.getBoundingClientRect().top + window.scrollY + offset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      };
+    }
 
     /* -------------------------------------------------------------
        1. ADAPTIVE REM GRID SCALE-UP (VIEWPORT > 1920)
@@ -3601,6 +3887,20 @@
       });
     }, { threshold: 0.12 });
 
+    /* Section headings: reveal their clip-masked lines when scrolled into view */
+    const titleObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        titleObserver.unobserve(entry.target);
+        revealStackedLines(entry.target.querySelectorAll('.section-title-line'), { stagger: 110, duration: 900 });
+      });
+    }, { threshold: 0.2 });
+    const titleParents = new Set();
+    document.querySelectorAll('.section-title-line').forEach(line => {
+      titleParents.add(line.closest('h2, h3') || line.parentElement);
+    });
+    titleParents.forEach(el => titleObserver.observe(el));
+
     document.querySelectorAll('.inview-elem').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(24px)';
@@ -3718,6 +4018,125 @@
       });
     });
 
+  </script>
+  <!-- Savings calculator: plain script so it works even if the module script fails -->
+  <script>
+  (function () {
+    const form = document.getElementById('calc-form');
+    if (!form) return;
+
+    const LEASE_PER_WEEK = 2200;
+    const LEASE_PER_MONTH = LEASE_PER_WEEK * 52 / 12;   // ≈ ৳9,533
+    const KM_PER_SWAP = 100;                             // one fresh pack ≈ 100 km
+    const CO2_KG_PER_LITRE = 2.31;
+
+    const $ = (id) => document.getElementById(id);
+    const tk = (n) => '৳' + Math.round(n).toLocaleString('en-IN');
+    const compactTk = (n) => {
+      const a = Math.abs(n);
+      if (a >= 1e7) return '৳' + (n / 1e7).toFixed(a >= 1e8 ? 0 : 1) + ' Cr';
+      if (a >= 1e5) return '৳' + (n / 1e5).toFixed(a >= 1e6 ? 0 : 1) + ' Lakh';
+      return tk(n);
+    };
+    const num = (n) => Math.round(n).toLocaleString('en-IN');
+
+    const inputs = {
+      fleet:   { el: $('calc-fleet'),   out: $('calc-fleet-out'),   fmt: v => v + (v == 1 ? ' bike' : ' bikes') },
+      km:      { el: $('calc-km'),      out: $('calc-km-out'),      fmt: v => v + ' km' },
+      days:    { el: $('calc-days'),    out: $('calc-days-out'),    fmt: v => v + ' days' },
+      price:   { el: $('calc-price'),   out: $('calc-price-out'),   fmt: v => '৳' + v + ' / L' },
+      mileage: { el: $('calc-mileage'), out: $('calc-mileage-out'), fmt: v => v + ' km / L' },
+      rent:    { el: $('calc-rent'),    out: $('calc-rent-out'),    fmt: v => tk(v) + ' / mo' },
+      maint:   { el: $('calc-maint'),   out: $('calc-maint-out'),   fmt: v => tk(v) + ' / mo' },
+    };
+
+    let mode = 'rider';
+    const modeBtns = form.querySelectorAll('.calc-mode-btn');
+    const fleetOnly = form.querySelector('.calc-fleet-only');
+    const cta = $('calc-cta');
+
+    // Count-up animation for the headline number
+    const big = $('calc-big');
+    let shown = 0, target = 0, rafId = null;
+    function animateBig(to, formatter) {
+      target = to;
+      cancelAnimationFrame(rafId);
+      const from = shown, start = performance.now(), dur = 650;
+      const step = (t) => {
+        const k = Math.min(1, (t - start) / dur);
+        const e = 1 - Math.pow(1 - k, 4);
+        shown = from + (target - from) * e;
+        big.textContent = formatter(shown);
+        if (k < 1) rafId = requestAnimationFrame(step);
+      };
+      rafId = requestAnimationFrame(step);
+    }
+
+    function paintSlider(el) {
+      const pct = (el.value - el.min) / (el.max - el.min) * 100;
+      el.style.setProperty('--fill', pct + '%');
+    }
+
+    function update() {
+      const v = {};
+      for (const k in inputs) {
+        v[k] = Number(inputs[k].el.value);
+        inputs[k].out.textContent = inputs[k].fmt(v[k]);
+        paintSlider(inputs[k].el);
+      }
+      const bikes = mode === 'fleet' ? v.fleet : 1;
+      const kmMonth = v.km * v.days;
+      const litres = kmMonth / v.mileage;
+      const fuel = litres * v.price;
+      const petrol = fuel + v.rent + v.maint;
+      const saving = petrol - LEASE_PER_MONTH;
+      const pct = petrol > 0 ? saving / petrol * 100 : 0;
+
+      const total = saving * bikes;
+      $('calc-headline-label').textContent = saving >= 0
+        ? (mode === 'fleet' ? 'Your fleet keeps every month' : 'You keep every month')
+        : (mode === 'fleet' ? 'Extra fleet cost per month' : 'Extra cost per month');
+      big.classList.toggle('negative', saving < 0);
+      animateBig(Math.abs(total), mode === 'fleet' ? compactTk : tk);
+      $('calc-pct').textContent = Math.abs(Math.round(pct)) + '%';
+      $('calc-sub').firstChild.textContent = saving >= 0 ? "That's " : 'Petrol is ';
+      $('calc-sub').lastChild.textContent = saving >= 0 ? ' less than running on petrol.' : ' cheaper at these settings.';
+
+      const scale = Math.max(petrol, LEASE_PER_MONTH);
+      $('calc-bar-petrol').style.width = (petrol / scale * 100) + '%';
+      $('calc-bar-glafit').style.width = (LEASE_PER_MONTH / scale * 100) + '%';
+      $('calc-seg-fuel').style.width = (fuel / petrol * 100) + '%';
+      $('calc-seg-rent').style.width = (v.rent / petrol * 100) + '%';
+      $('calc-seg-maint').style.width = (v.maint / petrol * 100) + '%';
+      const per = mode === 'fleet' ? ' / bike / mo' : ' / mo';
+      $('calc-petrol-total').textContent = tk(petrol) + per;
+      $('calc-glafit-total').textContent = tk(LEASE_PER_MONTH) + per;
+
+      const yearLitres = litres * 12 * bikes;
+      $('calc-year').textContent = saving >= 0 ? compactTk(total * 12) : '—';
+      $('calc-year-lbl').textContent = mode === 'fleet' ? 'Fleet savings / year' : 'Saved per year';
+      $('calc-litres').textContent = (yearLitres >= 1e5 ? (yearLitres / 1e5).toFixed(1) + ' Lakh' : num(yearLitres)) + ' L';
+      const co2t = yearLitres * CO2_KG_PER_LITRE / 1000;
+      $('calc-co2').textContent = (co2t >= 100 ? num(co2t) : co2t.toFixed(1)) + ' t';
+      $('calc-swaps').textContent = num(Math.ceil(v.km / KM_PER_SWAP) * bikes);
+      $('calc-warning').hidden = saving >= 0;
+    }
+
+    modeBtns.forEach(btn => btn.addEventListener('click', () => {
+      mode = btn.dataset.mode;
+      modeBtns.forEach(b => {
+        const on = b === btn;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-checked', on ? 'true' : 'false');
+      });
+      fleetOnly.hidden = mode !== 'fleet';
+      cta.dataset.type = mode;
+      $('calc-cta-text').innerHTML = mode === 'fleet' ? 'Get Fleet Pricing &rarr;' : 'Start My Weekly Lease &rarr;';
+      update();
+    }));
+    form.addEventListener('input', update);
+    update();
+  })();
   </script>
 </body>
 </html>
